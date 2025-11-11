@@ -1,197 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OneUmmah | Learn. Live. Love Islam.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
-    body {background-color: #f5f7fa; color: #222; line-height: 1.6;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OneUmmah | Learn. Live. Love Islam</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f5f7fa;color:#222;line-height:1.6;}
 
-    /* Header */
-    header {
-      background: linear-gradient(90deg, #003366, #007b8f);
-      color: #fff;
-      padding: 1rem 3%;
-      display: flex; align-items: center; justify-content: space-between;
-      position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .logo {font-size: 1.5rem; font-weight: 600; letter-spacing: 1px;}
-    nav ul {list-style: none; display: flex; gap: 1.5rem;}
-    nav ul li a {color: #fff; text-decoration: none; font-weight: 500; transition: 0.3s;}
-    nav ul li a:hover {color: #ffdd57;}
+/* Header */
+header{background:linear-gradient(90deg,#003366,#007b8f);color:#fff;padding:1rem 3%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.logo{font-size:1.5rem;font-weight:600;letter-spacing:1px;}
+nav ul{list-style:none;display:flex;gap:1.5rem;}
+nav ul li a{color:#fff;text-decoration:none;font-weight:500;transition:.3s;}
+nav ul li a:hover{color:#ffdd57;}
 
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 6rem 2rem;
-      background: url('https://images.unsplash.com/photo-1555881400-74d7acaacd94?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
-      color: #fff;
-      position: relative;
-    }
-    .hero::after {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.55);
-    }
-    .hero-content {position: relative; z-index: 1; max-width: 700px; margin: auto;}
-    .hero h1 {font-size: 2.8rem; margin-bottom: 1rem; font-weight: 700;}
-    .hero p {font-size: 1.1rem; margin-bottom: 2rem;}
-    .hero a {
-      background: #ffdd57; color: #003366;
-      padding: 0.8rem 1.8rem; border-radius: 30px;
-      text-decoration: none; font-weight: 600; transition: 0.3s;
-    }
-    .hero a:hover {background: #fff; color: #007b8f;}
+/* Hero */
+.hero{text-align:center;padding:6rem 2rem;background:url('https://images.unsplash.com/photo-1555881400-74d7acaacd94?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;color:#fff;position:relative;}
+.hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.55);}
+.hero-content{position:relative;z-index:1;max-width:700px;margin:auto;}
+.hero h1{font-size:2.8rem;margin-bottom:1rem;font-weight:700;}
+.hero p{font-size:1.1rem;margin-bottom:2rem;}
+.hero a{background:#ffdd57;color:#003366;padding:.8rem 1.8rem;border-radius:30px;text-decoration:none;font-weight:600;transition:.3s;}
+.hero a:hover{background:#fff;color:#007b8f;}
 
-    /* Sections */
-    section {padding: 4rem 5%;}
-    .section-title {
-      text-align: center; font-size: 2rem; color: #003366;
-      margin-bottom: 2rem; position: relative;
-    }
-    .section-title::after {
-      content: ""; display: block; width: 60px; height: 3px;
-      background: #007b8f; margin: 0.5rem auto; border-radius: 2px;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: #fff; border-radius: 12px; padding: 2rem; text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1);}
-    .card img {width: 70px; margin-bottom: 1rem;}
+/* Sections */
+section{padding:4rem 5%;}
+.section-title{text-align:center;font-size:2rem;color:#003366;margin-bottom:2rem;position:relative;}
+.section-title::after{content:"";display:block;width:60px;height:3px;background:#007b8f;margin:.5rem auto;border-radius:2px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.card{background:#fff;border-radius:12px;padding:2rem;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:transform .3s ease,box-shadow .3s ease;}
+.card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+.card img{width:70px;margin-bottom:1rem;}
 
-    /* Reminder Section */
-    .reminder {
-      background: linear-gradient(135deg, #007b8f, #003366);
-      color: #fff;
-      text-align: center;
-      padding: 4rem 2rem;
-      border-radius: 12px;
-      max-width: 900px;
-      margin: 4rem auto;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    }
-    .reminder h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .reminder blockquote {
-      font-style: italic;
-      background: rgba(255,255,255,0.1);
-      padding: 1.5rem;
-      border-radius: 10px;
-      max-width: 700px;
-      margin: 1rem auto;
-      line-height: 1.7;
-    }
-    .reminder cite {
-      display: block;
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      color: #ffdd57;
-    }
+/* Reminder Section */
+.reminder{background:linear-gradient(135deg,#007b8f,#003366);color:#fff;text-align:center;padding:4rem 2rem;border-radius:12px;max-width:900px;margin:4rem auto;box-shadow:0 5px 20px rgba(0,0,0,0.2);}
+.reminder h2{font-size:2rem;margin-bottom:1rem;}
+.reminder blockquote{font-style:italic;background:rgba(255,255,255,0.1);padding:1.5rem;border-radius:10px;max-width:700px;margin:1rem auto;line-height:1.7;}
+.reminder cite{display:block;margin-top:1rem;font-size:.95rem;color:#ffdd57;}
 
-    /* Footer */
-    footer {
-      background: #003366;
-      color: #eee;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-    }
-    footer a {color: #ffdd57; text-decoration: none;}
+/* Daily Tools */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem;}
+.tool-card{background:#fff;padding:2rem;border-radius:12px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:transform .3s ease;}
+.tool-card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+.tool-card img{width:60px;margin-bottom:1rem;}
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
-      nav ul { flex-direction: column; align-items: center; }
-    }
-  </style>
+/* Blog Section */
+.blog{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem;}
+.blog-card{background:#fff;border-radius:12px;padding:1.5rem;box-shadow:0 4px 10px rgba(0,0,0,0.05);}
+.blog-card h3{margin-bottom:.5rem;color:#007b8f;}
+.blog-card p{font-size:.95rem;color:#333;}
+
+/* Hadith Carousel */
+.carousel{position:relative;max-width:800px;margin:4rem auto;padding:2rem;background:#fff;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.1);text-align:center;}
+.carousel blockquote{font-style:italic;font-size:1.1rem;}
+.carousel cite{display:block;margin-top:.5rem;color:#007b8f;}
+
+@media(max-width:768px){.hero h1{font-size:2rem;}nav ul{flex-direction:column;align-items:center;}}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">OneUmmah</div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Qur’an</a></li>
-        <li><a href="#">Hadith</a></li>
-        <li><a href="#">Kids Zone</a></li>
-        <li><a href="#">Learn Islam</a></li>
-        <li><a href="#">Community</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+<div class="logo">OneUmmah</div>
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Qur’an</a></li>
+<li><a href="#">Hadith</a></li>
+<li><a href="#">Kids Zone</a></li>
+<li><a href="#">Learn Islam</a></li>
+<li><a href="#">Community</a></li>
+<li><a href="#">About</a></li>
+</ul>
+</nav>
+</header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Learn. Live. Love Islam — For All Generations</h1>
-      <p>Your one-stop Islamic platform for kids, youth, and adults around the world.</p>
-      <a href="#">Explore Now</a>
-    </div>
-  </section>
+<section class="hero">
+<div class="hero-content">
+<h1>Learn. Live. Love Islam — For All Generations</h1>
+<p>Your one-stop Islamic platform for kids, youth, and adults around the world.</p>
+<a href="#">Explore Now</a>
+</div>
+</section>
 
-  <section id="features">
-    <h2 class="section-title">Discover Islam</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="" alt="Quran icon">
-        <h3>Qur’an</h3>
-        <p>Read, listen, and understand the Qur’an with translation and tafsir in multiple languages.</p>
-      </div>
-      <div class="card">
-        <img src="" alt="Hadith icon">
-        <h3>Hadith</h3>
-        <p>Authentic hadith collections explained for all ages in a simple, trustworthy format.</p>
-      </div>
-      <div class="card">
-        <img src="" alt="Kids zone">
-        <h3>Kids Zone</h3>
-        <p>Fun Islamic learning for children — stories, dua animations, nasheeds, and games.</p>
-      </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Community icon">
-        <h3>Global Community</h3>
-        <p>Connect with Muslims around the world. Learn, share, and grow together in faith.</p>
-      </div>
-    </div>
-  </section>
+<section id="features">
+<h2 class="section-title">Discover Islam</h2>
+<div class="cards">
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/1998/1998592.png" alt="Quran icon">
+<h3>Qur’an</h3>
+<p>Read, listen, and understand the Qur’an with translation and tafsir in multiple languages.</p>
+</div>
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/3580/3580091.png" alt="Hadith icon">
+<h3>Hadith</h3>
+<p>Authentic hadith collections explained for all ages in a simple, trustworthy format.</p>
+</div>
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/4313/4313175.png" alt="Kids zone">
+<h3>Kids Zone</h3>
+<p>Fun Islamic learning for children — stories, dua animations, nasheeds, and games.</p>
+</div>
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Community icon">
+<h3>Global Community</h3>
+<p>Connect with Muslims around the world. Learn, share, and grow together in faith.</p>
+</div>
+</div>
+</section>
 
-  <section id="learn">
-    <h2 class="section-title">Join Our Learning Platform</h2>
-    <p style="text-align:center; max-width:600px; margin:auto; margin-bottom:2rem;">
-      Free online Islamic courses by trusted scholars. Learn at your pace, anytime, anywhere.
-    </p>
-    <div style="text-align:center;">
-      <a href="#" style="background:#007b8f; color:white; padding:0.8rem 1.5rem; border-radius:25px; text-decoration:none; font-weight:600;">
-        Start Learning
-      </a>
-    </div>
-  </section>
+<section id="learn">
+<h2 class="section-title">Join Our Learning Platform</h2>
+<p style="text-align:center; max-width:600px; margin:auto; margin-bottom:2rem;">Free online Islamic courses by trusted scholars. Learn at your pace, anytime, anywhere.</p>
+<div style="text-align:center;">
+<a href="#" style="background:#007b8f; color:white; padding:.8rem 1.5rem; border-radius:25px; text-decoration:none; font-weight:600;">Start Learning</a>
+</div>
+</section>
 
-  <!-- 🌙 Reminder Section -->
-  <section class="reminder">
-    <h2>🕊️ Daily Reminder</h2>
-    <blockquote>
-      “And fear the Fire, which has been prepared for the disbelievers. And obey Allah and the Messenger so that you may receive mercy.”  
-      <cite>— Surah Al-Imran [3:131-132]</cite>
-    </blockquote>
-    <p style="margin-top:1.5rem;">Take a moment to reflect. This dunya is temporary — let’s live today remembering our meeting with Allah.</p>
-  </section>
+<section class="reminder">
+<h2><img src="https://cdn-icons-png.flaticon.com/512/482/482180.png" alt="Moon icon" width="25" style="vertical-align:middle;"> Daily Reminder</h2>
+<blockquote>
+“And fear the Fire, which has been prepared for the disbelievers. And obey Allah and the Messenger so that you may receive mercy.”  
+<cite>— Surah Al-Imran [3:131-132]</cite>
+</blockquote>
+<p style="margin-top:1.5rem;">Take a moment to reflect. This dunya is temporary — let’s live today remembering our meeting with Allah.</p>
+</section>
 
-  <footer>
-    <p>&copy; 2025 OneUmmah. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
-  </footer>
+<!-- Daily Islamic Tools -->
+<section id="tools">
+<h2 class="section-title">Daily Islamic Tools</h2>
+<div class="tools">
+<div class="tool-card">
+<img src="https://cdn-icons-png.flaticon.com/512/3310/3310512.png" alt="Prayer icon">
+<h3>Prayer Times</h3>
+<p>Check your local prayer times for each day easily.</p>
+</div>
+<div class="tool-card">
+<img src="https://cdn-icons-png.flaticon.com/512/1995/1995663.png" alt="Qiblah icon">
+<h3>Qiblah Direction</h3>
+<p>Find the exact direction to pray anywhere in the world.</p>
+</div>
+<div class="tool-card">
+<img src="https://cdn-icons-png.flaticon.com/512/3441/3441433.png" alt="Dua icon">
+<h3>Dua of the Day</h3>
+<p>Daily duas to make your worship more meaningful.</p>
+</div>
+<div class="tool-card">
+<img src="https://cdn-icons-png.flaticon.com/512/2710/2710764.png" alt="Calendar icon">
+<h3>Hijri Calendar</h3>
+<p>Check the Islamic date and important events easily.</p>
+</div>
+</div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog">
+<h2 class="section-title">Islamic Articles</h2>
+<div class="blog">
+<div class="blog-card">
+<h3>Importance of Salah</h3>
+<p>Learn why prayer is the cornerstone of a Muslim’s life and tips to improve your concentration.</p>
+</div>
+<div class="blog-card">
+<h3>Stories of the Prophets</h3>
+<p>Engaging stories for children and adults alike, teaching morals and faith lessons.</p>
+</div>
+<div class="blog-card">
+<h3>Fasting and Ramadan</h3>
+<p>Understanding the spiritual benefits of fasting and how to maximize rewards.</p>
+</div>
+</div>
+</section>
+
+<!-- Hadith Carousel -->
+<section class="carousel">
+<blockquote id="hadith-text">
+“The best among you are those who learn the Qur’an and teach it.”  
+<cite>— Sahih Al-Bukhari</cite>
+</blockquote>
+</section>
+
+<footer>
+<p>&copy; 2025 OneUmmah. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+</footer>
+
+<script>
+// Simple rotating Hadiths
+const hadiths = [
+{ text:"“The best among you are those who learn the Qur’an and teach it.”", cite:"— Sahih Al-Bukhari" },
+{ text:"“Allah does not look at your forms and wealth but He looks at your hearts and deeds.”", cite:"— Sahih Muslim" },
+{ text:"“Feed the hungry, visit the sick, and free the captive.”", cite:"— Sahih Al-Bukhari" }
+];
+let i=0;
+function rotateHadith(){
+  const el = document.getElementById("hadith-text");
+  el.innerHTML=`${hadiths[i].text} <cite>${hadiths[i].cite}</cite>`;
+  i=(i+1)%hadiths.length;
+}
+setInterval(rotateHadith,6000);
+</script>
 
 </body>
 </html>
+
 
