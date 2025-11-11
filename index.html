@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Islam360 — Learn. Live. Love Islam</title>
+  <meta name="description" content="Islam360 — a global one-stop Islamic learning hub for all ages. Qur'an, Hadith, Kids Zone, courses, and community." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --brand-50: #f3f8ff;
+      --brand-100: #e6f0ff;
+      --brand-500: #0f6ad4;
+      --brand-700: #0c4e9a;
+      --accent: #0fb3a2; /* subtle teal accent */
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    /* subtle glass hero overlay */
+    .glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-white to-slate-50 text-slate-800">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/60 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Brand -->
+        <div class="flex items-center gap-3">
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#0f6ad4] to-[#0fb3a2] text-white shadow-md">
+              <!-- Logo glyph -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3C12 3 7 5 7 10C7 15 12 21 12 21C12 21 17 15 17 10C17 5 12 3 12 3Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 7V12" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="hidden sm:block">
+              <div class="text-lg font-semibold">Islam360</div>
+              <div class="text-xs text-slate-500 -mt-0.5">Learn. Live. Love Islam</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="#quran" class="text-slate-700 hover:text-brand-700">Qur'an</a>
+          <a href="#hadith" class="text-slate-700 hover:text-brand-700">Hadith</a>
+          <a href="#kids" class="text-slate-700 hover:text-brand-700">Kids Zone</a>
+          <a href="#learn" class="text-slate-700 hover:text-brand-700">Learn</a>
+          <a href="#community" class="text-slate-700 hover:text-brand-700">Community</a>
+        </nav>
+
+        <!-- Right actions -->
+        <div class="flex items-center gap-4">
+          <!-- Language selector -->
+          <div class="relative">
+            <select id="langSelect" aria-label="Language" class="rounded-md border border-slate-200 px-3 py-1 text-sm bg-white">
+              <option value="en">English</option>
+              <option value="ar">العربية</option>
+              <option value="ms">Bahasa Melayu</option>
+              <option value="ur">اردو</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
+
+          <!-- Sign in / CTA -->
+          <div class="hidden sm:flex items-center gap-2">
+            <a href="#" class="text-sm text-slate-700 hover:underline">Sign in</a>
+            <a href="#" class="ml-2 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-[#0f6ad4] to-[#0fb3a2] text-white shadow-md text-sm font-medium">Get Started</a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="mobileOpenBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-md hover:bg-slate-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100 bg-white/90">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#quran" class="block text-slate-700">Qur'an</a>
+        <a href="#hadith" class="block text-slate-700">Hadith</a>
+        <a href="#kids" class="block text-slate-700">Kids Zone</a>
+        <a href="#learn" class="block text-slate-700">Learn</a>
+        <a href="#community" class="block text-slate-700">Community</a>
+        <div class="pt-2 border-t border-slate-100">
+          <a href="#" class="block text-sm text-slate-700">Sign in</a>
+          <a href="#" class="mt-2 inline-block w-full text-center px-4 py-2 rounded-md bg-gradient-to-r from-[#0f6ad4] to-[#0fb3a2] text-white">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="pt-8">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7">
+          <div class="glass p-8 rounded-2xl shadow-lg">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+              A Global One-Stop Home for Islamic Learning — <span class="text-[#0f6ad4]">All Ages</span>, All Languages
+            </h1>
+            <p class="mt-4 text-slate-600 max-w-2xl">
+              Qur'an audio & reading, authentic Hadith, interactive kids lessons, structured courses by scholars, and a safe community — built for families, teachers, and learners worldwide.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#learn" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#0f6ad4] text-white font-medium shadow hover:opacity-95">
+                Explore Courses
+              </a>
+              <a href="#quran" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-slate-200 text-slate-700 bg-white hover:bg-slate-50">
+                Read the Qur'an
+              </a>
+            </div>
+
+            <!-- quick search -->
+            <div class="mt-6">
+              <label for="search" class="sr-only">Search</label>
+              <div class="flex rounded-lg overflow-hidden border border-slate-200">
+                <input id="search" type="search" placeholder="Search: Surah, Hadith, topic, course..." class="flex-1 px-4 py-3 focus:outline-none" />
+                <button class="px-4 bg-[#0fb3a2] text-white font-medium">Search</button>
+              </div>
+              <div class="mt-2 text-xs text-slate-500">Try: “Surah Al-Fatiha audio”, “Hadith on charity”, “Kids duas”</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side cards -->
+        <div class="lg:col-span-5">
+          <div class="space-y-4">
+            <!-- Prayer times card -->
+            <div class="rounded-xl p-5 border border-slate-100 shadow-sm bg-white">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-xs text-slate-500">Prayer Times — Kuala Lumpur</div>
+                  <div class="text-lg font-semibold">Fajr • 05:30am</div>
+                </div>
+                <div class="text-sm text-slate-500">Friday · Nov 14, 2025</div>
+              </div>
+              <div class="mt-3 grid grid-cols-3 gap-2 text-sm text-slate-700">
+                <div class="text-center">
+                  <div class="font-medium">Dhuhr</div>
+                  <div class="text-slate-500">13:15</div>
+                </div>
+                <div class="text-center">
+                  <div class="font-medium">Asr</div>
+                  <div class="text-slate-500">16:45</div>
+                </div>
+                <div class="text-center">
+                  <div class="font-medium">Maghrib</div>
+                  <div class="text-slate-500">19:05</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Featured: Qur'an quick -->
+            <div class="rounded-xl p-5 border border-slate-100 shadow-sm bg-gradient-to-br from-white to-[#f7fcff]">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-lg bg-[#0f6ad4] flex items-center justify-center text-white shadow">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 5h18M3 19h18" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 5v14a2 2 0 0 0 2 2h14" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="text-sm text-slate-600">Now Playing</div>
+                  <div class="text-sm font-semibold">Surah Al-Fatiha — Recitation by a well-known qari</div>
+                  <div class="mt-3">
+                    <div class="w-full rounded bg-slate-100 h-2">
+                      <div class="h-2 rounded bg-[#0f6ad4]" style="width:30%"></div>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-slate-500 mt-2">
+                      <div>0:56</div>
+                      <div>7:32</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kids teaser -->
+            <a href="#kids" class="block rounded-xl p-5 border border-slate-100 shadow-sm glass">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-lg bg-[#0fb3a2] flex items-center justify-center text-white">
+                  <!-- playful icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2v20" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 12h14" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold">Kids Zone — Playful & Safe</div>
+                  <div class="text-xs text-slate-500">Stories, songs, printable activities for preschool & primary.</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES / QUICK LINKS -->
+    <section class="mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- card -->
+          <a id="quran" href="#quran" class="block p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#0f6ad4] flex items-center justify-center text-white">
+                <!-- icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 3h16v18H4z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 7h8" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold">Read & Listen</div>
+                <div class="text-sm text-slate-500">Full Qur'an with translation and audio.</div>
+              </div>
+            </div>
+          </a>
+
+          <a id="hadith" href="#hadith" class="block p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#0fb3a2] flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 7h18M3 12h18M3 17h18" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold">Hadith Library</div>
+                <div class="text-sm text-slate-500">Authentic collections with explanation & grading.</div>
+              </div>
+            </div>
+          </a>
+
+          <a id="kids" href="#kids" class="block p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#f59e0b] flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l3 7h7l-6 4 3 7-7-5-7 5 3-7-6-4h7z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold">Kids Zone</div>
+                <div class="text-sm text-slate-500">Animated stories, songs, games & activities.</div>
+              </div>
+            </div>
+          </a>
+
+          <a id="learn" href="#learn" class="block p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-[#6b7280] flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l8 4-8 4-8-4 8-4zM4 10l8 4 8-4M4 18l8 4 8-4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold">Courses & Certifications</div>
+                <div class="text-sm text-slate-500">Structured classes from beginner to advanced.</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED SECTIONS: quick content samples -->
+    <section class="mt-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <article class="col-span-2 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+            <h3 class="text-xl font-semibold">Latest Articles & Lessons</h3>
+            <div class="mt-4 space-y-4">
+              <div class="p-4 rounded-lg border border-slate-100 hover:shadow-sm transition">
+                <div class="flex items-start gap-4">
+                  <div class="flex-1">
+                    <h4 class="font-semibold">How to Learn Qur'an: A Practical Path for Every Age</h4>
+                    <p class="text-sm text-slate-500 mt-1">Simple steps, resources, and recommended daily routines for beginners and parents teaching children.</p>
+                    <div class="mt-3 text-xs text-slate-400">By Admin · 5 min read</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-lg border border-slate-100 hover:shadow-sm transition">
+                <div class="flex items-start gap-4">
+                  <div class="flex-1">
+                    <h4 class="font-semibold">The Prophetic Manners for Students</h4>
+                    <p class="text-sm text-slate-500 mt-1">Practical tips for teens to build Islamic character in school and online.</p>
+                    <div class="mt-3 text-xs text-slate-400">By Scholar · 8 min read</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <aside class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+            <h4 class="font-semibold">Community Bulletin</h4>
+            <ul class="mt-4 space-y-3 text-sm text-slate-600">
+              <li>🕌 Local online halaqah — Every Saturday</li>
+              <li>📚 Free beginner course: Register now</li>
+              <li>🔊 Volunteer: Tajweed teachers needed</li>
+            </ul>
+            <a href="#community" class="mt-4 inline-block text-sm text-[#0f6ad4] hover:underline">View events</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="mt-12 pb-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl bg-white border border-slate-100 p-8 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-xl font-semibold">Community & Discussions</h3>
+              <p class="text-sm text-slate-500 mt-1">Ask questions, learn from scholars, and connect with learners worldwide.</p>
+            </div>
+            <a href="#" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-[#0f6ad4] text-white">Join Community</a>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 rounded-lg border border-slate-100">
+              <div class="text-sm font-semibold">Ask a Scholar</div>
+              <div class="text-xs text-slate-500 mt-2">Submit questions to verified scholars.</div>
+            </div>
+            <div class="p-4 rounded-lg border border-slate-100">
+              <div class="text-sm font-semibold">Study Circles</div>
+              <div class="text-xs text-slate-500 mt-2">Join online halaqahs by topic & level.</div>
+            </div>
+            <div class="p-4 rounded-lg border border-slate-100">
+              <div class="text-sm font-semibold">Local Groups</div>
+              <div class="text-xs text-slate-500 mt-2">Find meetup groups and volunteer opportunities near you.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-col md:flex-row md:justify-between gap-8">
+          <div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0f6ad4] to-[#0fb3a2] text-white flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3C12 3 7 5 7 10C7 15 12 21 12 21C12 21 17 15 17 10C17 5 12 3 12 3Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold">Islam360</div>
+                <div class="text-xs text-slate-500">A global Islamic learning hub</div>
+              </div>
+            </div>
+
+            <p class="mt-4 text-sm text-slate-500 max-w-md">Free, ad-light, and respectful content focused on authentic sources. Built for families, learners, and teachers worldwide.</p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            <div>
+              <h5 class="text-sm font-semibold">Learn</h5>
+              <ul class="mt-3 text-sm text-slate-600 space-y-2">
+                <li><a href="#quran" class="hover:underline">Qur'an</a></li>
+                <li><a href="#hadith" class="hover:underline">Hadith</a></li>
+                <li><a href="#learn" class="hover:underline">Courses</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 class="text-sm font-semibold">For Kids</h5>
+              <ul class="mt-3 text-sm text-slate-600 space-y-2">
+                <li><a href="#kids" class="hover:underline">Stories</a></li>
+                <li><a href="#" class="hover:underline">Printable</a></li>
+                <li><a href="#" class="hover:underline">Songs</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 class="text-sm font-semibold">Community</h5>
+              <ul class="mt-3 text-sm text-slate-600 space-y-2">
+                <li><a href="#community" class="hover:underline">Forum</a></li>
+                <li><a href="#" class="hover:underline">Events</a></li>
+                <li><a href="#" class="hover:underline">Volunteers</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 class="text-sm font-semibold">About</h5>
+              <ul class="mt-3 text-sm text-slate-600 space-y-2">
+                <li><a href="#" class="hover:underline">About Us</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+                <li><a href="#" class="hover:underline">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 border-t border-slate-100 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+          <div>© <span id="yr"></span> Islam360. All rights reserved.</div>
+          <div class="flex items-center gap-4">
+            <a href="#" class="hover:underline">Terms</a>
+            <a href="#" class="hover:underline">Cookie</a>
+            <a href="#" class="hover:underline">Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Minimal JS for mobile menu and year -->
+  <script>
+    // Mobile menu toggle
+    const mobileOpenBtn = document.getElementById('mobileOpenBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileOpenBtn?.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Set copyright year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Language selector: basic behavior — set dir for Arabic
+    const langSelect = document.getElementById('langSelect');
+    langSelect.addEventListener('change', (e) => {
+      const val = e.target.value;
+      if (val === 'ar') {
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+        // Optional: you might want to load RTL styles or redirect to localized pages
+      } else {
+        document.documentElement.lang = val;
+        document.documentElement.dir = 'ltr';
+      }
+    });
+  </script>
+</body>
+</html>
