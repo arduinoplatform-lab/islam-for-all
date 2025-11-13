@@ -111,128 +111,135 @@ footer img{margin:0 5px;}
 <li><a href="#">About</a></li>
 </ul>
 </nav>
+<!-- Language Switcher -->
+<select id="languageSwitcher" style="margin-left:1rem; padding:5px 8px; border-radius:5px; border:none; font-weight:600;">
+  <option value="en" selected>English</option>
+  <option value="ar">Arabic</option>
+  <option value="ms">Malay</option>
+  <option value="ur">Urdu</option>
+</select>
 </header>
 
 <section class="hero">
 <div class="hero-content">
-<h1>Learn. Live. Love Islam — For All Generations</h1>
-<p>Your one-stop Islamic platform for kids, youth, and adults around the world.</p>
-<a href="#">Explore Now</a>
+<h1 data-lang="hero-title">Learn. Live. Love Islam — For All Generations</h1>
+<p data-lang="hero-desc">Your one-stop Islamic platform for kids, youth, and adults around the world.</p>
+<a href="#" data-lang="hero-btn">Explore Now</a>
 </div>
 </section>
 
 <!-- CTA Banner -->
 <section class="cta-banner">
-<h2>Join Our Global Islamic Community Today!</h2>
-<p>Get updates on daily reminders, learning courses, and community events.</p>
-<a href="#" class="btn-cta">Sign Up Now</a>
+<h2 data-lang="cta-title">Join Our Global Islamic Community Today!</h2>
+<p data-lang="cta-desc">Get updates on daily reminders, learning courses, and community events.</p>
+<a href="#" class="btn-cta" data-lang="cta-btn">Sign Up Now</a>
 </section>
 
 <section id="features">
-<h2 class="section-title">Discover Islam</h2>
+<h2 class="section-title" data-lang="features-title">Discover Islam</h2>
 <div class="cards">
 <div class="card">
 <img src="images/quran.jpg" alt="Quran Icon" width="50" height="50">
-<h3>Qur’an</h3>
-<p>Read, listen, and understand the Qur’an with translation and tafsir in multiple languages.</p>
+<h3 data-lang="quran-title">Qur’an</h3>
+<p data-lang="quran-desc">Read, listen, and understand the Qur’an with translation and tafsir in multiple languages.</p>
 </div>
 <div class="card">
 <img src="images/hadis.png" alt="Hadith Icon" width="50" height="50">
-<h3>Hadith</h3>
-<p>Authentic hadith collections explained for all ages in a simple, trustworthy format.</p>
+<h3 data-lang="hadith-title">Hadith</h3>
+<p data-lang="hadith-desc">Authentic hadith collections explained for all ages in a simple, trustworthy format.</p>
 </div>
 <div class="card">
 <img src="images/kids.png" alt="Kids Icon" width="50" height="50">
-<h3>Kids Zone</h3>
-<p>Fun Islamic learning for children — stories, dua animations, nasheeds, and games.</p>
+<h3 data-lang="kids-title">Kids Zone</h3>
+<p data-lang="kids-desc">Fun Islamic learning for children — stories, dua animations, nasheeds, and games.</p>
 </div>
 <div class="card">
 <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Community icon">
-<h3>Global Community</h3>
-<p>Connect with Muslims around the world. Learn, share, and grow together in faith.</p>
+<h3 data-lang="community-title">Global Community</h3>
+<p data-lang="community-desc">Connect with Muslims around the world. Learn, share, and grow together in faith.</p>
 </div>
 </div>
 </section>
 
 <section id="learn">
-<h2 class="section-title">Join Our Learning Platform</h2>
-<p style="text-align:center; max-width:600px; margin:auto; margin-bottom:2rem;">Free online Islamic courses by trusted scholars. Learn at your pace, anytime, anywhere.</p>
+<h2 class="section-title" data-lang="learn-title">Join Our Learning Platform</h2>
+<p style="text-align:center; max-width:600px; margin:auto; margin-bottom:2rem;" data-lang="learn-desc">
+Free online Islamic courses by trusted scholars. Learn at your pace, anytime, anywhere.
+</p>
 <div style="text-align:center;">
-<a href="#" style="background:#007b8f; color:white; padding:.8rem 1.5rem; border-radius:25px; text-decoration:none; font-weight:600;">Start Learning</a>
+<a href="#" style="background:#007b8f; color:white; padding:.8rem 1.5rem; border-radius:25px; text-decoration:none; font-weight:600;" data-lang="learn-btn">
+Start Learning
+</a>
 </div>
 </section>
 
 <section class="reminder">
-<h2><img src="https://cdn-icons-png.flaticon.com/512/482/482180.png" alt="Moon icon" width="25" style="vertical-align:middle;"> Daily Reminder</h2>
-<blockquote>
+<h2 data-lang="reminder-title"><img src="https://cdn-icons-png.flaticon.com/512/482/482180.png" alt="Moon icon" width="25" style="vertical-align:middle;"> Daily Reminder</h2>
+<blockquote data-lang="reminder-blockquote">
 “And fear the Fire, which has been prepared for the disbelievers. And obey Allah and the Messenger so that you may receive mercy.”  
 <cite>— Surah Al-Imran [3:131-132]</cite>
 </blockquote>
-<p style="margin-top:1.5rem;">Take a moment to reflect. This dunya is temporary — let’s live today remembering our meeting with Allah.</p>
+<p style="margin-top:1.5rem;" data-lang="reminder-desc">Take a moment to reflect. This dunya is temporary — let’s live today remembering our meeting with Allah.</p>
 </section>
 
-<!-- Daily Islamic Tools -->
 <section id="tools">
-<h2 class="section-title">Daily Islamic Tools</h2>
+<h2 class="section-title" data-lang="tools-title">Daily Islamic Tools</h2>
 <div class="tools">
 <div class="tool-card">
 <img src="https://cdn-icons-png.flaticon.com/512/3310/3310512.png" alt="Prayer icon">
-<h3>Prayer Times</h3>
-<p>Check your local prayer times for each day easily.</p>
+<h3 data-lang="tool-prayer-title">Prayer Times</h3>
+<p data-lang="tool-prayer-desc">Check your local prayer times for each day easily.</p>
 </div>
 <div class="tool-card">
 <img src="https://cdn-icons-png.flaticon.com/512/1995/1995663.png" alt="Qiblah icon">
-<h3>Qiblah Direction</h3>
-<p>Find the exact direction to pray anywhere in the world.</p>
+<h3 data-lang="tool-qiblah-title">Qiblah Direction</h3>
+<p data-lang="tool-qiblah-desc">Find the exact direction to pray anywhere in the world.</p>
 </div>
 <div class="tool-card">
 <img src="https://cdn-icons-png.flaticon.com/512/3441/3441433.png" alt="Dua icon">
-<h3>Dua of the Day</h3>
-<p>Daily duas to make your worship more meaningful.</p>
+<h3 data-lang="tool-dua-title">Dua of the Day</h3>
+<p data-lang="tool-dua-desc">Daily duas to make your worship more meaningful.</p>
 </div>
 <div class="tool-card">
 <img src="https://cdn-icons-png.flaticon.com/512/2710/2710764.png" alt="Calendar icon">
-<h3>Hijri Calendar</h3>
-<p>Check the Islamic date and important events easily.</p>
+<h3 data-lang="tool-calendar-title">Hijri Calendar</h3>
+<p data-lang="tool-calendar-desc">Check the Islamic date and important events easily.</p>
 </div>
 </div>
 </section>
 
-<!-- Blog Section -->
 <section id="blog">
-<h2 class="section-title">Islamic Articles</h2>
+<h2 class="section-title" data-lang="blog-title">Islamic Articles</h2>
 <div class="blog">
 <div class="blog-card">
-<h3>Importance of Salah</h3>
-<p>Learn why prayer is the cornerstone of a Muslim’s life and tips to improve your concentration.</p>
+<h3 data-lang="blog1-title">Importance of Salah</h3>
+<p data-lang="blog1-desc">Learn why prayer is the cornerstone of a Muslim’s life and tips to improve your concentration.</p>
 </div>
 <div class="blog-card">
-<h3>Stories of the Prophets</h3>
-<p>Engaging stories for children and adults alike, teaching morals and faith lessons.</p>
+<h3 data-lang="blog2-title">Stories of the Prophets</h3>
+<p data-lang="blog2-desc">Engaging stories for children and adults alike, teaching morals and faith lessons.</p>
 </div>
 <div class="blog-card">
-<h3>Fasting and Ramadan</h3>
-<p>Understanding the spiritual benefits of fasting and how to maximize rewards.</p>
+<h3 data-lang="blog3-title">Fasting and Ramadan</h3>
+<p data-lang="blog3-desc">Understanding the spiritual benefits of fasting and how to maximize rewards.</p>
 </div>
 </div>
 </section>
 
-<!-- Testimonials -->
 <section class="testimonials">
-<h2 class="section-title">What Our Users Say</h2>
+<h2 class="section-title" data-lang="testimonials-title">What Our Users Say</h2>
 <div class="cards">
 <div class="card">
-<p>"OneUmmah has transformed my daily learning! The reminders keep me grounded in my faith."</p>
+<p data-lang="testimonial1">"OneUmmah has transformed my daily learning! The reminders keep me grounded in my faith."</p>
 <cite>- Raqiah, Malaysia</cite>
 </div>
 <div class="card">
-<p>"I love the Kids Zone. My children enjoy Islamic stories and animations safely."</p>
+<p data-lang="testimonial2">"I love the Kids Zone. My children enjoy Islamic stories and animations safely."</p>
 <cite>- Alex, Italy</cite>
 </div>
 </div>
 </section>
 
-<!-- Hadith Carousel -->
 <section class="carousel">
 <blockquote id="hadith-text">
 “The best among you are those who learn the Qur’an and teach it.”  
@@ -240,7 +247,6 @@ footer img{margin:0 5px;}
 </blockquote>
 </section>
 
-<!-- Footer -->
 <footer>
   <div class="footer-links">
     <a href="#">Privacy Policy</a>
@@ -256,8 +262,6 @@ footer img{margin:0 5px;}
   <p style="margin-top:1rem;">&copy; 2025 OneUmmah. All Rights Reserved.</p>
 </footer>
 
-
-<!-- Back to Top Button -->
 <button id="topBtn">↑</button>
 
 <script>
@@ -277,10 +281,26 @@ setInterval(rotateHadith,6000);
 
 // Back to top button
 const topBtn = document.getElementById("topBtn");
-window.onscroll = () => { topBtn.style.display = (window.scrollY > 300) ? "block" : "none"; };
-topBtn.onclick = () => { window.scrollTo({top:0,behavior:"smooth"}); };
+window.onscroll = () => { topBtn.style.display = (window.scrollY > 300)? "block" : "none"; }
+topBtn.onclick = () => { window.scrollTo({top:0, behavior:"smooth"}); }
+
+// Language Switcher
+const translations = {
+  en:{ "hero-title":"Learn. Live. Love Islam — For All Generations","hero-desc":"Your one-stop Islamic platform for kids, youth, and adults around the world.","hero-btn":"Explore Now","cta-title":"Join Our Global Islamic Community Today!","cta-desc":"Get updates on daily reminders, learning courses, and community events.","cta-btn":"Sign Up Now","features-title":"Discover Islam","quran-title":"Qur’an","quran-desc":"Read, listen, and understand the Qur’an with translation and tafsir in multiple languages.","hadith-title":"Hadith","hadith-desc":"Authentic hadith collections explained for all ages in a simple, trustworthy format.","kids-title":"Kids Zone","kids-desc":"Fun Islamic learning for children — stories, dua animations, nasheeds, and games.","community-title":"Global Community","community-desc":"Connect with Muslims around the world. Learn, share, and grow together in faith.","learn-title":"Join Our Learning Platform","learn-desc":"Free online Islamic courses by trusted scholars. Learn at your pace, anytime, anywhere.","learn-btn":"Start Learning","reminder-title":"Daily Reminder","reminder-blockquote":"“And fear the Fire, which has been prepared for the disbelievers. And obey Allah and the Messenger so that you may receive mercy.”","reminder-desc":"Take a moment to reflect. This dunya is temporary — let’s live today remembering our meeting with Allah.","tools-title":"Daily Islamic Tools","tool-prayer-title":"Prayer Times","tool-prayer-desc":"Check your local prayer times for each day easily.","tool-qiblah-title":"Qiblah Direction","tool-qiblah-desc":"Find the exact direction to pray anywhere in the world.","tool-dua-title":"Dua of the Day","tool-dua-desc":"Daily duas to make your worship more meaningful.","tool-calendar-title":"Hijri Calendar","tool-calendar-desc":"Check the Islamic date and important events easily.","blog-title":"Islamic Articles","blog1-title":"Importance of Salah","blog1-desc":"Learn why prayer is the cornerstone of a Muslim’s life and tips to improve your concentration.","blog2-title":"Stories of the Prophets","blog2-desc":"Engaging stories for children and adults alike, teaching morals and faith lessons.","blog3-title":"Fasting and Ramadan","blog3-desc":"Understanding the spiritual benefits of fasting and how to maximize rewards.","testimonials-title":"What Our Users Say","testimonial1":"\"OneUmmah has transformed my daily learning! The reminders keep me grounded in my faith.\"","testimonial2":"\"I love the Kids Zone. My children enjoy Islamic stories and animations safely.\""},
+  ar:{ "hero-title":"تعلم. عش. أحب الإسلام — لجميع الأجيال","hero-desc":"منصتك الإسلامية الشاملة للأطفال والشباب والكبار حول العالم.","hero-btn":"اكتشف الآن","cta-title":"انضم إلى مجتمعنا الإسلامي العالمي اليوم!","cta-desc":"احصل على التحديثات اليومية والتذكيرات والدورات التعليمية وفعاليات المجتمع.","cta-btn":"سجل الآن","features-title":"اكتشف الإسلام","quran-title":"القرآن","quran-desc":"اقرأ واستمع وافهم القرآن مع الترجمة والتفسير بعدة لغات.","hadith-title":"الحديث","hadith-desc":"مجموعات الأحاديث الصحيحة موضحة لجميع الأعمار بطريقة بسيطة وموثوقة.","kids-title":"منطقة الأطفال","kids-desc":"تعلم إسلامي ممتع للأطفال — قصص، دعاء متحرك، أناشيد، وألعاب.","community-title":"المجتمع العالمي","community-desc":"تواصل مع المسلمين حول العالم. تعلم وشارك ونمُّ معًا في الإيمان.","learn-title":"انضم إلى منصتنا التعليمية","learn-desc":"دورات إسلامية مجانية عبر الإنترنت من علماء موثوقين. تعلم وفق إيقاعك، في أي وقت وأي مكان.","learn-btn":"ابدأ التعلم","reminder-title":"التذكير اليومي","reminder-blockquote":"“واتقوا النار التي أعدت للكافرين وأطيعوا الله والرسول لعلكم ترحمون.”","reminder-desc":"خذ لحظة للتفكر. الدنيا مؤقتة — لنعيش اليوم متذكرين لقائنا مع الله.","tools-title":"أدوات إسلامية يومية","tool-prayer-title":"مواقيت الصلاة","tool-prayer-desc":"تحقق من مواقيت الصلاة المحلية لكل يوم بسهولة.","tool-qiblah-title":"اتجاه القبلة","tool-qiblah-desc":"اعثر على الاتجاه الصحيح للصلاة في أي مكان في العالم.","tool-dua-title":"دعاء اليوم","tool-dua-desc":"أدعية يومية تجعل عبادتك أكثر معنى.","tool-calendar-title":"التقويم الهجري","tool-calendar-desc":"تحقق من التاريخ الإسلامي والأحداث المهمة بسهولة.","blog-title":"مقالات إسلامية","blog1-title":"أهمية الصلاة","blog1-desc":"تعرف على سبب كون الصلاة ركنًا أساسيًا في حياة المسلم ونصائح لتحسين التركيز.","blog2-title":"قصص الأنبياء","blog2-desc":"قصص جذابة للأطفال والكبار على حد سواء، تعلم الأخلاق والدروس الإيمانية.","blog3-title":"الصيام ورمضان","blog3-desc":"فهم الفوائد الروحية للصيام وكيفية تحقيق أكبر الأجر.","testimonials-title":"ماذا يقول مستخدمونا","testimonial1":"\"لقد غيرت OneUmmah تعلمي اليومي! التذكيرات تبقيني راسخًا في إيماني.\"","testimonial2":"\"أحب منطقة الأطفال. يستمتع أطفالي بالقصص الإسلامية والرسوم المتحركة بأمان.\""},
+  ms:{ /* Malay translations */ "hero-title":"Belajar. Hidup. Cintai Islam — Untuk Semua Generasi","hero-desc":"Platform Islam sehenti untuk kanak-kanak, remaja, dan dewasa di seluruh dunia.","hero-btn":"Terokai Sekarang","cta-title":"Sertai Komuniti Islam Global Kami Hari Ini!","cta-desc":"Dapatkan kemas kini tentang peringatan harian, kursus pembelajaran, dan acara komuniti.","cta-btn":"Daftar Sekarang","features-title":"Temui Islam","quran-title":"Al-Qur’an","quran-desc":"Baca, dengar dan fahami Al-Qur’an dengan terjemahan dan tafsir dalam pelbagai bahasa.","hadith-title":"Hadith","hadith-desc":"Koleksi hadith sahih dijelaskan untuk semua peringkat umur dengan cara yang mudah dan boleh dipercayai.","kids-title":"Zon Kanak-Kanak","kids-desc":"Pembelajaran Islam menyeronokkan untuk kanak-kanak — cerita, animasi doa, nasyid, dan permainan.","community-title":"Komuniti Global","community-desc":"Berhubung dengan Muslim di seluruh dunia. Belajar, kongsi, dan berkembang bersama dalam iman.","learn-title":"Sertai Platform Pembelajaran Kami","learn-desc":"Kursus Islam dalam talian percuma oleh ulama yang dipercayai. Belajar mengikut kadar anda, bila-bila masa, di mana sahaja.","learn-btn":"Mula Belajar","reminder-title":"Peringatan Harian","reminder-blockquote":"“Dan takutlah kepada Neraka yang telah disediakan untuk orang-orang kafir. Dan taatilah Allah dan Rasul supaya kamu diberi rahmat.”","reminder-desc":"Luangkan masa untuk merenung. Dunia ini sementara — mari hidup hari ini dengan mengingati pertemuan kita dengan Allah.","tools-title":"Alat Islam Harian","tool-prayer-title":"Waktu Solat","tool-prayer-desc":"Semak waktu solat tempatan anda setiap hari dengan mudah.","tool-qiblah-title":"Arah Kiblat","tool-qiblah-desc":"Cari arah yang tepat untuk solat di mana-mana sahaja di dunia.","tool-dua-title":"Doa Harian","tool-dua-desc":"Doa harian untuk menjadikan ibadah anda lebih bermakna.","tool-calendar-title":"Kalendar Hijrah","tool-calendar-desc":"Semak tarikh Islam dan acara penting dengan mudah.","blog-title":"Artikel Islam","blog1-title":"Kepentingan Solat","blog1-desc":"Ketahui mengapa solat adalah asas kehidupan seorang Muslim dan tip untuk meningkatkan fokus anda.","blog2-title":"Kisah Para Nabi","blog2-desc":"Kisah menarik untuk kanak-kanak dan dewasa, mengajar nilai dan pelajaran iman.","blog3-title":"Puasa dan Ramadan","blog3-desc":"Memahami manfaat rohani puasa dan cara memaksimumkan ganjaran.","testimonials-title":"Apa Kata Pengguna Kami","testimonial1":"\"OneUmmah telah mengubah pembelajaran harian saya! Peringatan menjadikan saya kukuh dalam iman.\"","testimonial2":"\"Saya suka Zon Kanak-Kanak. Anak-anak saya menikmati cerita dan animasi Islam dengan selamat.\""}
+};
+
+document.getElementById("languageSwitcher").addEventListener("change",function(){
+  const lang = this.value;
+  document.querySelectorAll("[data-lang]").forEach(el=>{
+    const key = el.getAttribute("data-lang");
+    if(translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
+  });
+});
 </script>
 
 </body>
 </html>
+
 
