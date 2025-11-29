@@ -330,6 +330,8 @@ body.dark footer a{color:#ffd976;}
   </blockquote>
 </section>
 
+<!-- Your HTML appears to be cut off at the footer. Here is the corrected closing part with proper closing tags. -->
+
 <footer>
   <div class="footer-links">
     <a href="#">Privacy Policy</a>
@@ -344,637 +346,187 @@ body.dark footer a{color:#ffd976;}
   </div>
   <p style="margin-top:1rem;">&copy; 2025 OneUmmah. All Rights Reserved.</p>
 </footer>
+
 </body>
 </html>
+
 <button id="topBtn" aria-label="Back to top">↑</button>
 
 <script>
-// ---------- Hadith rotation (existing) ----------
-const hadiths = [
-  { text:"“The best among you are those who learn the Qur’an and teach it.”", cite:"— Sahih Al-Bukhari" },
-  { text:"“Allah does not look at your forms and wealth but He looks at your hearts and deeds.”", cite:"— Sahih Muslim" },
-  { text:"“Feed the hungry, visit the sick, and free the captive.”", cite:"— Sahih Al-Bukhari" }
-];
-let hi = 0;
-function rotateHadith(){
-  const el = document.getElementById("hadith-text");
-  el.innerHTML = `${hadiths[hi].text} <cite>${hadiths[hi].cite}</cite>`;
-  hi = (hi+1) % hadiths.length;
-}
-setInterval(rotateHadith,6000);
+// ---------------------- DARK MODE ----------------------
+const darkToggle = document.getElementById("darkToggle");
+darkToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  darkToggle.setAttribute(
+    "aria-pressed",
+    document.body.classList.contains("dark")
+  );
+});
 
-// ---------- Back to top ----------
-const topBtn = document.getElementById("topBtn");
-window.onscroll = () => { topBtn.style.display = (window.scrollY > 300) ? "block" : "none"; };
-topBtn.onclick = () => { window.scrollTo({top:0,behavior:"smooth"}); };
-
-// ---------- Translations (site + quiz) ----------
-const translations = {
+// ---------------------- LANGUAGE SWITCHER ----------------------
+const langText = {
   en: {
-    "hero-title":"Learn. Live. Love Islam — For All Generations",
-    "hero-desc":"Your one-stop Islamic platform for kids, youth, and adults around the world.",
-    "hero-btn":"Explore Now",
-    "cta-title":"Join Our Global Islamic Community Today!",
-    "cta-desc":"Get updates on daily reminders, learning courses, and community events.",
-    "cta-btn":"Sign Up Now",
-    "features-title":"Discover Islam",
-    "quran-title":"Qur’an",
-    "quran-desc":"Read, listen, and understand the Qur’an with translation and tafsir in multiple languages.",
-    "hadith-title":"Hadith",
-    "hadith-desc":"Authentic hadith collections explained for all ages in a simple, trustworthy format.",
-    "kids-title":"Kids Zone",
-    "kids-desc":"Fun Islamic learning for children — stories, dua animations, nasheeds, and games.",
-    "community-title":"Global Community",
-    "community-desc":"Connect with Muslims around the world. Learn, share, and grow together in faith.",
-    "learn-title":"Join Our Learning Platform",
-    "learn-desc":"Free online Islamic courses by trusted scholars. Learn at your pace, anytime, anywhere.",
-    "learn-btn":"Start Learning",
-    "reminder-title":"Daily Reminder",
-    "reminder-blockquote":"“And fear the Fire, which has been prepared for the disbelievers. And obey Allah and the Messenger so that you may receive mercy.”",
-    "reminder-desc":"Take a moment to reflect. This dunya is temporary — let’s live today remembering our meeting with Allah.",
-    "tools-title":"Daily Islamic Tools",
-    "tool-prayer-title":"Prayer Times",
-    "tool-prayer-desc":"Check your local prayer times for each day easily.",
-    "tool-qiblah-title":"Qiblah Direction",
-    "tool-qiblah-desc":"Find the exact direction to pray anywhere in the world.",
-    "tool-dua-title":"Dua of the Day",
-    "tool-dua-desc":"Daily duas to make your worship more meaningful.",
-    "tool-calendar-title":"Hijri Calendar",
-    "tool-calendar-desc":"Check the Islamic date and important events easily.",
-    "blog-title":"Islamic Articles",
-    "blog1-title":"Importance of Salah",
-    "blog1-desc":"Learn why prayer is the cornerstone of a Muslim’s life and tips to improve your concentration.",
-    "blog2-title":"Stories of the Prophets",
-    "blog2-desc":"Engaging stories for children and adults alike, teaching morals and faith lessons.",
-    "blog3-title":"Fasting and Ramadan",
-    "blog3-desc":"Understanding the spiritual benefits of fasting and how to maximize rewards.",
-    "testimonials-title":"What Our Users Say",
-    "testimonial1":"\"OneUmmah has transformed my daily learning! The reminders keep me grounded in my faith.\"",
-    "testimonial2":"\"I love the Kids Zone. My children enjoy Islamic stories and animations safely.\"",
-    // quiz UI labels
-    "quiz-section-title":"Try a Quick Quiz — Test Your Knowledge",
-    "prev-btn":"Prev",
-    "next-btn":"Next",
-    "result-title":"Your Results",
-    "retry-btn":"Retry Quiz",
-    // quiz content (IDs used below)
-    "q1-q":"Who is the final Nabi?",
-    "q1-o0":"Nabi Muhammad SAW",
-    "q1-o1":"Nabi Musa AS",
-    "q1-o2":"Nabi Isa AS",
-    "q1-o3":"Nabi Ibrahim AS",
-    "q2-q":"How many daily prayers (Salah) are obligatory?",
-    "q2-o0":"3",
-    "q2-o1":"4",
-    "q2-o2":"5",
-    "q2-o3":"6",
-    "q3-q":"Which month is fasting (Sawm) required for its obligatory fasts?",
-    "q3-o0":"Muharram",
-    "q3-o1":"Shawwal",
-    "q3-o2":"Ramadan",
-    "q3-o3":"Rajab",
-    "q4-q":"How many rak'ahs are in the Fajr prayer?",
-    "q4-o0":"2",
-    "q4-o1":"3",
-    "q4-o2":"4",
-    "q4-o3":"1",
-    "q5-q":"Who built the Kaʿbah according to Islamic tradition?",
-    "q5-o0":"Nabi Ibrahim and Nabi Ismail",
-    "q5-o1":"Nabi Musa",
-    "q5-o2":"Nabi Yusuf",
-    "q5-o3":"Nabi Dawud",
-    "q6-q":"Which book is considered the holy book of Islam?",
-    "q6-o0":"Torah",
-    "q6-o1":"Gospel",
-    "q6-o2":"Qur'an",
-    "q6-o3":"Zabur",
-    "q7-q":"Which event marks the migration of the Prophet to Madinah?",
-    "q7-o0":"Hijrah",
-    "q7-o1":"Isra",
-    "q7-o2":"Mi'raj",
-    "q7-o3":"Badr",
-    "q8-q":"Which prophet was the son of Ya'qub (Jacob)?",
-    "q8-o0":"Nabi Yusuf",
-    "q8-o1":"Nabi Ibrahim",
-    "q8-o2":"Nabi Musa",
-    "q8-o3":"Nabi Isa"
-  },
-  ar: {
-    "hero-title":"تعلم. عش. أحب الإسلام — لجميع الأجيال",
-    "hero-desc":"منصتك الإسلامية الشاملة للأطفال والشباب والكبار حول العالم.",
-    "hero-btn":"اكتشف الآن",
-    "cta-title":"انضم إلى مجتمعنا الإسلامي العالمي اليوم!",
-    "cta-desc":"احصل على التحديثات اليومية والتذكيرات والدورات التعليمية وفعاليات المجتمع.",
-    "cta-btn":"سجل الآن",
-    "features-title":"اكتشف الإسلام",
-    "quran-title":"القرآن",
-    "quran-desc":"اقرأ واستمع وافهم القرآن مع الترجمة والتفسير بعدة لغات.",
-    "hadith-title":"الحديث",
-    "hadith-desc":"مجموعات الأحاديث الصحيحة موضحة لجميع الأعمار بطريقة بسيطة وموثوقة.",
-    "kids-title":"منطقة الأطفال",
-    "kids-desc":"تعلم إسلامي ممتع للأطفال — قصص، دعاء متحرك، أناشيد، وألعاب.",
-    "community-title":"المجتمع العالمي",
-    "community-desc":"تواصل مع المسلمين حول العالم. تعلم وشارك ونمُّ معًا في الإيمان.",
-    "learn-title":"انضم إلى منصتنا التعليمية",
-    "learn-desc":"دورات إسلامية مجانية عبر الإنترنت من علماء موثوقين. تعلم وفق إيقاعك، في أي وقت وأي مكان.",
-    "learn-btn":"ابدأ التعلم",
-    "reminder-title":"التذكير اليومي",
-    "reminder-blockquote":"“واتقوا النار التي أعدت للكافرين وأطيعوا الله والرسول لعلكم ترحمون.”",
-    "reminder-desc":"خذ لحظة للتفكر. الدنيا مؤقتة — لنعيش اليوم متذكرين لقائنا مع الله.",
-    "tools-title":"أدوات إسلامية يومية",
-    "tool-prayer-title":"مواقيت الصلاة",
-    "tool-prayer-desc":"تحقق من مواقيت الصلاة المحلية لكل يوم بسهولة.",
-    "tool-qiblah-title":"اتجاه القبلة",
-    "tool-qiblah-desc":"اعثر على الاتجاه الصحيح للصلاة في أي مكان في العالم.",
-    "tool-dua-title":"دعاء اليوم",
-    "tool-dua-desc":"أدعية يومية تجعل عبادتك أكثر معنى.",
-    "tool-calendar-title":"التقويم الهجري",
-    "tool-calendar-desc":"تحقق من التاريخ الإسلامي والأحداث المهمة بسهولة.",
-    "blog-title":"مقالات إسلامية",
-    "blog1-title":"أهمية الصلاة",
-    "blog1-desc":"تعرف على سبب كون الصلاة ركنًا أساسيًا في حياة المسلم ونصائح لتحسين التركيز.",
-    "blog2-title":"قصص الأنبياء",
-    "blog2-desc":"قصص جذابة للأطفال والكبار على حد سواء، تعلم الأخلاق والدروس الإيمانية.",
-    "blog3-title":"الصيام ورمضان",
-    "blog3-desc":"فهم الفوائد الروحية للصيام وكيفية تحقيق أكبر الأجر.",
-    "testimonials-title":"ماذا يقول مستخدمونا",
-    "testimonial1":"\"لقد غيرت OneUmmah تعلمي اليومي! التذكيرات تبقيني راسخًا في إيماني.\"",
-    "testimonial2":"\"أحب منطقة الأطفال. يستمتع أطفالي بالقصص الإسلامية والرسوم المتحركة بأمان.\"",
-    // quiz UI labels
-    "quiz-section-title":"جرّب اختبارًا سريعًا — اختبر معرفتك",
-    "prev-btn":"السابق",
-    "next-btn":"التالي",
-    "result-title":"نتيجتك",
-    "retry-btn":"إعادة المحاولة",
-    // quiz content
-    "q1-q":"من هو النبي الأخير؟",
-    "q1-o0":"نبي محمد SAW",
-    "q1-o1":"نبي موسى AS",
-    "q1-o2":"نبي عيسى AS",
-    "q1-o3":"نبي إبراهيم AS",
-    "q2-q":"كم عدد الصلوات اليومية الواجبة؟",
-    "q2-o0":"3",
-    "q2-o1":"4",
-    "q2-o2":"5",
-    "q2-o3":"6",
-    "q3-q":"في أي شهر تُؤدى الصيام الواجبة؟",
-    "q3-o0":"محرم",
-    "q3-o1":"شوال",
-    "q3-o2":"رمضان",
-    "q3-o3":"رجب",
-    "q4-q":"كم ركعة في صلاة الفجر؟",
-    "q4-o0":"2",
-    "q4-o1":"3",
-    "q4-o2":"4",
-    "q4-o3":"1",
-    "q5-q":"من بنى الكعبة حسب التقليد الإسلامي؟",
-    "q5-o0":"نبي إبراهيم ونبي إسماعيل",
-    "q5-o1":"نبي موسى",
-    "q5-o2":"نبي يوسف",
-    "q5-o3":"نبي داود",
-    "q6-q":"ما هو الكتاب المقدس في الإسلام؟",
-    "q6-o0":"التوراة",
-    "q6-o1":"الإنجيل",
-    "q6-o2":"القرآن",
-    "q6-o3":"الزبور",
-    "q7-q":"أي حدث يرمز له هجرة النبي إلى المدينة؟",
-    "q7-o0":"الهجرة",
-    "q7-o1":"الإسراء",
-    "q7-o2":"المعراج",
-    "q7-o3":"بدر",
-    "q8-q":"أي نبي كان ابن يعقوب؟",
-    "q8-o0":"نبي يوسف",
-    "q8-o1":"نبي إبراهيم",
-    "q8-o2":"نبي موسى",
-    "q8-o3":"نبي عيسى"
+    "hero-title": "Learn. Live. Love Islam — For All Generations",
+    "hero-desc": "Your one-stop Islamic platform for kids, youth, and adults around the world.",
+    "hero-btn": "Explore Now",
+    "cta-title": "Join Our Global Islamic Community Today!",
+    "cta-desc": "Get updates on daily reminders, learning courses, and community events.",
+    "cta-btn": "Sign Up Now",
   },
   ms: {
-    "hero-title":"Belajar. Hidup. Cintai Islam — Untuk Semua Generasi",
-    "hero-desc":"Platform Islam sehenti untuk kanak-kanak, remaja, dan dewasa di seluruh dunia.",
-    "hero-btn":"Terokai Sekarang",
-    "cta-title":"Sertai Komuniti Islam Global Kami Hari Ini!",
-    "cta-desc":"Dapatkan kemas kini tentang peringatan harian, kursus pembelajaran, dan acara komuniti.",
-    "cta-btn":"Daftar Sekarang",
-    "features-title":"Temui Islam",
-    "quran-title":"Al-Qur’an",
-    "quran-desc":"Baca, dengar dan fahami Al-Qur’an dengan terjemahan dan tafsir dalam pelbagai bahasa.",
-    "hadith-title":"Hadith",
-    "hadith-desc":"Koleksi hadith sahih dijelaskan untuk semua peringkat umur dengan cara yang mudah dan boleh dipercayai.",
-    "kids-title":"Zon Kanak-Kanak",
-    "kids-desc":"Pembelajaran Islam yang menyeronokkan untuk kanak-kanak — cerita, animasi doa, nasyid, dan permainan.",
-    "community-title":"Komuniti Global",
-    "community-desc":"Berhubung dengan Muslim di seluruh dunia. Belajar, kongsi, dan berkembang bersama dalam iman.",
-    "learn-title":"Sertai Platform Pembelajaran Kami",
-    "learn-desc":"Kursus Islam dalam talian percuma oleh ulama yang dipercayai. Belajar mengikut kadar anda, bila-bila masa, di mana sahaja.",
-    "learn-btn":"Mula Belajar",
-    "reminder-title":"Peringatan Harian",
-    "reminder-blockquote":"“Dan takutlah kepada Neraka yang telah disediakan untuk orang-orang kafir. Dan taatilah Allah dan Rasul supaya kamu diberi rahmat.”",
-    "reminder-desc":"Luangkan masa untuk merenung. Dunia ini sementara — mari hidup hari ini dengan mengingati pertemuan kita dengan Allah.",
-    "tools-title":"Alat Islam Harian",
-    "tool-prayer-title":"Waktu Solat",
-    "tool-prayer-desc":"Semak waktu solat tempatan anda setiap hari dengan mudah.",
-    "tool-qiblah-title":"Arah Kiblat",
-    "tool-qiblah-desc":"Cari arah yang tepat untuk solat di mana-mana sahaja di dunia.",
-    "tool-dua-title":"Doa Harian",
-    "tool-dua-desc":"Doa harian untuk menjadikan ibadah anda lebih bermakna.",
-    "tool-calendar-title":"Kalendar Hijrah",
-    "tool-calendar-desc":"Semak tarikh Islam dan acara penting dengan mudah.",
-    "blog-title":"Artikel Islam",
-    "blog1-title":"Kepentingan Solat",
-    "blog1-desc":"Ketahui mengapa solat adalah asas kehidupan seorang Muslim dan tip untuk meningkatkan fokus anda.",
-    "blog2-title":"Kisah Para Nabi",
-    "blog2-desc":"Kisah menarik untuk kanak-kanak dan dewasa, mengajar nilai dan pelajaran iman.",
-    "blog3-title":"Puasa dan Ramadan",
-    "blog3-desc":"Memahami manfaat rohani puasa dan cara memaksimumkan ganjaran.",
-    "testimonials-title":"Apa Kata Pengguna Kami",
-    "testimonial1":"\"OneUmmah telah mengubah pembelajaran harian saya! Peringatan menjadikan saya kukuh dalam iman.\"",
-    "testimonial2":"\"Saya suka Zon Kanak-Kanak. Anak-anak saya menikmati cerita dan animasi Islam dengan selamat.\"",
-    // quiz UI labels
-    "quiz-section-title":"Cuba Kuiz Pantas — Uji Pengetahuan Anda",
-    "prev-btn":"Sebelumnya",
-    "next-btn":"Seterusnya",
-    "result-title":"Keputusan Anda",
-    "retry-btn":"Cuba Semula",
-    // quiz content
-    "q1-q":"Siapakah Nabi terakhir?",
-    "q1-o0":"Nabi Muhammad SAW",
-    "q1-o1":"Nabi Musa AS",
-    "q1-o2":"Nabi Isa AS",
-    "q1-o3":"Nabi Ibrahim AS",
-    "q2-q":"Berapa jumlah solat wajib setiap hari?",
-    "q2-o0":"3",
-    "q2-o1":"4",
-    "q2-o2":"5",
-    "q2-o3":"6",
-    "q3-q":"Bulan manakah diwajibkan puasa wajib?",
-    "q3-o0":"Muharram",
-    "q3-o1":"Shawwal",
-    "q3-o2":"Ramadan",
-    "q3-o3":"Rajab",
-    "q4-q":"Berapa rakaat dalam solat Subuh?",
-    "q4-o0":"2",
-    "q4-o1":"3",
-    "q4-o2":"4",
-    "q4-o3":"1",
-    "q5-q":"Siapakah yang membina Kaabah menurut tradisi Islam?",
-    "q5-o0":"Nabi Ibrahim dan Nabi Ismail",
-    "q5-o1":"Nabi Musa",
-    "q5-o2":"Nabi Yusuf",
-    "q5-o3":"Nabi Dawud",
-    "q6-q":"Kitab manakah dianggap kitab suci dalam Islam?",
-    "q6-o0":"Taurat",
-    "q6-o1":"Injil",
-    "q6-o2":"Al-Quran",
-    "q6-o3":"Zabur",
-    "q7-q":"Peristiwa manakah menandakan penghijrahan Nabi ke Madinah?",
-    "q7-o0":"Hijrah",
-    "q7-o1":"Isra",
-    "q7-o2":"Mi'raj",
-    "q7-o3":"Badr",
-    "q8-q":"Siapakah nabi yang merupakan anak Ya'qub?",
-    "q8-o0":"Nabi Yusuf",
-    "q8-o1":"Nabi Ibrahim",
-    "q8-o2":"Nabi Musa",
-    "q8-o3":"Nabi Isa"
+    "hero-title": "Belajar. Amalkan. Cintai Islam — Untuk Semua Generasi",
+    "hero-desc": "Platform Islam lengkap untuk kanak-kanak, remaja dan dewasa seluruh dunia.",
+    "hero-btn": "Terokai Sekarang",
+    "cta-title": "Sertai Komuniti Islam Global Hari Ini!",
+    "cta-desc": "Dapatkan kemaskini peringatan harian, kelas pembelajaran dan aktiviti komuniti.",
+    "cta-btn": "Daftar Sekarang",
+  },
+  ar: {
+    "hero-title": "تعلّم. عِش. أحبّ الإسلام — لكل الأجيال",
+    "hero-desc": "منصة إسلامية شاملة للأطفال والشباب والبالغين حول العالم.",
+    "hero-btn": "اكتشف الآن",
+    "cta-title": "انضم إلى مجتمعنا الإسلامي العالمي اليوم!",
+    "cta-desc": "احصل على تحديثات حول التذكيرات اليومية والدورات التعليمية والفعاليات.",
+    "cta-btn": "سجل الآن",
   },
   ur: {
-    "hero-title":"سیکھیں۔ جئیں۔ اسلام سے محبت کریں — ہر نسل کے لیے",
-    "hero-desc":"آپ کا ایک جامع اسلامی پلیٹ فارم بچوں، نوجوانوں اور بڑوں کے لیے۔",
-    "hero-btn":"اب دریافت کریں",
-    "cta-title":"آج ہی ہماری عالمی اسلامی کمیونٹی میں شامل ہوں!",
-    "cta-desc":"روزانہ کی یاد دہانی، تعلیمی کورسز اور کمیونٹی ایونٹس کی تازہ ترین معلومات حاصل کریں۔",
-    "cta-btn":"اب سائن اپ کریں",
-    "features-title":"اسلام دریافت کریں",
-    "quran-title":"قرآن",
-    "quran-desc":"قرآن کو متعدد زبانوں میں ترجمہ اور تفسیر کے ساتھ پڑھیں، سنیں اور سمجھیں۔",
-    "hadith-title":"حدیث",
-    "hadith-desc":"ہر عمر کے لیے قابل اعتماد انداز میں بیان کردہ احادیث کی مستند مجموعہ۔",
-    "kids-title":"بچوں کا زون",
-    "kids-desc":"بچوں کے لیے تفریحی اسلامی تعلیم — کہانیاں، دعائی نقاشی، نعتیں، اور کھیل۔",
-    "community-title":"عالمی برادری",
-    "community-desc":"دنیا بھر کے مسلمانوں سے جڑیں۔ ایمان میں ساتھ سیکھیں، شئیر کریں اور بڑھیں۔",
-    "learn-title":"ہماری تعلیمی پلیٹ فارم میں شامل ہوں",
-    "learn-desc":"بااعتماد علماء کے ذریعہ مفت آن لائن اسلامی کورسز۔ اپنی رفتار سے سیکھیں، کسی بھی وقت، کہیں بھی۔",
-    "learn-btn":"سیکھنا شروع کریں",
-    "reminder-title":"روزانہ کی یاد دہانی",
-    "reminder-blockquote":"“اور آگ سے ڈرو جسے کافروں کے لیے تیار کیا گیا ہے اور اللہ اور رسول کی اطاعت کرو تاکہ تم پر رحم کیا جائے۔”",
-    "reminder-desc":"ایک لمحہ مختص کر کے غور کریں۔ یہ دنیا عارضی ہے — آئیں ہم آج اپنے اللہ سے ملنے کو یاد رکھیں۔",
-    "tools-title":"روزانہ کے اسلامی اوزار",
-    "tool-prayer-title":"نماز کے اوقات",
-    "tool-prayer-desc":"ہر دن کے لیے اپنے مقامی نماز کے اوقات آسانی سے چیک کریں۔",
-    "tool-qiblah-title":"قبلہ سمت",
-    "tool-qiblah-desc":"دنیا میں کہیں بھی نماز کے لیے صحیح سمت تلاش کریں۔",
-    "tool-dua-title":"روزانہ کا دعا",
-    "tool-dua-desc":"روزانہ کی دعائیں جو آپ کی عبادت کو مزید بامعنی بنائیں۔",
-    "tool-calendar-title":"ہجری کیلنڈر",
-    "tool-calendar-desc":"اسلامی تاریخ اور اہم تقریبات آسانی سے چیک کریں۔",
-    "blog-title":"اسلامی مضامین",
-    "blog1-title":"نماز کی اہمیت",
-    "blog1-desc":"سیکھیں کہ نماز مسلم کی زندگی کا ستون کیوں ہے اور توجہ بہتر بنانے کے لئے نکات۔",
-    "blog2-title":"انبیا کی کہانیاں",
-    "blog2-desc":"بچوں اور بڑوں کے لیے دلکش کہانیاں، اخلاق اور ایمان کے اسباق سکھاتی ہیں۔",
-    "blog3-title":"روزہ اور رمضان",
-    "blog3-desc":"روزہ کے روحانی فوائد اور زیادہ سے زیادہ ثواب حاصل کرنے کے طریقے جانیں۔",
-    "testimonials-title":"ہمارے صارفین کیا کہتے ہیں",
-    "testimonial1":"\"OneUmmah نے میری روزانہ تعلیم بدل دی! یاد دہانی مجھے میرے ایمان میں مضبوط رکھتی ہے.\"",
-    "testimonial2":"\"مجھے بچوں کا زون پسند ہے۔ میرے بچے اسلامی کہانیوں اور اینیمیشن سے محفوظ طور پر لطف اندوز ہوتے ہیں۔\"",
-    // quiz UI labels
-    "quiz-section-title":"ایک تیز کوئز آزمائیں — اپنی معلومات آزمائیں",
-    "prev-btn":"پچھلا",
-    "next-btn":"اگلا",
-    "result-title":"آپ کے نتائج",
-    "retry-btn":"دوبارہ کوشش کریں",
-    // quiz content
-    "q1-q":"آخری Nabi کون ہے؟",
-    "q1-o0":"Nabi Muhammad SAW",
-    "q1-o1":"Nabi Musa AS",
-    "q1-o2":"Nabi Isa AS",
-    "q1-o3":"Nabi Ibrahim AS",
-    "q2-q":"روزانہ کتنی فرض نمازیں ہیں؟",
-    "q2-o0":"3",
-    "q2-o1":"4",
-    "q2-o2":"5",
-    "q2-o3":"6",
-    "q3-q":"کس مہینے میں فرض روزے ہوتے ہیں؟",
-    "q3-o0":"محرم",
-    "q3-o1":"شوال",
-    "q3-o2":"رمضان",
-    "q3-o3":"رجب",
-    "q4-q":"فجر کی نماز میں کتنی رکعات ہیں؟",
-    "q4-o0":"2",
-    "q4-o1":"3",
-    "q4-o2":"4",
-    "q4-o3":"1",
-    "q5-q":"اسلامی روایات کے مطابق کعبہ کس نے بنایا؟",
-    "q5-o0":"Nabi Ibrahim اور Nabi Ismail",
-    "q5-o1":"Nabi Musa",
-    "q5-o2":"Nabi Yusuf",
-    "q5-o3":"Nabi Dawud",
-    "q6-q":"اسلام میں کون سی کتاب مقدس مانی جاتی ہے؟",
-    "q6-o0":"تورات",
-    "q6-o1":"انجیل",
-    "q6-o2":"قرآن",
-    "q6-o3":"زبور",
-    "q7-q":"کون سا واقعہ Nabi کی مدینہ ہجرت کی علامت ہے؟",
-    "q7-o0":"Hijrah",
-    "q7-o1":"Isra",
-    "q7-o2":"Mi'raj",
-    "q7-o3":"Badr",
-    "q8-q":"کون سا Nabi یعقوب کا بیٹا تھا؟",
-    "q8-o0":"Nabi Yusuf",
-    "q8-o1":"Nabi Ibrahim",
-    "q8-o2":"Nabi Musa",
-    "q8-o3":"Nabi Isa"
+    "hero-title": "سیکھیں۔ جئیں۔ اسلام سے محبت کریں — ہر نسل کے لیے",
+    "hero-desc": "آپ کے لیے ایک مکمل اسلامی پلیٹ فارم۔",
+    "hero-btn": "ابھی دیکھیں",
+    "cta-title": "آج ہی ہمارے عالمی اسلامی کمیونٹی میں شامل ہوں!",
+    "cta-desc": "روزانہ یاد دہانی، کورسز اور کمیونٹی اپڈیٹس حاصل کریں۔",
+    "cta-btn": "ابھی رجسٹر کریں",
   }
 };
 
-// ---------- Language switcher: update UI text & quiz translations ----------
-const languageSwitcher = document.getElementById("languageSwitcher");
-function applyTranslations(lang){
-  // translate all [data-lang]
-  document.querySelectorAll("[data-lang]").forEach(el=>{
+document.getElementById("languageSwitcher").addEventListener("change", (e) => {
+  const lang = e.target.value;
+  document.querySelectorAll("[data-lang]").forEach((el) => {
     const key = el.getAttribute("data-lang");
-    if(translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
+    if (langText[lang][key]) el.innerText = langText[lang][key];
   });
-  // set direction for ar/ur
-  if(lang === "ar" || lang === "ur"){
-    document.documentElement.dir = "rtl";
-  } else {
-    document.documentElement.dir = "ltr";
-  }
-  // re-render current quiz question to use new language
-  renderQuestion(currentQ);
-}
-languageSwitcher.addEventListener("change", function(){
-  applyTranslations(this.value);
 });
-// apply default translations at load
-applyTranslations(languageSwitcher.value);
 
-// ---------- Ayah / Quote Rotator (new) ----------
+// ---------------------- AYAH ROTATOR ----------------------
 const ayahs = [
-  { text_en: "Indeed, with hardship [will be] ease.", text_ar: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا", src_en: "Surah Ash-Sharh (94:6)", src_ar: "سورة الشرح (94:6)" },
-  { text_en: "So remember Me; I will remember you.", text_ar: "فَاذْكُرُونِي أَذْكُرْكُمْ", src_en: "Surah Al-Baqarah (2:152)", src_ar: "سورة البقرة (2:152)" },
-  { text_en: "And He found you lost and guided [you].", text_ar: "وَوَجَدَكَ ضَالًّا فَهَدَى", src_en: "Surah Ad-Duha (93:7)", src_ar: "سورة الضحى (93:7)" },
-  { text_en: "Whoever does righteousness, whether male or female, while he is a believer — We will surely cause him to live a good life.", text_ar: "مَنْ عَمِلَ صَالِحًا مِّن ذَكَرٍ أَوْ أُنثَىٰ وَهُوَ مُؤْمِنٌ فَأُو۟لَـٰٓئِكَ يُدْخِلُوهُمْ مُّحْسِنِينَ", src_en: "Surah An-Nahl (16:97)", src_ar: "سورة النحل (16:97)" }
+  { text: "“Indeed, with hardship [will be] ease.”", source: "Surah Ash-Sharh (94:6)" },
+  { text: "“So remember Me; I will remember you.”", source: "Surah Al-Baqarah (2:152)" },
+  { text: "“And He is with you wherever you are.”", source: "Surah Al-Hadid (57:4)" }
 ];
-let ayahIndex = 0;
-const ayahTextEl = document.getElementById("ayahText");
-const nextAyahBtn = document.getElementById("nextAyah");
-const prevAyahBtn = document.getElementById("prevAyah");
-function showAyah(index){
-  const a = ayahs[index];
-  ayahTextEl.style.opacity = 0;
-  setTimeout(()=> {
-    const lang = languageSwitcher.value;
-    if(lang === "ar"){
-      ayahTextEl.innerHTML = `“${a.text_ar}” <span class="source">— ${a.src_ar}</span>`;
-    } else {
-      ayahTextEl.innerHTML = `“${a.text_en}” <span class="source">— ${a.src_en}</span>`;
-    }
-    ayahTextEl.style.opacity = 1;
-  }, 200);
-}
-nextAyahBtn.addEventListener("click", ()=> {
-  ayahIndex = (ayahIndex + 1) % ayahs.length;
-  showAyah(ayahIndex);
-  resetAyahTimer();
-});
-prevAyahBtn.addEventListener("click", ()=> {
-  ayahIndex = (ayahIndex - 1 + ayahs.length) % ayahs.length;
-  showAyah(ayahIndex);
-  resetAyahTimer();
-});
-showAyah(ayahIndex);
-let ayahTimer = setInterval(()=> {
-  ayahIndex = (ayahIndex+1) % ayahs.length;
-  showAyah(ayahIndex);
-}, 6000);
-function resetAyahTimer(){ clearInterval(ayahTimer); ayahTimer = setInterval(()=> { ayahIndex = (ayahIndex+1) % ayahs.length; showAyah(ayahIndex); }, 6000); }
 
-// ---------- Dark Mode Toggle (new) ----------
-const darkToggle = document.getElementById("darkToggle");
-function applyDarkMode(pref){ 
-  if(pref){
-    document.body.classList.add("dark");
-    darkToggle.textContent = "☀️";
-    darkToggle.setAttribute("aria-pressed","true");
-  } else {
-    document.body.classList.remove("dark");
-    darkToggle.textContent = "🌙";
-    darkToggle.setAttribute("aria-pressed","false");
+let currentAyah = 0;
+function showAyah() {
+  const box = document.getElementById("ayahText");
+  box.style.opacity = 0;
+  setTimeout(() => {
+    box.innerHTML = `${ayahs[currentAyah].text} <span class="source">— ${ayahs[currentAyah].source}</span>`;
+    box.style.opacity = 1;
+  }, 300);
+}
+
+document.getElementById("nextAyah").onclick = () => {
+  currentAyah = (currentAyah + 1) % ayahs.length;
+  showAyah();
+};
+document.getElementById("prevAyah").onclick = () => {
+  currentAyah = (currentAyah - 1 + ayahs.length) % ayahs.length;
+  showAyah();
+};
+
+// ---------------------- QUIZ SYSTEM ----------------------
+const quizData = [
+  {
+    question: "Who is the final prophet in Islam?",
+    options: ["Isa (AS)", "Musa (AS)", "Muhammad (SAW)", "Ibrahim (AS)"],
+    answer: 2
+  },
+  {
+    question: "How many daily prayers are there?",
+    options: ["3", "4", "5", "6"],
+    answer: 2
+  },
+  {
+    question: "What is the holy book of Islam?",
+    options: ["Torah", "Psalms", "Qur’an", "Gospel"],
+    answer: 2
   }
-}
-// Load saved preference
-const saved = localStorage.getItem("oneummah_dark");
-applyDarkMode(saved === "1");
-darkToggle.addEventListener("click", ()=>{
-  const isDark = document.body.classList.toggle("dark");
-  localStorage.setItem("oneummah_dark", isDark ? "1" : "0");
-  applyDarkMode(isDark);
-});
-
-// ---------- Multilingual Quiz Data (IDs + correct answer index) ----------
-const quizMeta = [
-  { id: "q1", a: 0 }, // final Nabi -> option 0
-  { id: "q2", a: 2 }, // daily prayers -> option 2 (5)
-  { id: "q3", a: 2 }, // Ramadan
-  { id: "q4", a: 0 }, // Fajr 2
-  { id: "q5", a: 0 }, // Ibrahim & Ismail
-  { id: "q6", a: 2 }, // Qur'an
-  { id: "q7", a: 0 }, // Hijrah
-  { id: "q8", a: 0 }  // Yusuf
 ];
 
-// quiz state
-let currentQ = 0;
-let userAnswers = new Array(quizMeta.length).fill(null);
+let quizIndex = 0;
+let score = 0;
 
-const quizQuestionEl = document.getElementById("quizQuestion");
-const quizOptionsEl = document.getElementById("quizOptions");
-const quizScoreEl = document.getElementById("quizScore");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const quizResultEl = document.getElementById("quizResult");
-const quizContentEl = document.getElementById("quizContent");
-const finalMessageEl = document.getElementById("finalMessage");
-const retryBtn = document.getElementById("retryBtn");
+function loadQuiz() {
+  document.getElementById("quizQuestion").innerText =
+    quizData[quizIndex].question;
 
-// helper to get translation
-function t(key){
-  const lang = languageSwitcher.value;
-  return (translations[lang] && translations[lang][key]) ? translations[lang][key] : (translations["en"][key] || key);
-}
+  const options = document.getElementById("quizOptions");
+  options.innerHTML = "";
 
-function renderQuestion(index){
-  // update UI labels (some outer labels may change on language change)
-  document.querySelectorAll("[data-lang]").forEach(el=>{
-    const key = el.getAttribute("data-lang");
-    if(translations[languageSwitcher.value] && translations[languageSwitcher.value][key]) el.textContent = translations[languageSwitcher.value][key];
-  });
-  // render current question using quizMeta and translations
-  const meta = quizMeta[index];
-  const qKey = `${meta.id}-q`;
-  quizQuestionEl.textContent = `${index+1}. ${t(qKey)}`;
-  quizOptionsEl.innerHTML = "";
-  for(let i=0;i<4;i++){
-    const optKey = `${meta.id}-o${i}`;
-    const li = document.createElement("li");
+  quizData[quizIndex].options.forEach((opt, i) => {
     const btn = document.createElement("button");
-    btn.type = "button";
-    btn.textContent = t(optKey);
-    btn.dataset.index = i;
-    // highlight if selected previously
-    if(userAnswers[index] === i) btn.style.outline = "2px solid #007b8f";
-    btn.addEventListener("click", ()=> {
-      // deselect others
-      Array.from(quizOptionsEl.querySelectorAll("button")).forEach(b=> b.style.outline = "none");
-      btn.style.outline = "2px solid #007b8f";
-      userAnswers[index] = i;
-      updateScoreDisplay();
-    });
+    btn.innerText = opt;
+    btn.onclick = () => selectAnswer(i);
+    const li = document.createElement("li");
     li.appendChild(btn);
-    quizOptionsEl.appendChild(li);
-  }
-  prevBtn.disabled = (index === 0);
-  nextBtn.textContent = (index === quizMeta.length - 1) ? t("next-btn") : t("next-btn");
-  updateScoreDisplay();
-  // ensure quiz UI labels for prev/next are translated
-  prevBtn.textContent = t("prev-btn");
-  nextBtn.textContent = (index === quizMeta.length - 1) ? t("next-btn") : t("next-btn");
-  document.getElementById("quizScore").textContent = `${t("result-title") ? "" : ""} ${computeScore()} / ${quizMeta.length}`; // show basic count
-  // keep visible correct score label as Score: X / N in English for clarity; update the label text to show numeric result:
-  quizScoreEl.textContent = `Score: ${computeScore()} / ${quizMeta.length}`;
-}
-
-function computeScore(){
-  let s = 0;
-  userAnswers.forEach((ans, idx)=> {
-    if(ans !== null && ans === quizMeta[idx].a) s++;
+    options.appendChild(li);
   });
-  return s;
+
+  document.getElementById("prevBtn").disabled = quizIndex === 0;
+}
+function selectAnswer(i) {
+  if (i === quizData[quizIndex].answer) score++;
+  document.getElementById("quizScore").innerText = "Score: " + score;
 }
 
-function updateScoreDisplay(){
-  quizScoreEl.textContent = `Score: ${computeScore()} / ${quizMeta.length}`;
-}
-
-// prev/next handlers
-prevBtn.addEventListener("click", ()=>{
-  if(currentQ > 0){ currentQ--; renderQuestion(currentQ); }
-});
-nextBtn.addEventListener("click", ()=>{
-  if(currentQ < quizMeta.length - 1){
-    currentQ++;
-    renderQuestion(currentQ);
+document.getElementById("nextBtn").onclick = () => {
+  if (quizIndex < quizData.length - 1) {
+    quizIndex++;
+    loadQuiz();
   } else {
-    // submit
-    const finalScore = computeScore();
-    quizContentEl.style.display = "none";
-    quizResultEl.style.display = "block";
-    // localized messages: we'll show score and short message in the selected language (fall back to English)
-    const lang = languageSwitcher.value;
-    let msg = "";
-    if(lang === "ar"){
-      msg = `لقد حصلت على ${finalScore} من ${quizMeta.length}. ${finalScore === quizMeta.length ? "ممتاز!" : "واصل التعلم وحاول مرة أخرى."}`;
-    } else if(lang === "ms"){
-      msg = `Anda memperoleh ${finalScore} daripada ${quizMeta.length}. ${finalScore === quizMeta.length ? "Cemerlang!" : "Teruskan belajar dan cuba lagi."}`;
-    } else if(lang === "ur"){
-      msg = `آپ نے ${finalScore} میں سے ${quizMeta.length} نمبر حاصل کیے۔ ${finalScore === quizMeta.length ? "زبردست!" : "مزید سیکھیں اور دوبارہ کوشش کریں۔"}`;
-    } else {
-      msg = `You scored ${finalScore} out of ${quizMeta.length}. ${finalScore === quizMeta.length ? "Excellent!" : "Keep learning and try again."}`;
-    }
-    finalMessageEl.textContent = msg;
+    document.getElementById("quizContent").style.display = "none";
+    document.getElementById("quizResult").style.display = "block";
+    document.getElementById("finalMessage").innerText =
+      `You scored ${score} out of ${quizData.length}!`;
   }
-});
-retryBtn.addEventListener("click", ()=>{
-  userAnswers = new Array(quizMeta.length).fill(null);
-  currentQ = 0;
-  quizResultEl.style.display = "none";
-  quizContentEl.style.display = "block";
-  renderQuestion(0);
-});
-
-// initialize quiz
-renderQuestion(0);
-
-// keyboard accessibility
-document.addEventListener("keydown", (e)=> {
-  if(document.activeElement.tagName !== "BUTTON" && ["ArrowRight","ArrowLeft","Enter"].includes(e.key)){
-    if(e.key === "ArrowRight") nextBtn.click();
-    if(e.key === "ArrowLeft") prevBtn.click();
-    if(e.key === "Enter") {
-      const btns = quizOptionsEl.querySelectorAll("button");
-      if(btns.length && userAnswers[currentQ] === null) btns[0].click();
-    }
+};
+document.getElementById("prevBtn").onclick = () => {
+  if (quizIndex > 0) {
+    quizIndex--;
+    loadQuiz();
   }
-});
+};
+document.getElementById("retryBtn").onclick = () => {
+  quizIndex = 0;
+  score = 0;
+  document.getElementById("quizScore").innerText = "Score: 0";
+  document.getElementById("quizContent").style.display = "block";
+  document.getElementById("quizResult").style.display = "none";
+  loadQuiz();
+};
 
+loadQuiz();
+
+// ---------------------- HIJRI DATE ----------------------
+function loadHijri() {
+  const today = new Date();
+  const hijri = today.toLocaleDateString("ar-SA-u-ca-islamic", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+  document.getElementById("hijriDateDisplay").innerText = hijri;
+}
+loadHijri();
+
+// ---------------------- BACK TO TOP BUTTON ----------------------
+const topBtn = document.getElementById("topBtn");
+window.addEventListener("scroll", () => {
+  topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 </script>
-// Example: Hijri date (simple calculation)
-function updateHijri() {
-  const hijri = new Date().toLocaleDateString('en-u-ca-islamic');
-  document.getElementById('hijriDateDisplay').innerText = hijri;
-}
-setInterval(updateHijri, 60000); // update every minute
-updateHijri();
 
-// Example: Prayer times using a public API
-async function updatePrayerTimes() {
-  try {
-    const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Kuala+Lumpur&country=Malaysia&method=2');
-    const data = await res.json();
-    const times = data.data.timings;
-    document.getElementById('prayerTimeDisplay').innerText = `Fajr: ${times.Fajr}, Dhuhr: ${times.Dhuhr}, Asr: ${times.Asr}, Maghrib: ${times.Maghrib}, Isha: ${times.Isha}`;
-  } catch (err) {
-    document.getElementById('prayerTimeDisplay').innerText = 'Unable to load prayer times';
-  }
-}
-updatePrayerTimes();
-setInterval(updatePrayerTimes, 600000); // every 10 minutes
-<!-- Your HTML appears to be cut off at the footer. Here is the corrected closing part with proper closing tags. -->
 
 </body>
 </html>
