@@ -581,106 +581,136 @@ window.addEventListener("scroll", () => {
 topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 // ---------------------- QUIZ SYSTEM 2.0 ----------------------
 // ---------------------- QUIZ DATA ----------------------
-// Quiz data
+// Quiz Questions
 const quizData = [
   {
-    question: "Who is the final prophet in Islam?",
-    options: ["Isa (AS)", "Musa (AS)", "Muhammad (SAW)", "Ibrahim (AS)"],
+    question: "Who is the last Prophet in Islam?",
+    options: ["Prophet Isa (AS)", "Prophet Musa (AS)", "Prophet Muhammad (SAW)", "Prophet Ibrahim (AS)"],
     answer: 2
   },
   {
     question: "How many daily prayers are there?",
-    options: ["3", "4", "5", "6"],
-    answer: 2
+    options: ["3", "5", "4", "6"],
+    answer: 1
   },
   {
     question: "What is the holy book of Islam?",
-    options: ["Torah", "Psalms", "Qur’an", "Gospel"],
+    options: ["Torah", "Bible", "Qur'an", "Zabur"],
     answer: 2
   }
 ];
 
-// Variables
-let quizIndex = 0;
+let currentQuestion = 0;
 let score = 0;
-let answered = false;
 
-// Load quiz question
-function loadQuiz() {
-  answered = false;
-  document.getElementById("quizFeedback").innerText = "";
-  document.getElementById("quizResult").style.display = "none";
-  document.getElementById("quizContent").style.display = "block";
+// DOM Elements
+const quizQuestion = document.getElementById("quizQuestion");
+const quizOptions = document.getElementById("quizOptions");
+const quizFeedback = document.getElementById("quizFeedback");
+const quizScore = document.getElementById("quizScore");
+const progressFill = document.getElementById("progressFill");
+const quizResult = document.getElementById("quizResult");
+const finalMessage = document.getElementById("finalMessage");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const retryBtn = document.getElementById("retryBtn");
 
-  // Progress
-  document.getElementById("progressFill").style.width = ((quizIndex+1)/quizData.length*100) + "%";
+// Load Question
+function loadQuestion() {
+  const data = quizData[currentQuestion];
+  quizQuestion.textContent = data.question;
 
-  // Question
-  document.getElementById("quizQuestion").innerText = quizData[quizIndex].question;
+  quizOptions.innerHTML = "";
+  quizFeedback.textContent = "";
 
-  // Options
-  const optionsEl = document.getElementById("quizOptions");
-  optionsEl.innerHTML = "";
-  quizData[quizIndex].options.forEach((opt, i) => {
+  data.options.forEach((opt, index) => {
     const btn = document.createElement("button");
-    btn.innerText = opt;
-    btn.onclick = () => selectAnswer(btn, i);
+    btn.textContent = opt;
+
+    btn.onclick = () => {
+      if (index === data.answer) {
+        btn.classList.add("correct");
+        quizFeedback.textContent = "Correct!";
+        score++;
+      } else {
+        btn.classList.add("wrong");
+        quizFeedback.textContent = "Wrong!";
+      }
+
+      quizScore.textContent = `Score: ${score}`;
+      nextBtn.disabled = false;
+
+      // Disable all buttons
+      [...quizOptions.children].forEach(b => b.disabled = true);
+    };
+
     const li = document.createElement("li");
     li.appendChild(btn);
-    optionsEl.appendChild(li);
+    quizOptions.appendChild(li);
   });
 
-  document.getElementById("prevBtn").disabled = quizIndex === 0;
+  updateProgressBar();
+  nextBtn.disabled = true;
 }
 
-// Select answer
-function selectAnswer(btn, i) {
-  if (answered) return;
-  answered = true;
-
-  const correctIndex = quizData[quizIndex].answer;
-  document.querySelectorAll("#quizOptions button").forEach((b, idx) => {
-    if (idx === correctIndex) b.classList.add("correct");
-    if (idx === i && idx !== correctIndex) b.classList.add("wrong");
-    b.disabled = true;
-  });
-
-  const feedback = document.getElementById("quizFeedback");
-  feedback.innerText = i === correctIndex ? "Correct! Well done! 😊" : "Wrong! Try the next one 😅";
-
-  if (i === correctIndex) score++;
-  document.getElementById("quizScore").innerText = "Score: " + score;
+function updateProgressBar() {
+  const progress = ((currentQuestion) / quizData.length) * 100;
+  progressFill.style.width = progress + "%";
 }
 
 // Navigation
-document.getElementById("nextBtn").onclick = () => {
-  if (quizIndex < quizData.length-1) quizIndex++;
-  loadQuiz();
-};
-document.getElementById("prevBtn").onclick = () => {
-  if (quizIndex > 0) quizIndex--;
-  loadQuiz();
+nextBtn.onclick = () => {
+  currentQuestion++;
+  if (currentQuestion >= quizData.length) {
+    showFinalResult();
+  } else {
+    loadQuestion();
+  }
 };
 
-// Show final
-function showFinal() {
-  document.getElementById("quizContent").style.display = "none";
-  document.getElementById("quizResult").style.display = "block";
-  document.getElementById("finalMessage").innerText = `You scored ${score} out of ${quizData.length}!`;
+prevBtn.onclick = () => {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    loadQuestion();
+  }
+};
+
+// Final Screen
+function showFinalResult() {
+  document.getElementById("quizQuestion").style.display = "none";
+  document.getElementById("quizOptions").style.display = "none";
+  document.getElementById("quizFeedback").style.display = "none";
+  document.querySelector(".quiz-navigation").style.display = "none";
+
+  quizResult.style.display = "block";
+
+  const total = quizData.length;
+
+  finalMessage.innerHTML = `
+    🎉 <strong>Congratulations!</strong><br><br>
+    You scored <strong>${score} / ${total}</strong>
+  `;
 }
 
-// Retry
-document.getElementById("retryBtn").onclick = () => {
-  quizIndex = 0;
+// Retry Quiz
+retryBtn.onclick = () => {
+  currentQuestion = 0;
   score = 0;
-  document.getElementById("quizScore").innerText = "Score: 0";
-  loadQuiz();
+
+  quizScore.textContent = "Score: 0";
+
+  document.getElementById("quizQuestion").style.display = "";
+  document.getElementById("quizOptions").style.display = "";
+  document.getElementById("quizFeedback").style.display = "";
+  document.querySelector(".quiz-navigation").style.display = "";
+  quizResult.style.display = "none";
+
+  loadQuestion();
 };
 
-// Initial load
-loadQuiz();
+// Start quiz
+loadQuestion();
 </script>
-
 
 
 
