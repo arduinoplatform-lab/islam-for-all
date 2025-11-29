@@ -579,9 +579,10 @@ window.addEventListener("scroll", () => {
   topBtn.style.display = window.scrollY > 300 ? "block" : "none";
 });
 topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-  <script>
 // ---------------------- QUIZ SYSTEM 2.0 ----------------------
 // ---------------------- QUIZ DATA ----------------------
+<script>
+// Quiz data
 const quizData = [
   {
     question: "Who is the final prophet in Islam?",
@@ -600,94 +601,76 @@ const quizData = [
   }
 ];
 
-// ---------------------- VARIABLES ----------------------
+// Variables
 let quizIndex = 0;
 let score = 0;
 let answered = false;
 
-// ---------------------- LOAD QUIZ ----------------------
+// Load quiz question
 function loadQuiz() {
   answered = false;
   document.getElementById("quizFeedback").innerText = "";
   document.getElementById("quizResult").style.display = "none";
   document.getElementById("quizContent").style.display = "block";
 
-  // Update progress bar
-  const progress = ((quizIndex + 1) / quizData.length) * 100;
-  document.getElementById("progressFill").style.width = progress + "%";
+  // Progress
+  document.getElementById("progressFill").style.width = ((quizIndex+1)/quizData.length*100) + "%";
 
-  // Set question
+  // Question
   document.getElementById("quizQuestion").innerText = quizData[quizIndex].question;
 
-  // Set options
+  // Options
   const optionsEl = document.getElementById("quizOptions");
   optionsEl.innerHTML = "";
   quizData[quizIndex].options.forEach((opt, i) => {
-    const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.innerText = opt;
     btn.onclick = () => selectAnswer(btn, i);
+    const li = document.createElement("li");
     li.appendChild(btn);
     optionsEl.appendChild(li);
   });
 
-  // Disable previous if first question
   document.getElementById("prevBtn").disabled = quizIndex === 0;
 }
 
-// ---------------------- SELECT ANSWER ----------------------
-function selectAnswer(button, i) {
+// Select answer
+function selectAnswer(btn, i) {
   if (answered) return;
   answered = true;
 
   const correctIndex = quizData[quizIndex].answer;
-  const optionButtons = document.querySelectorAll("#quizOptions button");
-
-  // Mark correct & wrong buttons
-  optionButtons.forEach((btn, idx) => {
-    if (idx === correctIndex) btn.classList.add("correct");
-    if (idx === i && idx !== correctIndex) btn.classList.add("wrong");
-    btn.disabled = true;
+  document.querySelectorAll("#quizOptions button").forEach((b, idx) => {
+    if (idx === correctIndex) b.classList.add("correct");
+    if (idx === i && idx !== correctIndex) b.classList.add("wrong");
+    b.disabled = true;
   });
 
-  // Feedback
   const feedback = document.getElementById("quizFeedback");
-  feedback.style.opacity = 0;
-  setTimeout(() => {
-    feedback.innerText = i === correctIndex ? "Correct! Well done! 😊" : "Wrong! Try the next one 😅";
-    feedback.style.opacity = 1;
-  }, 200);
+  feedback.innerText = i === correctIndex ? "Correct! Well done! 😊" : "Wrong! Try the next one 😅";
 
-  // Update score
   if (i === correctIndex) score++;
   document.getElementById("quizScore").innerText = "Score: " + score;
 }
 
-// ---------------------- NAVIGATION ----------------------
+// Navigation
 document.getElementById("nextBtn").onclick = () => {
-  if (quizIndex < quizData.length - 1) {
-    quizIndex++;
-    loadQuiz();
-  } else {
-    showFinal();
-  }
+  if (quizIndex < quizData.length-1) quizIndex++;
+  loadQuiz();
 };
-
 document.getElementById("prevBtn").onclick = () => {
-  if (quizIndex > 0) {
-    quizIndex--;
-    loadQuiz();
-  }
+  if (quizIndex > 0) quizIndex--;
+  loadQuiz();
 };
 
-// ---------------------- FINAL RESULT ----------------------
+// Show final
 function showFinal() {
   document.getElementById("quizContent").style.display = "none";
   document.getElementById("quizResult").style.display = "block";
   document.getElementById("finalMessage").innerText = `You scored ${score} out of ${quizData.length}!`;
 }
 
-// ---------------------- RETRY QUIZ ----------------------
+// Retry
 document.getElementById("retryBtn").onclick = () => {
   quizIndex = 0;
   score = 0;
@@ -695,7 +678,7 @@ document.getElementById("retryBtn").onclick = () => {
   loadQuiz();
 };
 
-// ---------------------- INITIAL LOAD ----------------------
+// Initial load
 loadQuiz();
 </script>
 
