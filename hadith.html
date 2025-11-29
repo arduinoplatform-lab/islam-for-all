@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OneUmmah | Hadith</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f5f7fa;color:#222;line-height:1.6;transition:background .25s,color .25s;}
+header{background:linear-gradient(90deg,#003366,#007b8f);color:#fff;padding:1rem 3%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.logo{font-size:1.5rem;font-weight:600;letter-spacing:1px;}
+nav ul{list-style:none;display:flex;gap:1.5rem;}
+nav ul li a{color:#fff;text-decoration:none;font-weight:500;position:relative;transition:.3s;}
+nav ul li a::after{content:'';position:absolute;width:0;height:2px;left:0;bottom:-5px;background:#ffdd57;transition:width .3s;}
+nav ul li a:hover::after{width:100%;}
+nav ul li a:hover{color:#ffdd57;}
+nav ul li a.active{color:#ffdd57;}
+.header-controls{display:flex;align-items:center;gap:0.75rem;}
+#languageSwitcher{margin-left:1rem;padding:5px 8px;border-radius:5px;border:none;font-weight:600;}
+#darkToggle{background:transparent;border:2px solid rgba(255,255,255,0.16);color:#fff;padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:600;}
+#darkToggle:hover{background:rgba(255,255,255,0.06);}
+section{padding:4rem 5%;}
+.section-title{text-align:center;font-size:2rem;color:#003366;margin-bottom:2rem;position:relative;}
+.section-title::after{content:"";display:block;width:60px;height:3px;background:#007b8f;margin:.5rem auto;border-radius:2px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.card{background:#fff;border-radius:12px;padding:2rem;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:transform .3s ease,box-shadow .3s ease;}
+.card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+.card img{width:70px;margin-bottom:1rem;}
+footer a{color:#ffdd57;text-decoration:none;margin:0 10px;}
+footer a:hover{color:#fff;}
+footer img{margin:0 5px;}
+body.dark{background:#0f1720;color:#d6e6f2;}
+body.dark header{background:linear-gradient(90deg,#061426,#083246);}
+body.dark .card{background:#0b1116;color:#d6e6f2;box-shadow:0 6px 20px rgba(0,0,0,0.6);}
+body.dark .section-title{color:#9ed7ff;}
+.hadith-container{max-width:800px;margin:2rem auto;}
+.hadith-select{padding:0.5rem 1rem;font-size:1rem;border-radius:6px;margin-bottom:2rem;border:1px solid #ccc;}
+.hadith-item{margin-bottom:1.5rem;padding:1rem;border-radius:8px;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,0.05);}
+.hadith-item p.arabic{font-size:1.2rem;font-weight:600;text-align:right;margin-bottom:0.5rem;}
+.hadith-item p.translation{font-size:1rem;color:#555;}
+body.dark .hadith-item{background:#0b1116;color:#d6e6f2;box-shadow:0 3px 10px rgba(0,0,0,0.5);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">OneUmmah</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="quran.html">Qur’an</a></li>
+      <li><a href="hadith.html" class="active">Hadith</a></li>
+      <li><a href="kids-zone.html">Kids Zone</a></li>
+      <li><a href="learn-islam.html">Learn Islam</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+  <div class="header-controls">
+    <select id="languageSwitcher" aria-label="Language switcher">
+      <option value="en" selected>English</option>
+      <option value="ar">Arabic</option>
+      <option value="ms">Malay</option>
+      <option value="ur">Urdu</option>
+    </select>
+    <button id="darkToggle" aria-pressed="false" title="Toggle dark mode">🌙</button>
+  </div>
+</header>
+
+<section>
+  <h2 class="section-title">Hadith Collection</h2>
+  <div class="hadith-container">
+    <select id="hadithSelector" class="hadith-select">
+      <option value="">-- Select Hadith --</option>
+      <option value="1">Hadith 1</option>
+      <option value="2">Hadith 2</option>
+      <option value="3">Hadith 3</option>
+    </select>
+    <div id="hadiths"></div>
+  </div>
+</section>
+
+<footer style="text-align:center; padding:2rem; background:#003366; color:#fff;">
+  <div>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Contact Us</a>
+  </div>
+  <div style="margin-top:1rem;">
+    <a href="https://www.youtube.com/@SautAl-QuranTheVoiceofQuran" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="25" alt="YouTube">
+    </a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384015.png" width="25" alt="Instagram"></a>
+  </div>
+  <p style="margin-top:1rem;">&copy; 2025 OneUmmah. All Rights Reserved.</p>
+</footer>
+
+<script>
+const darkToggle = document.getElementById("darkToggle");
+darkToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  darkToggle.setAttribute("aria-pressed", document.body.classList.contains("dark"));
+});
+
+// Sample Hadith data
+const hadiths = {
+  "1": {"arabic":"إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","translation":"Actions are judged by intentions."},
+  "2": {"arabic":"لا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ","translation":"None of you truly believes until he loves for his brother what he loves for himself."},
+  "3": {"arabic":"طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ","translation":"Seeking knowledge is an obligation upon every Muslim."}
+};
+
+const hadithSelector = document.getElementById("hadithSelector");
+const hadithsDiv = document.getElementById("hadiths");
+
+hadithSelector.addEventListener("change", () => {
+  const selected = hadithSelector.value;
+  hadithsDiv.innerHTML = "";
+  if(hadiths[selected]){
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("hadith-item");
+    itemDiv.innerHTML = `<p class="arabic">${hadiths[selected].arabic}</p>
+                         <p class="translation">${hadiths[selected].translation}</p>`;
+    hadithsDiv.appendChild(itemDiv);
+  }
+});
+</script>
+
+</body>
+</html>
