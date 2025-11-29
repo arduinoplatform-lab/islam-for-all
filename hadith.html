@@ -105,9 +105,71 @@ darkToggle.addEventListener("click", () => {
 
 // Sample Hadith data
 const hadiths = {
+  const hadiths = {
   "1": {"arabic":"إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ","translation":"Actions are judged by intentions."},
   "2": {"arabic":"لا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ","translation":"None of you truly believes until he loves for his brother what he loves for himself."},
-  "3": {"arabic":"طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ","translation":"Seeking knowledge is an obligation upon every Muslim."}
+  "3": {"arabic":"طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ","translation":"Seeking knowledge is an obligation upon every Muslim."},
+  "4": {"arabic":"الدِّينُ النَّصِيحَةُ","translation":"The religion is sincerity."},
+  "5": {"arabic":"مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ","translation":"Whoever believes in Allah and the Last Day should speak good or remain silent."},
+  "6": {"arabic":"آيَةُ الْمُؤْمِنِ كُفُّ الأَذَى عَنْ النَّاسِ","translation":"A sign of a believer is refraining from harming others."},
+  "7": {"arabic":"خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ","translation":"The best of people are those who are most beneficial to others."},
+  "8": {"arabic":"إِيَّاكُمْ وَالظَّنَّ فَإِنَّ الظَّنَّ أَكْذَبُ الْحَدِيثِ","translation":"Beware of suspicion, for suspicion is the worst of false tales."},
+  "9": {"arabic":"مَا مِنْكُمْ إِلَّا سَيَأْتِي عَلَيْهِ أَجَلٌ","translation":"None of you will die until your term has come."},
+  "10": {"arabic":"الرَّحِيمُ يَرْحَمُهُ الرَّحْمَنُ","translation":"The merciful are shown mercy by the Most Merciful."}
+"11": {"arabic":"لاَ يَرْحَمُ اللَّهُ مَنْ لاَ يَرْحَمُ النَّاسَ","translation":"Allah will not show mercy to him who does not show mercy to people."},
+"12": {"arabic":"المؤمن للمؤمن كالبنيان يشد بعضه بعضًا","translation":"The believer to another believer is like a building whose parts support each other."},
+"13": {"arabic":"اتَّقِ اللَّهَ حَيْثُمَا كُنتَ","translation":"Fear Allah wherever you are."},
+"14": {"arabic":"المسلم من سلم المسلمون من لسانه ويده","translation":"A Muslim is one from whose tongue and hand the Muslims are safe."},
+"15": {"arabic":"اغتنم خمسًا قبل خمس: شبابك قبل هرمك، وصحتك قبل سقمك، وغناك قبل فقرك، وفراغك قبل شغلك، وحياتك قبل موتك","translation":"Take advantage of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your busyness, and your life before your death."},
+"16": {"arabic":"من حسن إسلام المرء تركه ما لا يعنيه","translation":"Part of the perfection of one’s Islam is leaving that which does not concern him."},
+"17": {"arabic":"أحب الناس إلى الله أنفعهم للناس","translation":"The most beloved of people to Allah are those who are most beneficial to people."},
+"18": {"arabic":"من كتم علما ألجمه الله يوم القيامة بلجام من نار","translation":"Whoever conceals knowledge, Allah will bridle him with a bridle of fire on the Day of Resurrection."},
+"19": {"arabic":"ألا لا ضرر ولا ضرار","translation":"There should be neither harming nor reciprocating harm."},
+"20": {"arabic":"إن الله جميل يحب الجمال","translation":"Allah is beautiful and loves beauty."}
+"21": {"arabic":"الراحمون يرحمهم الرحمن","translation":"The merciful are shown mercy by the Most Merciful."},
+"22": {"arabic":"الدين النصيحة","translation":"The religion is sincere advice."},
+"23": {"arabic":"إنما الأعمال بالنيات","translation":"Actions are judged by intentions."},
+"24": {"arabic":"خيركم من تعلم القرآن وعلمه","translation":"The best of you are those who learn the Qur’an and teach it."},
+"25": {"arabic":"تبسمك في وجه أخيك صدقة","translation":"Your smile for your brother is a charity."},
+"26": {"arabic":"المؤمن قوي خير وأحب إلى الله من المؤمن الضعيف","translation":"The strong believer is better and more beloved to Allah than the weak believer."},
+"27": {"arabic":"من دل على خير فله مثل أجر فاعله","translation":"Whoever guides someone to goodness will have a reward like that of its doer."},
+"28": {"arabic":"ألا إن من أحبكم إليّ وأقربكم مني مجلسًا يوم القيامة أحاسنكم خلقًا","translation":"The most beloved of you to me and the closest to me on the Day of Resurrection are those with the best character."},
+"29": {"arabic":"مثل المؤمنين في توادهم وتراحمهم وتعاطفهم مثل الجسد","translation":"The example of the believers in their mutual love, mercy, and compassion is like a single body."},
+"30": {"arabic":"من سلك طريقًا يلتمس فيه علمًا سهل الله له طريقًا إلى الجنة","translation":"Whoever follows a path in pursuit of knowledge, Allah will make the path to Paradise easy for him."}
+"31": {"arabic":"الكلمة الطيبة صدقة","translation":"A good word is charity."},
+"32": {"arabic":"من لا يشكر الناس لا يشكر الله","translation":"He who does not thank people, does not thank Allah."},
+"33": {"arabic":"أحب الأعمال إلى الله سرور تدخله على مسلم","translation":"The most beloved deeds to Allah are bringing happiness to a Muslim."},
+"34": {"arabic":"المسلم من سلم المسلمون من لسانه ويده","translation":"A Muslim is one from whose tongue and hand other Muslims are safe."},
+"35": {"arabic":"إن الله جميل يحب الجمال","translation":"Indeed, Allah is beautiful and loves beauty."},
+"36": {"arabic":"ما من عبد يصلي لله إلا صلى الله عليه عشراً","translation":"Whoever prays for Allah, Allah prays for him tenfold."},
+"37": {"arabic":"اتق الله حيثما كنت","translation":"Fear Allah wherever you are."},
+"38": {"arabic":"رب كلمة حسنة صدقة","translation":"Every good word is a charity."},
+"39": {"arabic":"ألا لا ضرر ولا ضرار","translation":"Do not harm and do not reciprocate harm."},
+"40": {"arabic":"من ستر مسلمًا ستره الله يوم القيامة","translation":"Whoever conceals a Muslim, Allah will conceal him on the Day of Resurrection."}
+"41": {"arabic":"الدين النصيحة","translation":"The religion is sincere advice."},
+"42": {"arabic":"من حسن إسلام المرء تركه ما لا يعنيه","translation":"Part of the perfection of a person’s Islam is leaving that which does not concern him."},
+"43": {"arabic":"لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه","translation":"None of you truly believes until he loves for his brother what he loves for himself."},
+"44": {"arabic":"خير الناس أنفعهم للناس","translation":"The best of people are those most beneficial to people."},
+"45": {"arabic":"الجار قبل الدار","translation":"The neighbor comes before the house."},
+"46": {"arabic":"من غشنا فليس منا","translation":"He who cheats us is not one of us."},
+"47": {"arabic":"من أتى حرفة يتقنها كان أحب إلى الله","translation":"Whoever learns a skill and masters it is beloved to Allah."},
+"48": {"arabic":"لا يدخل الجنة من لا يأمن جاره بوائقه","translation":"He will not enter Paradise whose neighbor is not safe from his mischief."},
+"49": {"arabic":"المرء على دين خليله","translation":"A person is upon the religion of his close friend."},
+"50": {"arabic":"الدنيا سجن المؤمن وجنة الكافر","translation":"The world is a prison for the believer and a paradise for the disbeliever."}
+"51": {"arabic":"من صمت نجا","translation":"He who remains silent is safe."},
+"52": {"arabic":"الحياء شعبة من الإيمان","translation":"Modesty is part of faith."},
+"53": {"arabic":"لا ضرر ولا ضرار","translation":"There should be neither harming nor reciprocating harm."},
+"54": {"arabic":"المؤمن للمؤمن كالبنيان يشد بعضه بعضا","translation":"The believer to another believer is like a building, each part strengthening the other."},
+"55": {"arabic":"أحب الأعمال إلى الله سرور تدخله على مسلم","translation":"The most beloved deeds to Allah are those that bring joy to a Muslim."},
+"56": {"arabic":"من نفس عن مؤمن كربة من كرب الدنيا نفس الله عنه كربة من كرب يوم القيامة","translation":"Whoever relieves a believer from a hardship of the worldly life, Allah will relieve him from a hardship on the Day of Judgment."},
+"57": {"arabic":"من دل على خير فله مثل أجر فاعله","translation":"Whoever guides someone to good will have a reward like the one who does it."},
+"58": {"arabic":"لا يقربن مال اليتيم إلا بالحق","translation":"Do not approach the property of an orphan except in a just manner."},
+"59": {"arabic":"المسلم أخو المسلم لا يظلمه ولا يسلمه","translation":"The Muslim is the brother of another Muslim; he does not oppress him nor forsake him."},
+"60": {"arabic":"تبسمك في وجه أخيك صدقة","translation":"Your smile in the face of your brother is a charity."}
+
+
+};
+
 };
 
 const hadithSelector = document.getElementById("hadithSelector");
