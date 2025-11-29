@@ -348,24 +348,31 @@ body.dark footer a{color:#ffd976;}
 <section id="quiz" class="quiz-section">
   <h2>Interactive Islamic Quiz</h2>
 
-  <div class="quiz-card">
+  <div id="quizContent" class="quiz-card">
+    <!-- Progress Bar -->
     <div class="quiz-progress">
       <div id="progressFill"></div>
     </div>
 
+    <!-- Question -->
     <h3 id="quizQuestion" class="quiz-question"></h3>
 
+    <!-- Options -->
     <ul id="quizOptions" class="quiz-options"></ul>
 
-    <div id="quizFeedback" class="quiz-feedback"></div>
+    <!-- Feedback -->
+    <div id="quizFeedback" class="quiz-feedback" aria-live="polite"></div>
 
+    <!-- Navigation Buttons -->
     <div class="quiz-navigation">
       <button id="prevBtn">Previous</button>
       <button id="nextBtn">Next</button>
     </div>
 
+    <!-- Score -->
     <p id="quizScore" class="quiz-score">Score: 0</p>
 
+    <!-- Final Result -->
     <div id="quizResult" class="quiz-result">
       <h3 id="finalMessage"></h3>
       <button id="retryBtn">Try Again</button>
@@ -551,77 +558,7 @@ document.getElementById("prevAyah").onclick = () => {
 };
 
 // ---------------------- QUIZ SYSTEM ----------------------
-const quizData = [
-  {
-    question: "Who is the final prophet in Islam?",
-    options: ["Isa (AS)", "Musa (AS)", "Muhammad (SAW)", "Ibrahim (AS)"],
-    answer: 2
-  },
-  {
-    question: "How many daily prayers are there?",
-    options: ["3", "4", "5", "6"],
-    answer: 2
-  },
-  {
-    question: "What is the holy book of Islam?",
-    options: ["Torah", "Psalms", "Qur’an", "Gospel"],
-    answer: 2
-  }
-];
 
-let quizIndex = 0;
-let score = 0;
-
-function loadQuiz() {
-  document.getElementById("quizQuestion").innerText =
-    quizData[quizIndex].question;
-
-  const options = document.getElementById("quizOptions");
-  options.innerHTML = "";
-
-  quizData[quizIndex].options.forEach((opt, i) => {
-    const btn = document.createElement("button");
-    btn.innerText = opt;
-    btn.onclick = () => selectAnswer(i);
-    const li = document.createElement("li");
-    li.appendChild(btn);
-    options.appendChild(li);
-  });
-
-  document.getElementById("prevBtn").disabled = quizIndex === 0;
-}
-function selectAnswer(i) {
-  if (i === quizData[quizIndex].answer) score++;
-  document.getElementById("quizScore").innerText = "Score: " + score;
-}
-
-document.getElementById("nextBtn").onclick = () => {
-  if (quizIndex < quizData.length - 1) {
-    quizIndex++;
-    loadQuiz();
-  } else {
-    document.getElementById("quizContent").style.display = "none";
-    document.getElementById("quizResult").style.display = "block";
-    document.getElementById("finalMessage").innerText =
-      `You scored ${score} out of ${quizData.length}!`;
-  }
-};
-document.getElementById("prevBtn").onclick = () => {
-  if (quizIndex > 0) {
-    quizIndex--;
-    loadQuiz();
-  }
-};
-document.getElementById("retryBtn").onclick = () => {
-  quizIndex = 0;
-  score = 0;
-  document.getElementById("quizScore").innerText = "Score: 0";
-  document.getElementById("quizContent").style.display = "block";
-  document.getElementById("quizResult").style.display = "none";
-  loadQuiz();
-};
-
-loadQuiz();
 
 // ---------------------- HIJRI DATE ----------------------
 function loadHijri() {
@@ -644,6 +581,7 @@ window.addEventListener("scroll", () => {
 topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
   <script>
 // ---------------------- QUIZ SYSTEM 2.0 ----------------------
+// ---------------------- QUIZ DATA ----------------------
 const quizData = [
   {
     question: "Who is the final prophet in Islam?",
@@ -662,41 +600,42 @@ const quizData = [
   }
 ];
 
+// ---------------------- VARIABLES ----------------------
 let quizIndex = 0;
 let score = 0;
 let answered = false;
 
+// ---------------------- LOAD QUIZ ----------------------
 function loadQuiz() {
   answered = false;
   document.getElementById("quizFeedback").innerText = "";
   document.getElementById("quizResult").style.display = "none";
+  document.getElementById("quizContent").style.display = "block";
 
-  // update progress bar
+  // Update progress bar
   const progress = ((quizIndex + 1) / quizData.length) * 100;
   document.getElementById("progressFill").style.width = progress + "%";
 
-  // question
-  document.getElementById("quizQuestion").innerText =
-    quizData[quizIndex].question;
+  // Set question
+  document.getElementById("quizQuestion").innerText = quizData[quizIndex].question;
 
-  // options
+  // Set options
   const optionsEl = document.getElementById("quizOptions");
   optionsEl.innerHTML = "";
-
   quizData[quizIndex].options.forEach((opt, i) => {
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.innerText = opt;
-
     btn.onclick = () => selectAnswer(btn, i);
-
     li.appendChild(btn);
     optionsEl.appendChild(li);
   });
 
+  // Disable previous if first question
   document.getElementById("prevBtn").disabled = quizIndex === 0;
 }
 
+// ---------------------- SELECT ANSWER ----------------------
 function selectAnswer(button, i) {
   if (answered) return;
   answered = true;
@@ -704,26 +643,27 @@ function selectAnswer(button, i) {
   const correctIndex = quizData[quizIndex].answer;
   const optionButtons = document.querySelectorAll("#quizOptions button");
 
-  // mark correct & wrong buttons
+  // Mark correct & wrong buttons
   optionButtons.forEach((btn, idx) => {
     if (idx === correctIndex) btn.classList.add("correct");
     if (idx === i && idx !== correctIndex) btn.classList.add("wrong");
     btn.disabled = true;
   });
 
-  // feedback text animation
+  // Feedback
   const feedback = document.getElementById("quizFeedback");
   feedback.style.opacity = 0;
   setTimeout(() => {
-    feedback.innerText =
-      i === correctIndex ? "Correct! Well done! 😊" : "Wrong! Try the next one 😅";
+    feedback.innerText = i === correctIndex ? "Correct! Well done! 😊" : "Wrong! Try the next one 😅";
     feedback.style.opacity = 1;
   }, 200);
 
+  // Update score
   if (i === correctIndex) score++;
   document.getElementById("quizScore").innerText = "Score: " + score;
 }
 
+// ---------------------- NAVIGATION ----------------------
 document.getElementById("nextBtn").onclick = () => {
   if (quizIndex < quizData.length - 1) {
     quizIndex++;
@@ -740,6 +680,14 @@ document.getElementById("prevBtn").onclick = () => {
   }
 };
 
+// ---------------------- FINAL RESULT ----------------------
+function showFinal() {
+  document.getElementById("quizContent").style.display = "none";
+  document.getElementById("quizResult").style.display = "block";
+  document.getElementById("finalMessage").innerText = `You scored ${score} out of ${quizData.length}!`;
+}
+
+// ---------------------- RETRY QUIZ ----------------------
 document.getElementById("retryBtn").onclick = () => {
   quizIndex = 0;
   score = 0;
@@ -747,16 +695,10 @@ document.getElementById("retryBtn").onclick = () => {
   loadQuiz();
 };
 
-function showFinal() {
-  document.getElementById("quizResult").style.display = "block";
-  document.getElementById("finalMessage").innerText =
-    `You scored ${score} out of ${quizData.length}!`;
-}
-
+// ---------------------- INITIAL LOAD ----------------------
 loadQuiz();
 </script>
 
-</script>
 
 
 </body>
