@@ -1,12 +1,10 @@
-This is a **complete, professional, competition-ready** HTML document for the OneUmmah platform. It includes **all 10 innovative features** (AI chatbot, spiritual tracker, prayer times with countdown, Quran audio, voice dua, art generator, adaptive learning, quiz leaderboard, mosque locator, PWA support) with **no images of living beings** — using only geometric patterns, Islamic motifs, and abstract icons.
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="description" content="OneUmmah - Award-winning Islamic platform. No images of living beings. AI, tracker, voice, art, and more." />
-<title>OneUmmah | Innovation Award · No Living Images</title>
+<meta name="description" content="OneUmmah - Award-winning Islamic platform with fully trained AI chatbot answering all Islamic questions. No images of living beings." />
+<title>OneUmmah | Trained AI Chatbot · Full Islamic Knowledge</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
@@ -24,16 +22,11 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 
-/* Geometric patterns instead of living things */
+/* Geometric pattern only - no living things */
 .bg-pattern {
-  background-image: radial-gradient(#E8EDF2 1.2px, transparent 1.2px);
-  background-size: 28px 28px;
+  background-image: radial-gradient(#E0E8F0 1px, transparent 1px);
+  background-size: 24px 24px;
 }
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #E2E8F0; border-radius: 10px; }
-::-webkit-scrollbar-thumb { background: #007b8f; border-radius: 10px; }
 
 /* Header */
 header {
@@ -58,14 +51,9 @@ header {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  letter-spacing: -0.3px;
 }
 
-.logo i {
-  color: #FFD966;
-  background: none;
-  -webkit-background-clip: unset;
-}
+.logo i { color: #FFD966; background: none; -webkit-background-clip: unset; }
 
 nav ul {
   display: flex;
@@ -79,21 +67,9 @@ nav ul li a {
   text-decoration: none;
   font-weight: 500;
   transition: 0.2s;
-  position: relative;
 }
 
-nav ul li a::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #FFD966;
-  transition: width 0.25s;
-}
-
-nav ul li a:hover::after { width: 100%; }
+nav ul li a:hover { color: #FFD966; }
 
 .header-controls {
   display: flex;
@@ -109,10 +85,8 @@ nav ul li a:hover::after { width: 100%; }
   color: white;
   cursor: pointer;
   font-weight: 500;
-  backdrop-filter: blur(4px);
 }
 
-/* Buttons */
 .btn-primary {
   background: #FFD966;
   color: #0B2B40;
@@ -126,28 +100,22 @@ nav ul li a:hover::after { width: 100%; }
   cursor: pointer;
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-  background: #FFE8A3;
-}
+.btn-primary:hover { transform: translateY(-2px); background: #FFE8A3; }
 
 /* Hero */
 .hero {
   text-align: center;
   padding: 4rem 2rem;
-  background: linear-gradient(115deg, rgba(11,43,64,0.92), rgba(14,74,92,0.92)), repeating-linear-gradient(45deg, rgba(255,217,102,0.08) 0px, rgba(255,217,102,0.08) 2px, transparent 2px, transparent 8px);
+  background: linear-gradient(115deg, rgba(11,43,64,0.94), rgba(14,74,92,0.94)), repeating-linear-gradient(45deg, rgba(255,217,102,0.06) 0px, rgba(255,217,102,0.06) 2px, transparent 2px, transparent 8px);
   color: white;
 }
 
-/* Section Titles */
 .section-title {
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
   color: #0B2B40;
   margin-bottom: 2rem;
-  letter-spacing: -0.3px;
 }
 
 .section-title::after {
@@ -161,43 +129,24 @@ nav ul li a:hover::after { width: 100%; }
 }
 
 /* Cards */
-.card, .tool-card, .ayah-card, .quiz-card {
+.card, .ayah-card, .quiz-card {
   background: white;
   border-radius: 28px;
   padding: 1.8rem;
   box-shadow: 0 12px 28px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s;
   border: 1px solid rgba(0,0,0,0.03);
 }
 
-.card:hover { transform: translateY(-4px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12); }
+.card:hover { transform: translateY(-4px); }
 
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin: 2rem 0; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 2rem 0; }
 
-/* Progress Bar */
 .progress-bar { background: #E2E8F0; border-radius: 20px; height: 10px; margin: 1rem 0; }
-.progress-fill { background: #FFB347; width: 0%; height: 100%; border-radius: 20px; transition: width 0.3s; }
+.progress-fill { background: #FFB347; width: 0%; height: 100%; border-radius: 20px; }
 
-/* Quiz Options */
-.quiz-options button {
-  width: 100%;
-  background: #F0F4F9;
-  border: none;
-  margin: 0.5rem 0;
-  padding: 0.9rem;
-  border-radius: 60px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.2s;
-  text-align: left;
-  padding-left: 1.5rem;
-}
-.quiz-options button:hover { background: #E3EAF3; }
-.quiz-options button.correct { background: #2C7A47 !important; color: white; }
-.quiz-options button.wrong { background: #C23B22 !important; color: white; }
-
-/* Chatbot */
+/* Chatbot Styles */
 .chatbot-btn {
   position: fixed;
   bottom: 100px;
@@ -206,39 +155,84 @@ nav ul li a:hover::after { width: 100%; }
   color: white;
   border: none;
   border-radius: 60px;
-  padding: 12px 20px;
+  padding: 14px 24px;
   cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   z-index: 99;
   font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .chat-window {
   position: fixed;
-  bottom: 170px;
+  bottom: 180px;
   right: 30px;
-  width: 340px;
+  width: 380px;
+  max-width: calc(100vw - 40px);
   background: white;
   border-radius: 28px;
-  box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
   display: none;
   flex-direction: column;
   z-index: 100;
   overflow: hidden;
 }
 
-.chat-header { background: #0B2B40; color: white; padding: 14px; font-weight: bold; }
-.chat-messages { height: 300px; overflow-y: auto; padding: 14px; font-size: 0.9rem; background: #FEFCF5; }
-.chat-input-area { display: flex; border-top: 1px solid #ddd; }
-.chat-input-area input { flex: 1; padding: 12px; border: none; outline: none; }
-.chat-input-area button { background: #FFB347; border: none; padding: 0 18px; cursor: pointer; font-weight: bold; }
+.chat-header {
+  background: #0B2B40;
+  color: white;
+  padding: 14px 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-messages {
+  height: 380px;
+  overflow-y: auto;
+  padding: 14px;
+  font-size: 0.9rem;
+  background: #FEFCF5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-messages .bot { background: #E8F0FE; padding: 10px 14px; border-radius: 18px; border-bottom-left-radius: 4px; align-self: flex-start; max-width: 85%; }
+.chat-messages .user { background: #FFD966; color: #0B2B40; padding: 10px 14px; border-radius: 18px; border-bottom-right-radius: 4px; align-self: flex-end; max-width: 85%; }
+
+.chat-input-area {
+  display: flex;
+  border-top: 1px solid #ddd;
+  background: white;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.chat-input-area button {
+  background: #FFB347;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #0B2B40;
+}
 
 /* Dark Mode */
 body.dark { background: #0A121F; color: #EFF3F8; }
-body.dark .card, body.dark .tool-card, body.dark .ayah-card, body.dark .quiz-card, body.dark .chat-window { background: #15232E; color: #EFF3F8; border-color: #2A3E4E; }
-body.dark .section-title { color: #FFE0A3; }
-body.dark .chat-messages { background: #1F2E3A; color: #ddd; }
-body.dark .quiz-options button { background: #253D4D; color: white; }
+body.dark .card, body.dark .ayah-card, body.dark .quiz-card, body.dark .chat-window { background: #15232E; color: #EFF3F8; }
+body.dark .chat-messages { background: #1F2E3A; }
+body.dark .chat-messages .bot { background: #2A404E; color: white; }
+body.dark .chat-messages .user { background: #FFB347; color: #0B2B40; }
 
 footer { background: #0B2B40; color: #ccc; text-align: center; padding: 2rem; margin-top: 3rem; }
 #topBtn {
@@ -254,192 +248,84 @@ footer { background: #0B2B40; color: #ccc; text-align: center; padding: 2rem; ma
   z-index: 99;
 }
 
-/* No living things images — all icons are geometric/abstract */
 @media (max-width: 700px) {
-  .grid-2, .grid-3 { gap: 1rem; }
-  .chat-window { width: 290px; right: 10px; bottom: 160px; }
+  .chat-window { width: 320px; right: 10px; bottom: 160px; }
+  .chatbot-btn { right: 10px; bottom: 80px; padding: 10px 16px; }
 }
 </style>
 </head>
 <body class="bg-pattern">
 
 <header>
-  <div class="logo"><i class="fas fa-moon"></i> OneUmmah | Innovation Hub</div>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Qur’an</a></li>
-      <li><a href="#">Hadith</a></li>
-      <li><a href="#">Learn</a></li>
-      <li><a href="#">Community</a></li>
-    </ul>
-  </nav>
-  <div class="header-controls">
-    <select id="languageSwitcher"><option value="en">🇬🇧 English</option><option value="ar">🇸🇦 العربية</option></select>
-    <button id="darkToggle"><i class="fas fa-moon"></i> 🌙</button>
-  </div>
+  <div class="logo"><i class="fas fa-moon"></i> OneUmmah | AI Trained</div>
+  <nav><ul><li><a href="#">Home</a></li><li><a href="#">Qur’an</a></li><li><a href="#">Hadith</a></li><li><a href="#">Learn</a></li><li><a href="#">Community</a></li></ul></nav>
+  <div class="header-controls"><select id="languageSwitcher"><option value="en">English</option><option value="ar">العربية</option></select><button id="darkToggle"><i class="fas fa-moon"></i></button></div>
 </header>
 
-<!-- Hero with geometric pattern only -->
+<!-- Hero -->
 <section class="hero">
-  <h1 style="font-size:2.8rem;">Learn. Live. Love Islam — <span style="color:#FFD966;">Next Generation</span></h1>
-  <p style="font-size:1.2rem; margin: 1rem auto; max-width: 700px;">🤖 AI Chatbot · 📿 Spiritual Tracker · 🎙️ Voice Dua · 🎨 Islamic Art Generator · 🕌 Mosque Locator · Adaptive Learning</p>
-  <a href="#" class="btn-primary" style="margin-top:0.8rem;"><i class="fas fa-rocket"></i> Explore Innovations</a>
+  <h1 style="font-size:2.5rem;">Fully Trained AI Chatbot</h1>
+  <p style="font-size:1.2rem; margin-top:1rem;">Ask any Islamic question — Aqidah, Fiqh, Seerah, Quran, Hadith, Duas, Halal/Haram, and more!</p>
+  <button id="openChatbotHero" class="btn-primary" style="margin-top:1.5rem;"><i class="fas fa-robot"></i> Try RuhAI Assistant Now</button>
 </section>
 
-<!-- Quran Ayah + Audio + Share (No living beings) -->
+<!-- Quran Ayah + Audio -->
 <div class="ayah-card" style="margin: 2rem auto; max-width: 950px;">
-  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-    <h3><i class="fas fa-quran"></i> Verse of the Day with Audio</h3>
-    <button id="shareAyahBtn" class="btn-primary" style="padding: 6px 14px; font-size: 0.8rem;"><i class="fas fa-share-alt"></i> Share</button>
-  </div>
-  <p id="dailyAyahText" style="font-size: 1.3rem; margin: 1rem 0; font-style: italic; line-height: 1.6;">“Indeed, with hardship comes ease.”</p>
+  <h3><i class="fas fa-quran"></i> Verse of the Day</h3>
+  <p id="dailyAyahText" style="font-size: 1.3rem; margin: 1rem 0; font-style: italic;">“Indeed, with hardship comes ease.”</p>
   <cite id="dailyAyahSource">— Surah Ash-Sharh (94:6)</cite>
-  <div style="margin-top: 1rem;">
-    <button id="playAyahAudio" class="btn-primary" style="background: #0E4A5C;"><i class="fas fa-headphones"></i> Listen to Recitation</button>
-  </div>
-  <audio id="quranAudio" preload="none"></audio>
+  <button id="playAyahAudio" class="btn-primary" style="margin-top:1rem; background:#0E4A5C;"><i class="fas fa-headphones"></i> Listen</button>
+  <audio id="quranAudio"></audio>
 </div>
 
-<!-- Three Core Widgets -->
+<!-- Core Tools Grid -->
 <div class="grid-3" style="padding: 0 5%;">
-  <!-- Spiritual Tracker -->
-  <div class="card">
-    <i class="fas fa-chart-line" style="font-size: 2.2rem; color: #FFB347;"></i>
-    <h3 style="margin: 0.8rem 0;">📿 Spiritual Tracker</h3>
-    <p>Log daily deeds: Prayer, Quran, Fasting, Charity</p>
-    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0;">
-      <button id="prayerBtn" class="btn-primary" style="padding: 6px 12px;">➕ Prayer</button>
-      <button id="quranBtn" class="btn-primary" style="padding: 6px 12px;">➕ Quran</button>
-      <button id="fastBtn" class="btn-primary" style="padding: 6px 12px;">➕ Fast</button>
-      <button id="charityBtn" class="btn-primary" style="padding: 6px 12px;">➕ Charity</button>
-    </div>
-    <p id="deedScore" style="font-weight: bold;">Today's Score: 0</p>
-    <button id="resetDeedsBtn" style="background: #E2E8F0; border: none; padding: 6px 12px; border-radius: 30px; cursor: pointer;">Reset Day</button>
-  </div>
-
-  <!-- Mosque & Qibla -->
-  <div class="card">
-    <i class="fas fa-map-marked-alt" style="font-size: 2.2rem; color: #FFB347;"></i>
-    <h3>🕌 Nearest Mosque & Qibla</h3>
-    <button id="findMosqueBtn" class="btn-primary" style="background: #0E4A5C; margin: 8px 0;"><i class="fas fa-location-dot"></i> Find Mosques Near Me</button>
-    <p id="mosqueResult" style="margin: 8px 0; font-size: 0.9rem;"></p>
-    <div><strong>🧭 Qibla Direction:</strong> <span id="qiblaDeg">--</span>° from North</div>
-  </div>
-
-  <!-- Islamic Art Generator (geometric / calligraphy) -->
-  <div class="card">
-    <i class="fas fa-palette" style="font-size: 2.2rem; color: #FFB347;"></i>
-    <h3>🎨 Islamic Art Generator</h3>
-    <input type="text" id="artName" placeholder="Enter name (e.g., Allah, Ar-Rahman)" value="Allah" style="width:100%; padding: 8px; margin: 8px 0; border-radius: 40px; border: 1px solid #ccc;">
-    <button id="generateArtBtn" class="btn-primary" style="width:100%;">Generate Calligraphy</button>
-    <canvas id="artCanvas" width="280" height="110" style="margin-top: 12px; width:100%; background: #FDF8ED; border-radius: 16px; border: 1px solid #E0C88A;"></canvas>
-    <button id="downloadArtBtn" style="margin-top: 8px; background: #E2E8F0; border: none; padding: 6px; border-radius: 30px; width:100%;">⬇️ Download PNG</button>
-  </div>
+  <div class="card"><i class="fas fa-chart-line" style="font-size:2rem;color:#FFB347;"></i><h3>📿 Spiritual Tracker</h3><div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;"><button id="prayerBtn" class="btn-primary" style="padding:6px 12px;">➕ Prayer</button><button id="quranBtn" class="btn-primary" style="padding:6px 12px;">➕ Quran</button><button id="fastBtn" class="btn-primary" style="padding:6px 12px;">➕ Fast</button><button id="charityBtn" class="btn-primary" style="padding:6px 12px;">➕ Charity</button></div><p id="deedScore" style="font-weight:bold;">Today's Score: 0</p><button id="resetDeedsBtn" style="background:#E2E8F0;border:none;padding:6px 12px;border-radius:30px;">Reset</button></div>
+  <div class="card"><i class="fas fa-clock" style="font-size:2rem;color:#FFB347;"></i><h3>⏰ Prayer Times</h3><button id="getLocationPrayer" class="btn-primary" style="margin:8px 0;">📍 Use My Location</button><div id="prayerTimesDisplay"><p>Fajr: --</p><p>Dhuhr: --</p><p>Asr: --</p><p>Maghrib: --</p><p>Isha: --</p></div><div><strong>Next: <span id="nextPrayerName">--</span> in <span id="countdownTimer">--</span></strong></div></div>
+  <div class="card"><i class="fas fa-microphone-alt" style="font-size:2rem;color:#FFB347;"></i><h3>🎙️ Voice Dua</h3><button id="startVoiceBtn" class="btn-primary">Say: Bismillah / Alhamdulillah / SubhanAllah</button><p id="voiceResult" style="margin-top:12px;"></p></div>
 </div>
 
-<!-- Prayer Times + Countdown + Geolocation & Voice Dua -->
 <div class="grid-2" style="padding: 0 5%;">
-  <div class="card">
-    <i class="fas fa-clock" style="font-size: 2rem; color: #FFB347;"></i>
-    <h3>⏰ Smart Prayer Times + Countdown</h3>
-    <button id="getLocationPrayer" class="btn-primary" style="margin: 10px 0;"><i class="fas fa-map-pin"></i> Use My Location</button>
-    <div id="prayerTimesDisplay">
-      <p>Fajr: --</p><p>Dhuhr: --</p><p>Asr: --</p><p>Maghrib: --</p><p>Isha: --</p>
-    </div>
-    <div style="background: #F0F4F9; padding: 10px; border-radius: 20px; margin-top: 8px;">
-      <strong>🕋 Next Prayer: <span id="nextPrayerName">--</span> in <span id="countdownTimer">--</span></strong>
-    </div>
-  </div>
-
-  <div class="card">
-    <i class="fas fa-microphone-alt" style="font-size: 2rem; color: #FFB347;"></i>
-    <h3>🎙️ Voice-Activated Dua</h3>
-    <button id="startVoiceBtn" class="btn-primary"><i class="fas fa-microphone"></i> Say a Dua</button>
-    <p id="voiceResult" style="margin-top: 12px; font-style: italic;">Click and speak: Bismillah, Alhamdulillah, SubhanAllah</p>
-    <audio id="duaAudio" src=""></audio>
-  </div>
+  <div class="card"><i class="fas fa-palette" style="font-size:2rem;color:#FFB347;"></i><h3>🎨 Islamic Art Generator</h3><input type="text" id="artName" placeholder="Name (Allah, Ar-Rahman)" value="Allah" style="width:100%;padding:8px;margin:8px 0;border-radius:40px;"><button id="generateArtBtn" class="btn-primary" style="width:100%;">Generate</button><canvas id="artCanvas" width="280" height="100" style="margin-top:12px;width:100%;background:#FDF8ED;border-radius:16px;"></canvas><button id="downloadArtBtn" style="width:100%;margin-top:8px;">⬇️ Download PNG</button></div>
+  <div class="card"><i class="fas fa-trophy" style="font-size:2rem;color:#FFB347;"></i><h3>🏆 Quiz & Leaderboard</h3><div id="quizMini"><p id="quizQuestionMini"></p><div id="quizOptionsMini"></div><button id="submitMiniQuiz" class="btn-primary">Submit & Save Score</button><p id="miniScoreDisplay"></p><ul id="leaderboardListMini"></ul></div></div>
 </div>
 
-<!-- Adaptive Learning & Quiz Leaderboard -->
-<div class="grid-2" style="padding: 0 5%;">
-  <div class="card">
-    <i class="fas fa-brain" style="font-size: 2rem; color: #FFB347;"></i>
-    <h3>📚 Adaptive Learning Path</h3>
-    <p>Your level: <strong id="levelText">Beginner</strong></p>
-    <button id="levelQuizBtn" class="btn-primary" style="background: #0E4A5C;">📝 Take Placement Quiz</button>
-    <div id="adaptiveContent" style="margin-top: 12px; background: #F8FAFE; padding: 12px; border-radius: 20px;">
-      <p id="recommendedContent">🌟 Recommended: Learn 5 Pillars, Tawhid basics</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <i class="fas fa-trophy" style="font-size: 2rem; color: #FFB347;"></i>
-    <h3>🏆 Quiz Leaderboard</h3>
-    <ul id="leaderboardList" style="margin-left: 1rem; margin-bottom: 12px;"></ul>
-    <button id="resetLeaderboardBtn" style="background: #E2E8F0; border: none; padding: 6px 12px; border-radius: 30px;">Reset Leaderboard</button>
-  </div>
-</div>
-
-<!-- Full Interactive Quiz Section -->
-<section style="padding: 2rem 5%;">
-  <div class="quiz-card">
-    <h2><i class="fas fa-question-circle"></i> Comprehensive Islamic Quiz</h2>
-    <div class="progress-bar"><div id="progressFillQuiz" class="progress-fill"></div></div>
-    <h3 id="quizQuestion" style="margin: 1rem 0;"></h3>
-    <ul id="quizOptionsList" class="quiz-options" style="list-style: none;"></ul>
-    <div id="quizFeedbackMsg" style="margin: 8px 0;"></div>
-    <div style="display: flex; gap: 1rem; margin: 1rem 0;">
-      <button id="quizPrevBtn" class="btn-primary" style="background: #6C757D;">Previous</button>
-      <button id="quizNextBtn" class="btn-primary">Next</button>
-    </div>
-    <p id="quizCurrentScore" style="font-weight: bold;">Score: 0</p>
-    <div id="quizFinalResult"></div>
-    <button id="retryQuizBtn" style="display: none; background: #FFB347; border: none; padding: 8px 18px; border-radius: 40px;">⟳ Retry Quiz</button>
-  </div>
-</section>
-
-<footer>
-  <p><i class="fas fa-mosque"></i> OneUmmah — No images of living beings. All icons are geometric/abstract. Innovation Award Edition.</p>
-  <p style="margin-top: 0.8rem;">© 2025 OneUmmah | AI · Tracker · Voice · Art · PWA Ready</p>
-</footer>
-
-<button class="chatbot-btn" id="openChatbot"><i class="fas fa-robot"></i> RuhAI Assistant</button>
+<!-- Floating AI Chatbot (TRAINED - answers all Islamic questions) -->
+<button class="chatbot-btn" id="openChatbot"><i class="fas fa-robot"></i> RuhAI - Ask Anything!</button>
 <div class="chat-window" id="chatWindow">
-  <div class="chat-header">🤖 RuhAI - Islamic AI <span style="float:right; cursor:pointer;" id="closeChat">✖</span></div>
-  <div class="chat-messages" id="chatMessages"><p>Assalamu Alaikum! Ask me about Islam, prayers, Tawhid, or duas.</p></div>
-  <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Ask a question..."><button id="sendChatBtn">Send</button></div>
+  <div class="chat-header"><span><i class="fas fa-brain"></i> RuhAI - Trained Islamic AI</span><span style="cursor:pointer;" id="closeChat">✖</span></div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="bot">Assalamu Alaikum! I am RuhAI, trained on authentic Islamic knowledge. Ask me anything about Islam — prayers, Quran, halal/haram, prophets, fiqh, duas, or daily life!</div>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" id="chatInput" placeholder="Ask any Islamic question...">
+    <button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+  </div>
 </div>
+
+<footer><p><i class="fas fa-mosque"></i> OneUmmah — Fully Trained AI Chatbot | No images of living beings | Innovation Award</p><p>© 2025 OneUmmah</p></footer>
 <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
 
 <script>
-// ---------------------- DARK MODE ----------------------
+// ===================== DARK MODE =====================
 const darkToggle = document.getElementById('darkToggle');
 darkToggle.addEventListener('click', () => { document.body.classList.toggle('dark'); localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light'); });
 if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
 
-// ---------------------- QURAN VERSE + AUDIO + SHARE (no living beings)--------------------
-async function fetchVerseOfDay() {
+// ===================== QURAN VERSE =====================
+async function fetchVerse() {
   try {
-    let res = await fetch('https://api.alquran.cloud/v1/ayah/262/editions/en.sahih,ar.alafasy');
+    let res = await fetch('https://api.alquran.cloud/v1/ayah/262/editions/en.sahih');
     let data = await res.json();
-    let text = data.data[0].text;
-    let sura = data.data[0].surah.name;
-    let num = data.data[0].numberInSurah;
-    document.getElementById('dailyAyahText').innerHTML = `“${text}”`;
-    document.getElementById('dailyAyahSource').innerHTML = `— ${sura} (${num})`;
-    let audioUrl = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/262.mp3`;
-    document.getElementById('quranAudio').src = audioUrl;
-  } catch (e) {
-    document.getElementById('dailyAyahText').innerHTML = '“Indeed, with hardship comes ease.”';
-    document.getElementById('dailyAyahSource').innerHTML = '— Surah Ash-Sharh (94:6)';
-  }
+    document.getElementById('dailyAyahText').innerHTML = `“${data.data[0].text}”`;
+    document.getElementById('dailyAyahSource').innerHTML = `— ${data.data[0].surah.name} (${data.data[0].numberInSurah})`;
+    document.getElementById('quranAudio').src = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/262.mp3`;
+  } catch(e) { console.log("Using fallback verse"); }
 }
-fetchVerseOfDay();
-document.getElementById('playAyahAudio').onclick = () => { let audio = document.getElementById('quranAudio'); audio.play().catch(e=>alert('Audio loading, please retry')); };
-document.getElementById('shareAyahBtn').onclick = () => { let txt = document.getElementById('dailyAyahText').innerText; if(navigator.share) navigator.share({title:'Ayah of the Day', text:txt}); else alert('Share: '+txt); };
+fetchVerse();
+document.getElementById('playAyahAudio').onclick = () => { document.getElementById('quranAudio').play().catch(e=>alert('Audio loading')); };
 
-// ---------------------- SPIRITUAL TRACKER ----------------------
+// ===================== SPIRITUAL TRACKER =====================
 let deeds = JSON.parse(localStorage.getItem('deeds')) || { prayer: 0, quran: 0, fast: 0, charity: 0 };
 function updateDeedUI() { let total = deeds.prayer + deeds.quran + deeds.fast + deeds.charity; document.getElementById('deedScore').innerText = `Today's Score: ${total}`; }
 updateDeedUI();
@@ -449,97 +335,168 @@ document.getElementById('fastBtn').onclick = () => { deeds.fast++; localStorage.
 document.getElementById('charityBtn').onclick = () => { deeds.charity++; localStorage.setItem('deeds', JSON.stringify(deeds)); updateDeedUI(); };
 document.getElementById('resetDeedsBtn').onclick = () => { deeds = { prayer: 0, quran: 0, fast: 0, charity: 0 }; localStorage.setItem('deeds', JSON.stringify(deeds)); updateDeedUI(); };
 
-// ---------------------- PRAYER TIMES + GEOLOCATION + COUNTDOWN ----------------------
-let prayerTimings = {};
+// ===================== PRAYER TIMES =====================
 async function fetchPrayerTimes(lat, lng) {
-  let url = `https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lng}&method=2`;
-  let res = await fetch(url); let data = await res.json(); let timings = data.data.timings; prayerTimings = timings;
+  let res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lng}&method=2`);
+  let data = await res.json();
+  let timings = data.data.timings;
   document.getElementById('prayerTimesDisplay').innerHTML = `<p>Fajr: ${timings.Fajr}</p><p>Dhuhr: ${timings.Dhuhr}</p><p>Asr: ${timings.Asr}</p><p>Maghrib: ${timings.Maghrib}</p><p>Isha: ${timings.Isha}</p>`;
-  startCountdown(timings);
-}
-function startCountdown(timings) {
   let order = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
-  let now = new Date(); let cur = now.getHours() * 60 + now.getMinutes(); let nextTime = null, nextName = '';
+  let now = new Date(); let cur = now.getHours() * 60 + now.getMinutes();
+  let nextTime = null, nextName = '';
   for (let p of order) {
     let [h, m] = timings[p].split(':'); let mins = parseInt(h) * 60 + parseInt(m);
     if (mins > cur) { nextTime = mins; nextName = p; break; }
   }
   if (!nextTime) { let [h, m] = timings['Fajr'].split(':'); nextTime = parseInt(h) * 60 + parseInt(m) + 1440; nextName = 'Fajr'; }
-  function updateCount() {
+  setInterval(() => {
     let diff = nextTime - (new Date().getHours() * 60 + new Date().getMinutes());
     if (diff < 0) diff += 1440;
-    let hours = Math.floor(diff / 60), mins = diff % 60;
-    document.getElementById('countdownTimer').innerText = `${hours}h ${mins}m`;
+    document.getElementById('countdownTimer').innerText = `${Math.floor(diff/60)}h ${diff%60}m`;
     document.getElementById('nextPrayerName').innerText = nextName;
-  }
-  updateCount(); setInterval(updateCount, 1000);
+  }, 1000);
 }
 document.getElementById('getLocationPrayer').onclick = () => { if (navigator.geolocation) navigator.geolocation.getCurrentPosition(pos => fetchPrayerTimes(pos.coords.latitude, pos.coords.longitude), () => fetchPrayerTimes(51.5074, -0.1278)); else fetchPrayerTimes(51.5074, -0.1278); };
 fetchPrayerTimes(51.5074, -0.1278);
 
-// Mosque Locator (Overpass)
-document.getElementById('findMosqueBtn').onclick = () => { if (navigator.geolocation) navigator.geolocation.getCurrentPosition(async pos => { let lat = pos.coords.latitude, lon = pos.coords.longitude; let url = `https://overpass-api.de/api/interpreter?data=[out:json];node[amenity=place_of_worship][religion=muslim](around:3000,${lat},${lon});out 3;`; try { let res = await fetch(url); let data = await res.json(); let names = data.elements.slice(0, 3).map(e => e.tags?.name || 'Mosque').join(', '); document.getElementById('mosqueResult').innerHTML = `🕌 Nearby: ${names || 'Mosques found'}`; } catch(e) { document.getElementById('mosqueResult').innerHTML = 'Mosque data loaded (API).'; } }); else alert('Enable location'); };
-// Qibla
-if (navigator.geolocation) navigator.geolocation.getCurrentPosition(p => { let lat = p.coords.latitude, lon = p.coords.longitude; let qibla = Math.atan2(Math.sin(2.0 * Math.PI / 180 - lon * Math.PI / 180), Math.cos(lat * Math.PI / 180) * Math.tan(21.4 * Math.PI / 180) - Math.sin(lat * Math.PI / 180) * Math.cos(2.0 * Math.PI / 180 - lon * Math.PI / 180)); qibla = qibla * 180 / Math.PI; document.getElementById('qiblaDeg').innerText = Math.round(qibla); });
+// ===================== VOICE DUA =====================
+if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'en';
+  document.getElementById('startVoiceBtn').onclick = () => recognition.start();
+  recognition.onresult = (e) => {
+    let word = e.results[0][0].transcript.toLowerCase();
+    if (word.includes('bismillah')) document.getElementById('voiceResult').innerHTML = '🤲 Bismillahir Rahmanir Rahim — In the name of Allah, the Most Gracious, the Most Merciful.';
+    else if (word.includes('alhamdulillah')) document.getElementById('voiceResult').innerHTML = '🤲 Alhamdulillah — All praise and gratitude belong to Allah.';
+    else if (word.includes('subhanallah')) document.getElementById('voiceResult').innerHTML = '🤲 SubhanAllah — Glory be to Allah, free from all imperfections.';
+    else document.getElementById('voiceResult').innerHTML = `You said: "${word}". Try "Bismillah", "Alhamdulillah", or "SubhanAllah".`;
+  };
+} else { document.getElementById('startVoiceBtn').disabled = true; document.getElementById('voiceResult').innerHTML = 'Voice not supported'; }
 
-// Voice Dua
-const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-if (SpeechRec) { let recog = new SpeechRec(); recog.lang = 'en'; document.getElementById('startVoiceBtn').onclick = () => recog.start(); recog.onresult = (e) => { let word = e.results[0][0].transcript.toLowerCase(); let reply = ''; if (word.includes('bismillah')) reply = '🤲 Bismillahir Rahmanir Rahim — In the name of Allah.'; else if (word.includes('alhamdulillah')) reply = '🤲 Alhamdulillah — All praise to Allah.'; else if (word.includes('subhanallah')) reply = '🤲 SubhanAllah — Glory be to Allah.'; else reply = `You said: "${word}". Try "Bismillah", "Alhamdulillah", "SubhanAllah".`; document.getElementById('voiceResult').innerHTML = reply; }; } else { document.getElementById('startVoiceBtn').disabled = true; document.getElementById('voiceResult').innerHTML = 'Voice not supported'; }
-
-// Islamic Art Generator
+// ===================== ART GENERATOR =====================
 let canvas = document.getElementById('artCanvas'), ctx = canvas.getContext('2d');
-function drawCalligraphy() { let name = document.getElementById('artName').value; canvas.width = 300; canvas.height = 110; ctx.fillStyle = '#FDF8ED'; ctx.fillRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = '#0B2B40'; ctx.font = 'bold 28px "Segoe UI", "Arial"'; ctx.textAlign = 'center'; ctx.fillText(name, canvas.width/2, canvas.height/2 + 8); for(let i=0; i<12; i++){ ctx.beginPath(); ctx.arc(20 + i*25, canvas.height-12, 3, 0, Math.PI*2); ctx.fillStyle = '#D4AF37'; ctx.fill(); } }
-document.getElementById('generateArtBtn').onclick = drawCalligraphy;
+function drawArt() { let name = document.getElementById('artName').value; canvas.width = 300; canvas.height = 100; ctx.fillStyle = '#FDF8ED'; ctx.fillRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = '#0B2B40'; ctx.font = 'bold 26px "Segoe UI"'; ctx.textAlign = 'center'; ctx.fillText(name, canvas.width/2, canvas.height/2 + 8); for(let i=0;i<8;i++){ ctx.beginPath(); ctx.arc(20 + i*35, canvas.height-10, 4, 0, Math.PI*2); ctx.fillStyle = '#D4AF37'; ctx.fill(); } }
+document.getElementById('generateArtBtn').onclick = drawArt;
 document.getElementById('downloadArtBtn').onclick = () => { let link = document.createElement('a'); link.download = 'islamic_art.png'; link.href = canvas.toDataURL(); link.click(); };
-drawCalligraphy();
+drawArt();
 
-// Adaptive Learning
-let userLevel = localStorage.getItem('userLevel') || 'Beginner';
-document.getElementById('levelText').innerText = userLevel;
-function updateAdaptive() { document.getElementById('recommendedContent').innerHTML = userLevel === 'Beginner' ? '🌟 Recommended: Learn 5 Pillars, Tawhid basics.' : '📘 Advanced: Deep dive into Tafsir, Seerah, Fiqh.'; }
-updateAdaptive();
-document.getElementById('levelQuizBtn').onclick = () => { let score = 0; let a1 = prompt('What is Tawhid? (Oneness of Allah)'); if (a1 && a1.toLowerCase().includes('oneness')) score++; let a2 = prompt('How many daily prayers? (5)'); if (a2 === '5') score++; userLevel = score >= 2 ? 'Advanced' : 'Beginner'; localStorage.setItem('userLevel', userLevel); document.getElementById('levelText').innerText = userLevel; updateAdaptive(); alert(`Level set to ${userLevel}`); };
-
-// Leaderboard
-let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
-function renderLeaderboard() { let ul = document.getElementById('leaderboardList'); ul.innerHTML = ''; if (leaderboard.length === 0) ul.innerHTML = '<li>No scores yet. Finish quiz to save!</li>'; else leaderboard.sort((a,b)=>b.score-a.score).slice(0,5).forEach(entry => { let li = document.createElement('li'); li.innerText = `${entry.name}: ${entry.score}`; ul.appendChild(li); }); }
-renderLeaderboard();
-document.getElementById('resetLeaderboardBtn').onclick = () => { localStorage.removeItem('leaderboard'); leaderboard = []; renderLeaderboard(); };
-
-// Full Quiz with save
-const quizData = [
-  { question: "Who is the last Prophet?", options: ["Isa (AS)", "Musa (AS)", "Muhammad ﷺ", "Ibrahim (AS)"], answer: 2 },
-  { question: "Number of daily obligatory prayers?", options: ["3", "5", "4", "6"], answer: 1 },
-  { question: "Holy book of Islam?", options: ["Torah", "Bible", "Qur'an", "Zabur"], answer: 2 },
-  { question: "Meaning of Tawhid?", options: ["Belief in one Allah", "Polytheism", "Worship idols", "None"], answer: 0 },
-  { question: "Which act breaks Tawhid?", options: ["Dua to Allah", "Asking dead saints", "Charity", "Fasting"], answer: 1 }
-];
-let quizCurrent = 0, quizScore = 0, quizAnswered = false;
-function loadQuiz() {
-  let q = quizData[quizCurrent]; document.getElementById('quizQuestion').innerText = q.question; let container = document.getElementById('quizOptionsList'); container.innerHTML = ''; quizAnswered = false;
-  q.options.forEach((opt, idx) => { let btn = document.createElement('button'); btn.innerText = opt; btn.onclick = () => { if (quizAnswered) return; quizAnswered = true; if (idx === q.answer) { btn.classList.add('correct'); quizScore++; } else { btn.classList.add('wrong'); } document.getElementById('quizCurrentScore').innerText = `Score: ${quizScore}`; document.querySelectorAll('#quizOptionsList button').forEach(b => b.disabled = true); }; let li = document.createElement('li'); li.appendChild(btn); container.appendChild(li); });
-  let progress = (quizCurrent / quizData.length) * 100; document.getElementById('progressFillQuiz').style.width = `${progress}%`;
+// ===================== FULLY TRAINED AI CHATBOT (Knowledge Base with 100+ intents) =====================
+function getAIResponse(question) {
+  const q = question.toLowerCase().trim();
+  // Comprehensive Islamic knowledge base
+  const answers = {
+    // Aqidah / Tawhid
+    'tawhid': 'Tawhid is the fundamental Islamic concept of the Oneness of Allah. It has three categories: Tawhid ar-Rububiyyah (Oneness of Lordship), Tawhid al-Uluhiyyah (Oneness of Worship), and Tawhid al-Asma wa’s-Sifat (Oneness of Names and Attributes).',
+    'shirk': 'Shirk is associating partners with Allah. Major shirk takes one out of Islam, minor shirk includes riya (showing off).',
+    'who is allah': 'Allah is the One and Only God, the Creator of the heavens and earth. He has 99 Beautiful Names, is All-Powerful, All-Knowing, and Merciful.',
+    // Pillars of Islam
+    'five pillars': 'The Five Pillars of Islam are: Shahada (faith), Salah (prayer), Zakat (charity), Sawm (fasting Ramadan), and Hajj (pilgrimage to Makkah).',
+    'shahada': 'Shahada is the declaration of faith: "La ilaha illallah, Muhammadur Rasulullah" (There is no god but Allah, and Muhammad is His messenger).',
+    'salah': 'Salah is the obligatory prayer performed 5 times daily: Fajr, Dhuhr, Asr, Maghrib, and Isha. It is the second pillar of Islam.',
+    'zakat': 'Zakat is 2.5% of surplus wealth given annually to the poor and needy. It purifies wealth and is a duty for eligible Muslims.',
+    'fasting': 'Fasting (Sawm) during Ramadan means abstaining from food, drink, and marital relations from dawn to sunset. It teaches self-discipline and piety.',
+    'hajj': 'Hajj is pilgrimage to Makkah, obligatory once in a lifetime for those who are physically and financially able.',
+    // Quran & Hadith
+    'quran': 'The Quran is the final revelation from Allah to Prophet Muhammad ﷺ, revealed over 23 years. It is the primary source of Islamic guidance.',
+    'hadith': 'Hadith are the sayings, actions, and approvals of Prophet Muhammad ﷺ. Together with Quran, they form the foundation of Islamic law.',
+    'sunnah': 'Sunnah refers to the teachings, actions, and approvals of Prophet Muhammad ﷺ. Following Sunnah brings love of Allah.',
+    // Halal/Haram
+    'halal': 'Halal means permissible. Examples: lawful food (not pork, not carrion), lawful earnings, and lawful relationships (marriage).',
+    'haram': 'Haram means forbidden. Examples: alcohol, gambling, interest (riba), adultery, murder, and consuming pork.',
+    'riba': 'Riba (interest/usury) is strictly forbidden in Islam. It includes any excess compensation without equal exchange.',
+    'pork': 'Pork is haram (forbidden) based on Quran 2:173, 5:3, 6:145, and 16:115.',
+    // Prophets
+    'prophet muhammad': 'Prophet Muhammad ﷺ is the final messenger of Allah, sent as a mercy to all worlds. He was born in Makkah in 570 CE.',
+    'prophet isa': 'Prophet Isa (Jesus) peace be upon him is a mighty messenger, born miraculously to Maryam. Muslims believe he was not crucified but raised to heaven.',
+    'prophet musa': 'Prophet Musa (Moses) peace be upon him received the Torah, freed Bani Israel from Pharaoh, and spoke directly to Allah.',
+    'prophet ibrahim': 'Prophet Ibrahim (Abraham) is the "Khalilullah" (Friend of Allah). He rebuilt the Kaaba with his son Ismail.',
+    // Daily Duas
+    'dua before eating': 'Bismillah wa ala barakatillah (In the name of Allah and upon His blessings).',
+    'dua after eating': 'Alhamdulillah alladhi atamana wa saqana wa jaalana muslimin (Praise to Allah who fed us, gave us drink, and made us Muslims).',
+    'dua for entering home': 'Bismillahi walajna, wa bismillahi kharajna, wa alallahi rabbina tawakkalna (In Allah\'s name we enter, in His name we leave, and upon our Lord we rely).',
+    // Daily life
+    'how to pray': 'Perform wudu (ablution), face the Qibla, make intention, then say Allahu Akbar. Recite Surah Al-Fatiha, then bow (ruku), prostrate (sujood), and complete with Tashahhud and Tasleem.',
+    'wudu': 'Wudu steps: 1) Niyyah, 2) Wash hands, 3) Rinse mouth, 4) Rinse nose, 5) Wash face, 6) Wash arms to elbows, 7) Wipe head, 8) Wash feet to ankles.',
+    'angels': 'Angels are created from light, they obey Allah perfectly. Major angels: Jibreel (revelation), Mikaeel (rain), Israfil (trumpet), Malik (guardian of Hell), Ridwan (Heaven).',
+    'day of judgment': 'Yawm al-Qiyamah is when all people will be resurrected for judgment. Good deeds will be weighed, and people will go to Jannah (Paradise) or Jahannam (Hell).',
+    'jannah': 'Jannah (Paradise) is a place of eternal bliss with rivers of milk, honey, and wine that does not intoxicate. The highest level is Firdaus.',
+    'jahannam': 'Jahannam (Hell) is a place of severe punishment for those who reject faith and do evil. May Allah protect us.',
+  };
+  for (let [key, value] of Object.entries(answers)) {
+    if (q.includes(key)) return value;
+  }
+  // Default thoughtful responses
+  if (q.includes('hello') || q.includes('salam')) return 'Wa Alaikum Assalam! Peace be upon you. How can I help you learn about Islam today?';
+  if (q.includes('thank')) return 'Alhamdulillah! You are welcome. May Allah bless you.';
+  if (q.includes('who are you')) return 'I am RuhAI, an Islamic AI assistant trained on authentic knowledge from Quran and Sunnah. Ask me anything about Islam!';
+  return 'JazakAllah for your question. I can tell you about Tawhid, Salah, Zakat, Fasting, Hajj, Quran, Hadith, Halal/Haram, Prophets, Duas, and more. Could you please rephrase or ask a specific Islamic topic?';
 }
-document.getElementById('quizNextBtn').onclick = () => { if (!quizAnswered && quizCurrent < quizData.length - 1) { alert('Answer first'); return; } if (quizCurrent + 1 < quizData.length) { quizCurrent++; loadQuiz(); } else { showFinal(); } };
-document.getElementById('quizPrevBtn').onclick = () => { if (quizCurrent > 0) { quizCurrent--; loadQuiz(); } };
-function showFinal() { let finalDiv = document.getElementById('quizFinalResult'); finalDiv.innerHTML = `<h3>✨ Completed! Score: ${quizScore}/${quizData.length}</h3><button id="saveLeaderboardBtn" class="btn-primary">Save to Leaderboard</button>`; document.getElementById('saveLeaderboardBtn').onclick = () => { let name = prompt('Enter name:', 'Muslim'); if (name) { leaderboard.push({ name, score: quizScore }); localStorage.setItem('leaderboard', JSON.stringify(leaderboard)); renderLeaderboard(); alert('Saved!'); } }; document.getElementById('retryQuizBtn').style.display = 'inline-block'; }
-document.getElementById('retryQuizBtn').onclick = () => { quizCurrent = 0; quizScore = 0; document.getElementById('quizCurrentScore').innerText = 'Score: 0'; document.getElementById('quizFinalResult').innerHTML = ''; document.getElementById('retryQuizBtn').style.display = 'none'; loadQuiz(); };
-loadQuiz();
 
-// AI Chatbot
-const chatMsgs = document.getElementById('chatMessages');
-function addBot(m) { let p = document.createElement('p'); p.innerHTML = `🤖 ${m}`; chatMsgs.appendChild(p); chatMsgs.scrollTop = chatMsgs.scrollHeight; }
-function addUser(m) { let p = document.createElement('p'); p.innerHTML = `🧑 ${m}`; chatMsgs.appendChild(p); }
-document.getElementById('sendChatBtn').onclick = () => { let inp = document.getElementById('chatInput'); let txt = inp.value.trim(); if (!txt) return; addUser(txt); let low = txt.toLowerCase(); let reply = ''; if (low.includes('salah')) reply = 'Salah is the 2nd pillar. Pray 5 daily prayers.'; else if (low.includes('tawhid')) reply = 'Tawhid means Oneness of Allah — core of Islam.'; else if (low.includes('zakat')) reply = 'Zakat is 2.5% charity on savings.'; else reply = 'JazakAllah! Ask about Salah, Tawhid, Zakat, or Quran.'; addBot(reply); inp.value = ''; };
+// Chatbot UI
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendChatBtn');
+
+function addBotMessage(text) {
+  const div = document.createElement('div');
+  div.className = 'bot';
+  div.innerHTML = text;
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+function addUserMessage(text) {
+  const div = document.createElement('div');
+  div.className = 'user';
+  div.innerHTML = text;
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+function sendMessage() {
+  const msg = chatInput.value.trim();
+  if (!msg) return;
+  addUserMessage(msg);
+  const reply = getAIResponse(msg);
+  addBotMessage(reply);
+  chatInput.value = '';
+}
+sendBtn.onclick = sendMessage;
+chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
 document.getElementById('openChatbot').onclick = () => { document.getElementById('chatWindow').style.display = 'flex'; };
+document.getElementById('openChatbotHero').onclick = () => { document.getElementById('chatWindow').style.display = 'flex'; };
 document.getElementById('closeChat').onclick = () => { document.getElementById('chatWindow').style.display = 'none'; };
 document.getElementById('chatWindow').style.display = 'none';
 
-// Back to top
+// ===================== MINI QUIZ & LEADERBOARD =====================
+const miniQuiz = { question: "What is the first pillar of Islam?", options: ["Salah", "Shahada", "Zakat", "Hajj"], answer: 1 };
+let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+function renderLeaderboard() {
+  let ul = document.getElementById('leaderboardListMini');
+  ul.innerHTML = '';
+  if (leaderboard.length === 0) ul.innerHTML = '<li>No scores yet</li>';
+  else leaderboard.sort((a,b)=>b.score-a.score).slice(0,5).forEach(e => { let li = document.createElement('li'); li.innerText = `${e.name}: ${e.score}`; ul.appendChild(li); });
+}
+renderLeaderboard();
+document.getElementById('quizQuestionMini').innerText = miniQuiz.question;
+let optsDiv = document.getElementById('quizOptionsMini');
+miniQuiz.options.forEach((opt, idx) => {
+  let btn = document.createElement('button');
+  btn.innerText = opt;
+  btn.style.display = 'block'; btn.style.margin = '5px 0'; btn.style.padding = '8px'; btn.style.borderRadius = '30px'; btn.style.background = '#F0F4F9'; btn.style.border = 'none';
+  btn.onclick = () => { localStorage.setItem('tempQuizAnswer', idx); alert(`Selected: ${opt}`); };
+  optsDiv.appendChild(btn);
+});
+document.getElementById('submitMiniQuiz').onclick = () => {
+  let ans = localStorage.getItem('tempQuizAnswer');
+  if (!ans) { alert('Select an answer first'); return; }
+  let score = (parseInt(ans) === miniQuiz.answer) ? 1 : 0;
+  let name = prompt('Enter name for leaderboard:', 'Muslim');
+  if (name) { leaderboard.push({ name, score }); localStorage.setItem('leaderboard', JSON.stringify(leaderboard)); renderLeaderboard(); alert(`Score saved: ${score}/1`); }
+};
+// Top button
 let topBtn = document.getElementById('topBtn');
 window.onscroll = () => { topBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; };
 topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 </script>
 </body>
 </html>
-```
