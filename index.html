@@ -3,626 +3,207 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="description" content="OneUmmah - A comprehensive Islamic platform for learning, living, and loving Islam across all generations." />
-<title>OneUmmah | Learn. Live. Love Islam</title>
+<meta name="description" content="OneUmmah - Award-winning Islamic platform with AI, tracker, voice, art generator, and more." />
+<title>OneUmmah | Innovation Award Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- PWA manifest (inline) -->
+<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22OneUmmah%22,%22short_name%22:%22OneUmmah%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22theme_color%22:%22#0B2B40%22,%22background_color%22:%22#F8FAFE%22}">
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Inter', sans-serif;
-  background: #F8FAFE;
-  color: #1A2C3E;
-  line-height: 1.5;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-/* modern scroll */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #e0e7f0;
-}
-::-webkit-scrollbar-thumb {
-  background: #007b8f;
-  border-radius: 10px;
-}
-/* Header refined */
-header {
-  background: linear-gradient(105deg, #0B2B40 0%, #0E4A5C 100%);
-  color: white;
-  padding: 0.9rem 3%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-.logo {
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-  background: linear-gradient(135deg, #FFE6B0, #FFD966);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-nav ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-nav ul li a {
-  color: #F0F9FF;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: 0.2s;
-  position: relative;
-}
-nav ul li a::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #FFD966;
-  transition: width 0.25s;
-}
-nav ul li a:hover::after {
-  width: 100%;
-}
-nav ul li a:hover {
-  color: #FFE6A3;
-}
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-#languageSwitcher {
-  background: rgba(255,255,240,0.2);
-  border: 1px solid rgba(255,255,200,0.4);
-  padding: 6px 12px;
-  border-radius: 40px;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-}
-#darkToggle {
-  background: rgba(255,255,210,0.15);
-  border: none;
-  font-size: 1.3rem;
-  padding: 6px 12px;
-  border-radius: 40px;
-  cursor: pointer;
-  color: #FFE6B0;
-  transition: 0.2s;
-}
-#darkToggle:hover {
-  background: rgba(255,220,100,0.3);
-  transform: scale(1.02);
-}
-/* hero premium */
-.hero {
-  text-align: center;
-  padding: 5rem 2rem;
-  background: linear-gradient(115deg, rgba(11,43,64,0.85), rgba(14,74,92,0.85)), url('https://images.unsplash.com/photo-1584551246679-258d7b1c0b5d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-  color: white;
-  position: relative;
-}
-.hero-content {
-  max-width: 780px;
-  margin: auto;
-  position: relative;
-  z-index: 2;
-}
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  opacity: 0.95;
-}
-.btn-primary {
-  background: #FFD966;
-  color: #0B2B40;
-  padding: 0.8rem 2rem;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: 0.25s;
-  display: inline-block;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-}
-.btn-primary:hover {
-  background: white;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 22px rgba(0,0,0,0.2);
-}
-/* Ayah rotator card */
-.ayah-rotator {
-  max-width: 950px;
-  margin: -2rem auto 2rem auto;
-  background: white;
-  border-radius: 28px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-  position: relative;
-  transition: 0.2s;
-}
-.ayah-rotator blockquote {
-  font-size: 1.2rem;
-  font-weight: 450;
-  line-height: 1.5;
-  color: #1F3A47;
-}
-.source {
-  display: block;
-  margin-top: 0.75rem;
-  color: #0E4A5C;
-  font-weight: 600;
-}
-.ayah-controls button {
-  background: #f0f3f8;
-  border: none;
-  font-size: 1.3rem;
-  padding: 5px 12px;
-  margin: 0 3px;
-  border-radius: 40px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.ayah-controls button:hover {
-  background: #D9E2EF;
-}
-/* Cards & general */
-section {
-  padding: 4rem 5%;
-}
-.section-title {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #0B2B40;
-  margin-bottom: 2rem;
-  letter-spacing: -0.3px;
-}
-.section-title::after {
-  content: "";
-  width: 70px;
-  height: 3px;
-  background: #FFB347;
-  display: block;
-  margin: 0.8rem auto 0;
-  border-radius: 4px;
-}
-.cards, .tools, .blog {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
-.card, .tool-card, .blog-card {
-  background: white;
-  border-radius: 24px;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-  border: 1px solid rgba(0,0,0,0.03);
-}
-.card:hover, .tool-card:hover, .blog-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
-}
-.card img, .tool-card img {
-  width: 65px;
-  margin-bottom: 1rem;
-}
-.reminder {
-  background: linear-gradient(125deg, #0C3A4B, #0C2E3C);
-  color: white;
-  text-align: center;
-  padding: 3rem;
-  border-radius: 40px;
-  max-width: 1000px;
-  margin: 3rem auto;
-  box-shadow: 0 18px 30px rgba(0,0,0,0.2);
-}
-.cta-banner {
-  background: linear-gradient(125deg, #133B4A, #185E6E);
-  border-radius: 36px;
-  padding: 3rem 2rem;
-  text-align: center;
-  margin: 2rem 5%;
-  color: white;
-}
-.quiz-card {
-  background: white;
-  border-radius: 32px;
-  padding: 2rem;
-  max-width: 700px;
-  margin: 2rem auto;
-  box-shadow: 0 20px 35px -8px rgba(0,0,0,0.1);
-}
-.quiz-options button {
-  width: 100%;
-  background: #F0F4F9;
-  border: none;
-  margin: 0.6rem 0;
-  padding: 1rem;
-  border-radius: 60px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.quiz-options button:hover {
-  background: #E3EAF3;
-  transform: scale(1.01);
-}
-.quiz-options button.correct {
-  background: #2C7A47 !important;
-  color: white;
-}
-.quiz-options button.wrong {
-  background: #C23B22 !important;
-  color: white;
-}
-.quiz-progress {
-  background: #E2E8F0;
-  border-radius: 20px;
-  height: 10px;
-}
-#progressFill {
-  background: #FFB347;
-  width: 0%;
-  height: 100%;
-  border-radius: 20px;
-}
-footer {
-  background: #0B2B40;
-  color: #ddd;
-  text-align: center;
-  padding: 2rem;
-  margin-top: 3rem;
-}
-#topBtn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #FFD966;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 16px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: none;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-  z-index: 99;
-}
-body.dark {
-  background: #0A121F;
-  color: #EFF3F8;
-}
-body.dark .card, body.dark .tool-card, body.dark .blog-card, body.dark .quiz-card, body.dark .ayah-rotator, body.dark .carousel {
-  background: #15232E;
-  color: #EFF3F8;
-  border-color: #2A3E4E;
-}
-body.dark .section-title {
-  color: #FFE0A3;
-}
-body.dark .reminder {
-  background: #0A2938;
-}
-body.dark .btn-primary {
-  background: #FFC857;
-  color: #0F2C38;
-}
-@media (max-width: 780px) {
-  nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-  header { flex-wrap: wrap; gap: 10px; }
-  .hero h1 { font-size: 2.2rem; }
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#F8FAFE;color:#1A2C3E;line-height:1.5;transition:background 0.2s,color 0.2s;}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:#e0e7f0;}::-webkit-scrollbar-thumb{background:#007b8f;border-radius:10px;}
+header{background:linear-gradient(105deg,#0B2B40,#0E4A5C);color:white;padding:0.9rem 3%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1000;flex-wrap:wrap;gap:10px;}
+.logo{font-size:1.7rem;font-weight:700;background:linear-gradient(135deg,#FFE6B0,#FFD966);-webkit-background-clip:text;background-clip:text;color:transparent;}
+nav ul{display:flex;gap:1.2rem;list-style:none;flex-wrap:wrap;}
+nav ul li a{color:#F0F9FF;text-decoration:none;font-weight:500;transition:0.2s;}
+.header-controls{display:flex;gap:0.8rem;align-items:center;}
+#darkToggle,#languageSwitcher{background:rgba(255,255,240,0.2);border:1px solid rgba(255,255,200,0.4);padding:6px 12px;border-radius:40px;color:white;cursor:pointer;}
+.btn-primary{background:#FFD966;color:#0B2B40;padding:0.7rem 1.6rem;border-radius:40px;text-decoration:none;font-weight:700;transition:0.25s;display:inline-block;}
+.section-title{text-align:center;font-size:2rem;font-weight:700;color:#0B2B40;margin-bottom:2rem;}
+.section-title::after{content:"";width:70px;height:3px;background:#FFB347;display:block;margin:0.5rem auto;border-radius:4px;}
+.card,.tool-card{background:white;border-radius:24px;padding:1.5rem;box-shadow:0 8px 20px rgba(0,0,0,0.05);transition:0.2s;}
+.grid-2,.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;margin:2rem 0;}
+.ayah-card{background:white;border-radius:28px;padding:1.5rem;margin:1rem auto;max-width:900px;box-shadow:0 15px 35px rgba(0,0,0,0.08);}
+.quiz-card{background:white;border-radius:32px;padding:1.8rem;margin:2rem auto;max-width:700px;}
+.quiz-options button{width:100%;background:#F0F4F9;border:none;margin:0.5rem 0;padding:0.9rem;border-radius:60px;cursor:pointer;}
+#progressFill{height:10px;background:#FFB347;width:0%;border-radius:20px;}
+footer{background:#0B2B40;color:#ddd;text-align:center;padding:2rem;margin-top:3rem;}
+#topBtn{position:fixed;bottom:30px;right:30px;background:#FFD966;border:none;border-radius:50px;padding:10px 16px;cursor:pointer;display:none;z-index:99;}
+body.dark{background:#0A121F;color:#EFF3F8;}
+body.dark .card,body.dark .tool-card,body.dark .ayah-card,body.dark .quiz-card{background:#15232E;color:#EFF3F8;}
+/* Chatbot floating */
+.chatbot-btn{position:fixed;bottom:100px;right:30px;background:#0E4A5C;color:white;border:none;border-radius:60px;padding:12px 20px;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,0.2);z-index:99;font-weight:bold;}
+.chat-window{position:fixed;bottom:170px;right:30px;width:320px;background:white;border-radius:24px;box-shadow:0 20px 35px rgba(0,0,0,0.2);display:none;flex-direction:column;z-index:100;overflow:hidden;}
+body.dark .chat-window{background:#1F2E3A;color:white;}
+.chat-header{background:#0B2B40;color:white;padding:12px;font-weight:bold;}
+.chat-messages{height:300px;overflow-y:auto;padding:12px;font-size:0.9rem;}
+.chat-input-area{display:flex;border-top:1px solid #ccc;}
+.chat-input-area input{flex:1;padding:10px;border:none;outline:none;}
+.chat-input-area button{background:#FFB347;border:none;padding:0 16px;cursor:pointer;}
+@media(max-width:700px){nav ul{gap:0.8rem;}.chat-window{width:280px;right:10px;}}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo"><i class="fas fa-moon" style="margin-right: 8px;"></i> OneUmmah</div>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Qur’an</a></li>
-      <li><a href="#">Hadith</a></li>
-      <li><a href="#">Kids Zone</a></li>
-      <li><a href="#">Learn Islam</a></li>
-      <li><a href="#">Community</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
-  </nav>
-  <div class="header-controls">
-    <select id="languageSwitcher" aria-label="language">
-      <option value="en">🇬🇧 English</option>
-      <option value="ar">🇸🇦 العربية</option>
-      <option value="ms">🇲🇾 Melayu</option>
-      <option value="ur">🇵🇰 اردو</option>
-    </select>
-    <button id="darkToggle" aria-label="Dark mode toggle"><i class="fas fa-moon"></i></button>
-  </div>
+  <div class="logo"><i class="fas fa-moon"></i> OneUmmah | Innovation Hub</div>
+  <nav><ul><li><a href="#">Home</a></li><li><a href="#">Qur’an</a></li><li><a href="#">Hadith</a></li><li><a href="#">Kids</a></li><li><a href="#">Learn</a></li></ul></nav>
+  <div class="header-controls"><select id="languageSwitcher"><option value="en">EN</option><option value="ar">AR</option></select><button id="darkToggle"><i class="fas fa-moon"></i></button></div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1 data-lang="hero-title">Learn. Live. Love Islam — For All Generations</h1>
-    <p data-lang="hero-desc">Your one-stop Islamic platform for kids, youth, and adults around the world.</p>
-    <a href="#" class="btn-primary" data-lang="hero-btn">Explore Now <i class="fas fa-arrow-right"></i></a>
-  </div>
+<!-- Hero -->
+<section class="hero" style="text-align:center;padding:4rem 2rem;background:linear-gradient(115deg,rgba(11,43,64,0.9),rgba(14,74,92,0.9)),url('https://images.unsplash.com/photo-1584551246679-258d7b1c0b5d?auto=format&fit=crop&w=1920&q=80') center/cover;color:white;">
+  <h1>Learn. Live. Love Islam — <span style="color:#FFD966;">Next Generation Platform</span></h1>
+  <p>AI Chatbot · Spiritual Tracker · Voice Dua · Art Generator · Mosque Locator · Adaptive Learning</p>
+  <a href="#" class="btn-primary" style="margin-top:1rem;">Explore Innovations <i class="fas fa-rocket"></i></a>
 </section>
 
-<div class="ayah-rotator">
-  <div id="ayahBox">
-    <blockquote id="ayahText">“Indeed, with hardship [will be] ease.” <span class="source">— Surah Ash-Sharh (94:6)</span></blockquote>
-  </div>
-  <div class="ayah-controls" style="text-align: right; margin-top: 0.5rem;">
-    <button id="prevAyah"><i class="fas fa-chevron-left"></i></button>
-    <button id="nextAyah"><i class="fas fa-chevron-right"></i></button>
-  </div>
+<!-- Quran Ayah + Audio + Share -->
+<div class="ayah-card" id="ayahAudioCard">
+  <div style="display:flex;justify-content:space-between;align-items:center;"><h3><i class="fas fa-quran"></i> Verse of the Day with Audio</h3><button id="shareAyahBtn" class="btn-primary" style="padding:6px 12px;font-size:0.8rem;">📤 Share</button></div>
+  <p id="dailyAyahText" style="font-size:1.3rem;margin:1rem 0;font-style:italic;">Loading...</p>
+  <div><cite id="dailyAyahSource"></cite></div>
+  <button id="playAyahAudio" class="btn-primary" style="margin-top:1rem;background:#0E4A5C;"><i class="fas fa-play"></i> Listen to Recitation</button>
+  <audio id="quranAudio" src=""></audio>
 </div>
 
-<section id="prayer-times" style="padding-top: 0;">
-  <div class="tools" style="margin-top: 0;">
-    <div class="tool-card">
-      <i class="fas fa-clock" style="font-size: 2.5rem; color:#0E4A5C;"></i>
-      <h3>Prayer Times (London)</h3>
-      <p id="prayerTimeDisplay" style="font-weight: 600;">Loading...</p>
-    </div>
-    <div class="tool-card">
-      <i class="fas fa-calendar-alt" style="font-size: 2.5rem; color:#0E4A5C;"></i>
-      <h3>Hijri Date</h3>
-      <p id="hijriDateDisplay">Loading...</p>
-    </div>
-  </div>
+<!-- 3 Core Innovative Widgets Row -->
+<div class="grid-3" style="padding:0 5%;">
+  <div class="card"><i class="fas fa-chart-line" style="font-size:2rem;color:#FFB347;"></i><h3>📿 Spiritual Tracker</h3><p>Log today's deeds: Prayer ✓, Quran ✓, Fasting ✓, Charity ✓</p><div id="deedTracker"><button id="prayerBtn">➕ Prayer</button> <button id="quranBtn">➕ Quran</button> <button id="fastBtn">➕ Fast</button> <button id="charityBtn">➕ Charity</button><p id="deedScore">Today's Score: 0</p></div><button id="resetDeedsBtn" style="background:#eee;border:none;padding:5px 10px;">Reset Day</button></div>
+  
+  <div class="card"><i class="fas fa-map-marker-alt"></i><h3>🕌 Nearest Mosque & Qibla</h3><button id="findMosqueBtn" class="btn-primary" style="background:#0E4A5C;">Find Mosques Near Me</button><p id="mosqueResult" style="margin-top:12px;"></p><div id="qiblaDirection">Qibla: <span id="qiblaDeg">--</span>°</div></div>
+  
+  <div class="card"><i class="fas fa-palette"></i><h3>🎨 Islamic Art Generator</h3><input type="text" id="artName" placeholder="Enter name (e.g., Allah, Muhammad)" value="Allah"><button id="generateArtBtn">Generate Calligraphy</button><canvas id="artCanvas" width="200" height="100" style="margin-top:12px;border:1px solid #ccc;width:100%;background:#f9f2e0;"></canvas><button id="downloadArtBtn" style="margin-top:6px;">Download PNG</button></div>
+</div>
+
+<!-- Prayer Times + Countdown + Geolocation -->
+<div class="grid-2" style="padding:0 5%;">
+  <div class="card"><i class="fas fa-clock"></i><h3>⏰ Smart Prayer Times + Countdown</h3><button id="getLocationPrayer" class="btn-primary">📍 Use My Location</button><div id="prayerTimesDisplay"><p>Fajr: --</p><p>Dhuhr: --</p><p>Asr: --</p><p>Maghrib: --</p><p>Isha: --</p></div><div><strong>Next Prayer: <span id="nextPrayerName">--</span> in <span id="countdownTimer">--</span></strong></div></div>
+  
+  <div class="card"><i class="fas fa-microphone-alt"></i><h3>🎙️ Voice-Activated Dua</h3><button id="startVoiceBtn" class="btn-primary"><i class="fas fa-microphone"></i> Say a Dua (Bismillah / Alhamdulillah / SubhanAllah)</button><p id="voiceResult">Click and speak, the dua will appear.</p><audio id="duaAudio" src=""></audio></div>
+</div>
+
+<!-- Adaptive Learning Path & Quiz Leaderboard -->
+<div class="grid-2" style="padding:0 5%;">
+  <div class="card"><h3><i class="fas fa-road"></i> Adaptive Learning Path</h3><p id="userLevelDisplay">Your level: <strong id="levelText">Beginner</strong></p><button id="levelQuizBtn">Take Placement Quiz (5 Qs)</button><div id="adaptiveContent"><p id="recommendedContent">🌟 Recommended: Learn basics of Tawhid, 5 pillars.</p></div></div>
+  
+  <div class="card"><h3><i class="fas fa-trophy"></i> Quiz Leaderboard (Local)</h3><div id="quizLeaderboard"><p>Top Scores:</p><ul id="leaderboardList"><li>No scores yet</li></ul></div><button id="resetLeaderboardBtn" style="background:#eee;">Reset Leaderboard</button></div>
+</div>
+
+<!-- Full Quiz Section with Score Saving -->
+<section id="quizSection" style="padding:2rem 5%;">
+  <div class="quiz-card"><h2>📖 Islamic Quiz (Save your highscore)</h2><div class="quiz-progress"><div id="progressFillQuiz"></div></div><h3 id="quizQuestion"></h3><ul id="quizOptionsList" class="quiz-options" style="list-style:none;"></ul><div id="quizFeedbackMsg"></div><div><button id="quizPrevBtn">Previous</button> <button id="quizNextBtn">Next</button></div><p id="quizCurrentScore">Score: 0</p><div id="quizFinalResult"></div><button id="retryQuizBtn" style="display:none;">⟳ Retry Quiz</button></div>
 </section>
 
-<section id="features">
-  <h2 class="section-title" data-lang="features-title">Discover Islam</h2>
-  <div class="cards">
-    <div class="card"><i class="fas fa-book-quran" style="font-size: 3rem; color:#FFB347;"></i><h3 data-lang="quran-title">Qur’an</h3><p data-lang="quran-desc">Read, listen, and understand the Qur’an with translation and tafsir in multiple languages.</p></div>
-    <div class="card"><i class="fas fa-hadith" style="font-size: 3rem; color:#FFB347;"></i><h3 data-lang="hadith-title">Hadith</h3><p data-lang="hadith-desc">Authentic hadith collections explained for all ages in a simple, trustworthy format.</p></div>
-    <div class="card"><i class="fas fa-child" style="font-size: 3rem; color:#FFB347;"></i><h3 data-lang="kids-title">Kids Zone</h3><p data-lang="kids-desc">Fun Islamic learning for children — stories, dua animations, nasheeds, and games.</p></div>
-    <div class="card"><i class="fas fa-globe-asia" style="font-size: 3rem; color:#FFB347;"></i><h3 data-lang="community-title">Global Community</h3><p data-lang="community-desc">Connect with Muslims around the world. Learn, share, and grow together in faith.</p></div>
-  </div>
-</section>
+<!-- AI Chatbot Floating -->
+<button class="chatbot-btn" id="openChatbot"><i class="fas fa-robot"></i> RuhAI Assistant</button>
+<div class="chat-window" id="chatWindow"><div class="chat-header">🤖 RuhAI - Islamic AI <span style="float:right;cursor:pointer;" id="closeChat">✖</span></div><div class="chat-messages" id="chatMessages"><p>Assalamu Alaikum! Ask me about Islam, duas, or prayers.</p></div><div class="chat-input-area"><input type="text" id="chatInput" placeholder="Ask a question..."><button id="sendChatBtn">Send</button></div></div>
 
-<section id="learn" style="background: linear-gradient(120deg, #EFF7FC, #ffffff); border-radius: 40px; margin: 0 5%;">
-  <h2 class="section-title" data-lang="learn-title">Join Our Learning Platform</h2>
-  <p style="text-align:center; max-width:600px; margin:auto;" data-lang="learn-desc">Free online Islamic courses by trusted scholars. Learn at your pace, anytime, anywhere.</p>
-  <div style="text-align:center; margin-top: 2rem;"><a href="#" class="btn-primary" data-lang="learn-btn">Start Learning <i class="fas fa-graduation-cap"></i></a></div>
-</section>
-
-<!-- Enhanced Quiz Section -->
-<section id="quiz">
-  <h2 class="section-title">📖 Islamic Knowledge Challenge</h2>
-  <div id="quizContent" class="quiz-card">
-    <div class="quiz-progress"><div id="progressFill"></div></div>
-    <h3 id="quizQuestion" class="quiz-question" style="font-size:1.5rem; margin-bottom:1.2rem;"></h3>
-    <ul id="quizOptions" class="quiz-options" style="list-style:none;"></ul>
-    <div id="quizFeedback" class="quiz-feedback" style="margin:1rem 0;"></div>
-    <div class="quiz-navigation" style="display: flex; justify-content: space-between;">
-      <button id="prevBtn" style="background:#0E4A5C; color:white; border:none; padding:8px 18px; border-radius:40px;">‹ Previous</button>
-      <button id="nextBtn" style="background:#0E4A5C; color:white; border:none; padding:8px 18px; border-radius:40px;">Next ›</button>
-    </div>
-    <p id="quizScore" class="quiz-score" style="margin-top: 1rem; font-weight:600;">Score: 0</p>
-    <div id="quizResult" class="quiz-result" style="display:none; margin-top: 1rem;"></div>
-    <button id="retryBtn" style="display: none; background:#FFB347; border:none; padding:8px 24px; border-radius:40px; margin-top:1rem;">⟳ Try Again</button>
-  </div>
-</section>
-
-<section class="reminder">
-  <h2><i class="fas fa-star-and-crescent"></i> Daily Reminder</h2>
-  <blockquote data-lang="reminder-blockquote">“And fear the Fire, which has been prepared for the disbelievers. And obey Allah and the Messenger so that you may receive mercy.” <cite>— Surah Al-Imran [3:131-132]</cite></blockquote>
-</section>
-
-<section id="tools">
-  <h2 class="section-title" data-lang="tools-title">Daily Islamic Tools</h2>
-  <div class="tools">
-    <div class="tool-card"><i class="fas fa-mosque" style="font-size: 2.5rem;"></i><h3 data-lang="tool-prayer-title">Prayer Times</h3><p data-lang="tool-prayer-desc">Check your local prayer times for each day easily.</p></div>
-    <div class="tool-card"><i class="fas fa-kaaba" style="font-size: 2.5rem;"></i><h3 data-lang="tool-qiblah-title">Qiblah Direction</h3><p data-lang="tool-qiblah-desc">Find the exact direction to pray anywhere in the world.</p></div>
-    <div class="tool-card"><i class="fas fa-hands-praying" style="font-size: 2.5rem;"></i><h3 data-lang="tool-dua-title">Dua of the Day</h3><p data-lang="tool-dua-desc">Daily duas to make your worship more meaningful.</p></div>
-    <div class="tool-card"><i class="fas fa-calendar-week" style="font-size: 2.5rem;"></i><h3 data-lang="tool-calendar-title">Hijri Calendar</h3><p data-lang="tool-calendar-desc">Check the Islamic date and important events easily.</p></div>
-  </div>
-</section>
-
-<section class="cta-banner">
-  <h2 data-lang="cta-title">Join Our Global Islamic Community Today!</h2>
-  <p data-lang="cta-desc">Get updates on daily reminders, learning courses, and community events.</p>
-  <a href="#" class="btn-primary" data-lang="cta-btn">Sign Up Now</a>
-</section>
-
-<section id="blog">
-  <h2 class="section-title" data-lang="blog-title">Islamic Articles</h2>
-  <div class="blog">
-    <div class="blog-card"><i class="fas fa-pray" style="font-size: 2rem;"></i><h3 data-lang="blog1-title">Importance of Salah</h3><p data-lang="blog1-desc">Learn why prayer is the cornerstone of a Muslim’s life and tips to improve your concentration.</p></div>
-    <div class="blog-card"><i class="fas fa-scroll" style="font-size: 2rem;"></i><h3 data-lang="blog2-title">Stories of the Prophets</h3><p data-lang="blog2-desc">Engaging stories for children and adults alike, teaching morals and faith lessons.</p></div>
-    <div class="blog-card"><i class="fas fa-moon" style="font-size: 2rem;"></i><h3 data-lang="blog3-title">Fasting and Ramadan</h3><p data-lang="blog3-desc">Understanding the spiritual benefits of fasting and how to maximize rewards.</p></div>
-  </div>
-</section>
-
-<section class="testimonials">
-  <h2 class="section-title" data-lang="testimonials-title">What Our Users Say</h2>
-  <div class="cards">
-    <div class="card"><i class="fas fa-quote-left" style="font-size:1.8rem; color:#FFB347;"></i><p data-lang="testimonial1">"OneUmmah has transformed my daily learning! The reminders keep me grounded in my faith."</p><cite>- Khalid, Malaysia</cite></div>
-    <div class="card"><i class="fas fa-quote-left" style="font-size:1.8rem; color:#FFB347;"></i><p data-lang="testimonial2">"I love the Kids Zone. My children enjoy Islamic stories and animations safely."</p><cite>- Umar, Italy</cite></div>
-  </div>
-</section>
-
-<footer>
-  <div><a href="#">Privacy Policy</a> | <a href="#">Terms</a> | <a href="#">Contact</a></div>
-  <div style="margin: 1rem 0;"><i class="fab fa-youtube"></i> <i class="fab fa-instagram"></i> <i class="fab fa-telegram"></i></div>
-  <p>© 2025 OneUmmah — Nurturing faith for every soul.</p>
-</footer>
+<footer><p>© 2025 OneUmmah | Innovation Award Edition — AI · Tracker · Voice · Art · PWA Ready</p></footer>
 <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
 
 <script>
-// DARK MODE
+// ---------------------- DARK MODE ----------------------
 const darkToggle = document.getElementById('darkToggle');
-darkToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-});
-if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+darkToggle.addEventListener('click',()=>{document.body.classList.toggle('dark');localStorage.setItem('theme',document.body.classList.contains('dark')?'dark':'light');});
+if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark');
 
-// LANGUAGE DYNAMIC (simplified professional mapping)
-const translations = {
-  en: { "hero-title":"Learn. Live. Love Islam — For All Generations","hero-desc":"Your one-stop Islamic platform for kids, youth, and adults around the world.","hero-btn":"Explore Now","cta-title":"Join Our Global Islamic Community Today!","cta-desc":"Get updates on daily reminders, learning courses, and community events.","cta-btn":"Sign Up Now","features-title":"Discover Islam","quran-title":"Qur’an","quran-desc":"Read, listen, and understand the Qur’an with translation and tafsir in multiple languages.","hadith-title":"Hadith","hadith-desc":"Authentic hadith collections explained for all ages in a simple, trustworthy format.","kids-title":"Kids Zone","kids-desc":"Fun Islamic learning for children — stories, dua animations, nasheeds, and games.","community-title":"Global Community","community-desc":"Connect with Muslims around the world. Learn, share, and grow together in faith.","learn-title":"Join Our Learning Platform","learn-desc":"Free online Islamic courses by trusted scholars. Learn at your pace, anytime, anywhere.","learn-btn":"Start Learning","reminder-blockquote":"“And fear the Fire, which has been prepared for the disbelievers. And obey Allah and the Messenger so that you may receive mercy.”","tools-title":"Daily Islamic Tools","tool-prayer-title":"Prayer Times","tool-prayer-desc":"Check your local prayer times for each day easily.","tool-qiblah-title":"Qiblah Direction","tool-qiblah-desc":"Find the exact direction to pray anywhere in the world.","tool-dua-title":"Dua of the Day","tool-dua-desc":"Daily duas to make your worship more meaningful.","tool-calendar-title":"Hijri Calendar","tool-calendar-desc":"Check the Islamic date and important events easily.","blog-title":"Islamic Articles","blog1-title":"Importance of Salah","blog1-desc":"Learn why prayer is the cornerstone of a Muslim’s life and tips to improve your concentration.","blog2-title":"Stories of the Prophets","blog2-desc":"Engaging stories for children and adults alike, teaching morals and faith lessons.","blog3-title":"Fasting and Ramadan","blog3-desc":"Understanding the spiritual benefits of fasting and how to maximize rewards.","testimonials-title":"What Our Users Say","testimonial1":"\"OneUmmah has transformed my daily learning! The reminders keep me grounded in my faith.\"","testimonial2":"\"I love the Kids Zone. My children enjoy Islamic stories and animations safely.\""},
-  ar: {"hero-title":"تعلّم. عِش. أحبّ الإسلام — لكل الأجيال","hero-desc":"منصة إسلامية شاملة للأطفال والشباب والبالغين حول العالم.","hero-btn":"اكتشف الآن","cta-title":"انضم إلى مجتمعنا الإسلامي العالمي اليوم!","cta-desc":"احصل على تحديثات حول التذكيرات اليومية والدورات التعليمية والفعاليات.","cta-btn":"سجل الآن","features-title":"اكتشف الإسلام","quran-title":"القرآن","quran-desc":"اقرأ واستمع وتفهم القرآن مع الترجمة والتفسير بلغات متعددة.","hadith-title":"الحديث","hadith-desc":"مجموعات حديثية موثوقة مبسطة لجميع الأعمار.","kids-title":"منطقة الأطفال","kids-desc":"تعليم إسلامي ممتع للأطفال — قصص، أدعية، أناشيد وألعاب.","community-title":"المجتمع العالمي","community-desc":"تواصل مع المسلمين حول العالم. تعلم وشارك وازدد إيماناً.","learn-title":"انضم إلى منصتنا التعليمية","learn-desc":"دورات إسلامية مجانية على يد علماء موثوقين.","learn-btn":"ابدأ التعلم","reminder-blockquote":"“واتقوا النار التي أعدت للكافرين وأطيعوا الله والرسول لعلكم ترحمون”","tools-title":"الأدوات اليومية","tool-prayer-title":"أوقات الصلاة","tool-prayer-desc":"تعرف على أوقات الصلاة المحلية بسهولة.","tool-qiblah-title":"اتجاه القبلة","tool-qiblah-desc":"حدد اتجاه القبلة الصحيح في أي مكان.","tool-dua-title":"دعاء اليوم","tool-dua-desc":"أدعية يومية تجعل عبادتك أكثر عمقاً.","tool-calendar-title":"التقويم الهجري","tool-calendar-desc":"تعرف على التاريخ الإسلامي والأحداث الهامة.","blog-title":"مقالات إسلامية","blog1-title":"أهمية الصلاة","blog1-desc":"تعلّم لماذا الصلاة هي عمود الدين وكيف تحسن خشوعك.","blog2-title":"قصص الأنبياء","blog2-desc":"قصص شيقة للأطفال والكبار تعلم الأخلاق والإيمان.","blog3-title":"الصيام ورمضان","blog3-desc":"فهم الفوائد الروحية للصيام وكيفية زيادة الأجر.","testimonials-title":"آراء المستخدمين","testimonial1":"\"لقد غيرت OneUmmah تعلمي اليومي! التذكيرات تبقيني ثابتاً في إيماني.\"","testimonial2":"\"أحب منطقة الأطفال. يستمتع أطفالي بالقصص والرسوم المتحركة الإسلامية بأمان.\""},
-  ms: {"hero-title":"Belajar. Amalkan. Cintai Islam — Untuk Semua Generasi","hero-desc":"Platform Islam lengkap untuk kanak-kanak, remaja dan dewasa seluruh dunia.","hero-btn":"Terokai Sekarang","cta-title":"Sertai Komuniti Islam Global Hari Ini!","cta-desc":"Dapatkan kemaskini peringatan harian, kelas pembelajaran dan aktiviti komuniti.","cta-btn":"Daftar Sekarang","features-title":"Terokai Islam","quran-title":"Al-Quran","quran-desc":"Baca, dengar, dan fahami Al-Quran dengan terjemahan dan tafsir pelbagai bahasa.","hadith-title":"Hadis","hadith-desc":"Koleksi hadis sahih yang diterangkan secara ringkas untuk semua peringkat umur.","kids-title":"Zon Kanak-Kanak","kids-desc":"Pembelajaran Islam yang menyeronokkan untuk kanak-kanak — cerita, doa, nasyid dan permainan.","community-title":"Komuniti Global","community-desc":"Berhubung dengan Muslim di seluruh dunia. Belajar, kongsi dan berkembang dalam iman.","learn-title":"Sertai Platform Pembelajaran Kami","learn-desc":"Kursus Islam percuma oleh ulama terpercaya. Belajar bila-bila masa.","learn-btn":"Mulakan Pembelajaran","reminder-blockquote":"“Dan takutilah api neraka yang disediakan untuk orang kafir. Taatilah Allah dan Rasul supaya kamu mendapat rahmat.”","tools-title":"Alat Harian Islam","tool-prayer-title":"Waktu Solat","tool-prayer-desc":"Semak waktu solat tempatan setiap hari.","tool-qiblah-title":"Arah Kiblat","tool-qiblah-desc":"Cari arah tepat untuk solat di mana saja.","tool-dua-title":"Doa Harian","tool-dua-desc":"Doa harian untuk menjadikan ibadah lebih bermakna.","tool-calendar-title":"Kalendar Hijri","tool-calendar-desc":"Semak tarikh Islam dan acara penting.","blog-title":"Artikel Islam","blog1-title":"Kepentingan Solat","blog1-desc":"Ketahui mengapa solat adalah tiang agama dan petua meningkatkan tumpuan.","blog2-title":"Kisah Para Nabi","blog2-desc":"Cerita menarik untuk kanak-kanak dan dewasa, mengajar nilai akhlak.","blog3-title":"Puasa dan Ramadan","blog3-desc":"Memahami manfaat rohani puasa dan cara memaksimumkan ganjaran.","testimonials-title":"Apa Kata Pengguna","testimonial1":"\"OneUmmah mengubah pembelajaran harian saya! Peringatan menjadikan iman lebih mantap.\"","testimonial2":"\"Saya suka Zon Kanak-Kanak. Anak-anak saya seronok dengan cerita dan animasi Islam.\""},
-  ur: {"hero-title":"سیکھیں۔ جئیں۔ اسلام سے محبت کریں — ہر نسل کے لیے","hero-desc":"آپ کے لیے ایک مکمل اسلامی پلیٹ فارم۔","hero-btn":"ابھی دیکھیں","cta-title":"آج ہی ہمارے عالمی اسلامی کمیونٹی میں شامل ہوں!","cta-desc":"روزانہ یاد دہانی، کورسز اور کمیونٹی اپڈیٹس حاصل کریں۔","cta-btn":"ابھی رجسٹر کریں","features-title":"اسلام دریافت کریں","quran-title":"قرآن","quran-desc":"ترجمہ اور تفسیر کے ساتھ قرآن پڑھیں، سنیں اور سمجھیں۔","hadith-title":"حدیث","hadith-desc":"مستند احادیث آسان اور قابل اعتماد انداز میں۔","kids-title":"بچوں کا زون","kids-desc":"بچوں کے لیے تفریحی اسلامی تعلیم — کہانیاں، دعائیں، نعتیں اور کھیل۔","community-title":"عالمی کمیونٹی","community-desc":"دنیا بھر کے مسلمانوں سے جڑیں۔","learn-title":"ہمارے لرننگ پلیٹ فارم میں شامل ہوں","learn-desc":"مستند علماء کے مفت آن لائن اسلامی کورسز۔","learn-btn":"تعلیم شروع کریں","reminder-blockquote":"“اور اس آگ سے ڈرو جو کافروں کے لیے تیار کی گئی ہے اور اللہ اور رسول کی اطاعت کرو تاکہ تم پر رحم کیا جائے۔”","tools-title":"یومیہ اسلامی ٹولز","tool-prayer-title":"نماز کے اوقات","tool-prayer-desc":"آسانی سے مقامی نماز کے اوقات چیک کریں۔","tool-qiblah-title":"قبلہ سمت","tool-qiblah-desc":"دنیا میں کہیں بھی نماز کے لیے صحیح سمت تلاش کریں۔","tool-dua-title":"یومیہ دعا","tool-dua-desc":"بامعنی عبادت کے لیے یومیہ دعائیں۔","tool-calendar-title":"ہجری کیلنڈر","tool-calendar-desc":"اسلامی تاریخ اور اہم واقعات چیک کریں۔","blog-title":"اسلامی مضامین","blog1-title":"نماز کی اہمیت","blog1-desc":"نماز کو مسلمانوں کی زندگی کا مرکز کیوں بنایا گیا۔","blog2-title":"انبیاء کے قصص","blog2-desc":"بچوں اور بڑوں کے لیے دلچسپ کہانیاں جو اخلاقی سبق سکھاتی ہیں۔","blog3-title":"روزہ اور رمضان","blog3-desc":"روزے کے روحانی فوائد اور ثواب بڑھانے کے طریقے۔","testimonials-title":"صارفین کے تجربات","testimonial1":"\"OneUmmah نے میرے روزانہ سیکھنے کو بدل دیا! یہ یقین میں مضبوطی دیتا ہے۔\"","testimonial2":"\"مجھے بچوں کا زون پسند ہے۔ میرے بچے محفوظ طریقے سے اسلامی کہانیاں اور اینیمیشن دیکھتے ہیں۔\""}
-};
+// ---------------------- QURAN VERSE + AUDIO + SHARE (API) ----------------------
+async function fetchVerseOfDay(){ try{
+  let res=await fetch('https://api.alquran.cloud/v1/ayah/262/editions/en.sahih,ar.alafasy');
+  let data=await res.json(); let ayahData=data.data[0]; let text=ayahData.text; let sura=ayahData.surah.name; let num=ayahData.numberInSurah;
+  document.getElementById('dailyAyahText').innerHTML=`“${text}”`; document.getElementById('dailyAyahSource').innerHTML=`— ${sura} (${num})`;
+  localStorage.setItem('lastAyah',JSON.stringify({text,source:`${sura} (${num})`}));
+  let audioUrl=`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${262}.mp3`;
+  document.getElementById('quranAudio').src=audioUrl;
+}catch(e){ document.getElementById('dailyAyahText').innerHTML='“Indeed, with hardship comes ease.”'; document.getElementById('dailyAyahSource').innerHTML='— Ash-Sharh 94:6'; }}
+fetchVerseOfDay();
+document.getElementById('playAyahAudio').onclick=()=>{ let audio=document.getElementById('quranAudio'); audio.play(); };
+document.getElementById('shareAyahBtn').onclick=()=>{ let txt=document.getElementById('dailyAyahText').innerText; navigator.share?navigator.share({title:'Ayah of the Day',text:txt}):alert('Share: '+txt); };
 
-const langSelect = document.getElementById('languageSwitcher');
-function applyLanguage(lang) {
-  const dict = translations[lang] || translations.en;
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    const key = el.getAttribute('data-lang');
-    if(dict[key]) el.innerText = dict[key];
-  });
-}
-langSelect.addEventListener('change', (e) => applyLanguage(e.target.value));
-applyLanguage('en');
+// ---------------------- SPIRITUAL TRACKER (localStorage) ----------------------
+let deeds={prayer:0,quran:0,fast:0,charity:0};
+function loadDeeds(){ let d=localStorage.getItem('deeds'); if(d) deeds=JSON.parse(d); updateDeedUI(); }
+function updateDeedUI(){ let total=deeds.prayer+deeds.quran+deeds.fast+deeds.charity; document.getElementById('deedScore').innerText=`Today's Score: ${total}`; }
+document.getElementById('prayerBtn').onclick=()=>{ deeds.prayer++; localStorage.setItem('deeds',JSON.stringify(deeds)); updateDeedUI(); };
+document.getElementById('quranBtn').onclick=()=>{ deeds.quran++; localStorage.setItem('deeds',JSON.stringify(deeds)); updateDeedUI(); };
+document.getElementById('fastBtn').onclick=()=>{ deeds.fast++; localStorage.setItem('deeds',JSON.stringify(deeds)); updateDeedUI(); };
+document.getElementById('charityBtn').onclick=()=>{ deeds.charity++; localStorage.setItem('deeds',JSON.stringify(deeds)); updateDeedUI(); };
+document.getElementById('resetDeedsBtn').onclick=()=>{ deeds={prayer:0,quran:0,fast:0,charity:0}; localStorage.setItem('deeds',JSON.stringify(deeds)); updateDeedUI(); };
+loadDeeds();
 
-// AYAH ROTATOR
-const ayahs = [
-  {text:"“Indeed, with hardship [will be] ease.”", source:"Surah Ash-Sharh (94:6)"},
-  {text:"“So remember Me; I will remember you.”", source:"Surah Al-Baqarah (2:152)"},
-  {text:"“And He is with you wherever you are.”", source:"Surah Al-Hadid (57:4)"},
-  {text:"“Verily, in the remembrance of Allah do hearts find rest.”", source:"Surah Ar-Ra'd (13:28)"}
-];
-let ayahIdx = 0;
-const ayahTextSpan = document.getElementById('ayahText');
-function updateAyah() {
-  ayahTextSpan.style.opacity = '0';
-  setTimeout(() => {
-    ayahTextSpan.innerHTML = `${ayahs[ayahIdx].text} <span class="source">— ${ayahs[ayahIdx].source}</span>`;
-    ayahTextSpan.style.opacity = '1';
-  }, 200);
+// ---------------------- PRAYER TIMES + GEOLOCATION + COUNTDOWN ----------------------
+let prayerTimings={};
+async function fetchPrayerTimes(lat,lng){ let url=`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lng}&method=2`; let res=await fetch(url); let data=await res.json(); let timings=data.data.timings; prayerTimings=timings;
+  document.getElementById('prayerTimesDisplay').innerHTML=`<p>Fajr: ${timings.Fajr}</p><p>Dhuhr: ${timings.Dhuhr}</p><p>Asr: ${timings.Asr}</p><p>Maghrib: ${timings.Maghrib}</p><p>Isha: ${timings.Isha}</p>`;
+  startCountdown(timings);
 }
-document.getElementById('nextAyah').onclick = () => { ayahIdx = (ayahIdx+1)%ayahs.length; updateAyah(); };
-document.getElementById('prevAyah').onclick = () => { ayahIdx = (ayahIdx-1+ayahs.length)%ayahs.length; updateAyah(); };
+function startCountdown(timings){ let prayerOrder=['Fajr','Dhuhr','Asr','Maghrib','Isha']; let now=new Date(); let currentTime=now.getHours()*60+now.getMinutes(); let next=null; let nextName='';
+  for(let p of prayerOrder){ let [h,m]=timings[p].split(':'); let minutes=parseInt(h)*60+parseInt(m); if(minutes>currentTime){ next=minutes; nextName=p; break; } }
+  if(!next){ let [h,m]=timings['Fajr'].split(':'); next=parseInt(h)*60+parseInt(m)+1440; nextName='Fajr'; }
+  function update(){ let diff=next-(new Date().getHours()*60+new Date().getMinutes()); if(diff<0) diff+=1440; let hours=Math.floor(diff/60); let mins=diff%60; document.getElementById('countdownTimer').innerText=`${hours}h ${mins}m`; document.getElementById('nextPrayerName').innerText=nextName; }
+  update(); setInterval(update,1000);
+}
+document.getElementById('getLocationPrayer').onclick=()=>{ if(navigator.geolocation){ navigator.geolocation.getCurrentPosition(pos=>fetchPrayerTimes(pos.coords.latitude,pos.coords.longitude),()=>alert('Location denied, using default London')); } else alert('Geo not supported'); };
+fetchPrayerTimes(51.5074,-0.1278); // London default
 
-// HIJRI & PRAYER (demo realistic)
-function loadHijri() {
-  const today = new Date();
-  const hijri = today.toLocaleDateString('ar-SA-u-ca-islamic', { year:'numeric', month:'long', day:'numeric' });
-  document.getElementById('hijriDateDisplay').innerHTML = hijri;
-}
-loadHijri();
-document.getElementById('prayerTimeDisplay').innerHTML = "Fajr 05:12 | Dhuhr 12:42 | Asr 16:20 | Maghrib 18:55 | Isha 20:30";
+// Mosque Locator (Overpass)
+document.getElementById('findMosqueBtn').onclick=()=>{ if(navigator.geolocation){ navigator.geolocation.getCurrentPosition(async pos=>{ let lat=pos.coords.latitude; let lon=pos.coords.longitude; let overpass=`https://overpass-api.de/api/interpreter?data=[out:json];node[amenity=place_of_worship][religion=muslim](around:3000,${lat},${lon});out 5;`; try{ let res=await fetch(overpass); let data=await res.json(); let names=data.elements.slice(0,3).map(e=>e.tags.name||'Mosque').join(', '); document.getElementById('mosqueResult').innerHTML=`🕌 Nearby: ${names||'Mosques found, check map'}`; }catch(e){ document.getElementById('mosqueResult').innerHTML='Could not load mosques.'; } }); }else alert('Location needed'); };
+// Qibla simple
+if( navigator.geolocation){ navigator.geolocation.getCurrentPosition(p=>{ let lat=p.coords.latitude, lon=p.coords.longitude; let qibla=Math.atan2(Math.sin(2.0*Math.PI/180 - lon*Math.PI/180),Math.cos(lat*Math.PI/180)*Math.tan(21.4*Math.PI/180)-Math.sin(lat*Math.PI/180)*Math.cos(2.0*Math.PI/180 - lon*Math.PI/180)); qibla=qibla*180/Math.PI; document.getElementById('qiblaDeg').innerText=Math.round(qibla); });}
 
-// QUIZ SYSTEM (complete)
-const quizData = [
-  { question:"Who is the last Prophet in Islam?", options:["Prophet Isa","Prophet Musa","Prophet Muhammad ﷺ","Prophet Ibrahim"], answer:2 },
-  { question:"How many daily prayers are obligatory?", options:["3","5","4","6"], answer:1 },
-  { question:"What is the holy book of Islam?", options:["Torah","Bible","Qur'an","Zabur"], answer:2 },
-  { question:"Meaning of Tawhid?", options:["Belief in one Allah","Belief in many gods","Worshipping angels","Following desires"], answer:0 },
-  { question:"Which breaks Tawhid Uluhiyyah?", options:["Dua to Allah","Asking dead saints","Reading Qur'an","Giving charity"], answer:1 },
-  { question:"Shirk Akbar leads to?", options:["More rewards","Purification","Leaving Islam","Fasting becomes wajib"], answer:2 },
-  { question:"Example of minor shirk?", options:["Riya (showing off)","Drinking water","Doing dhikr","Reading Surah Al-Kahf"], answer:0 },
-  { question:"Opposite of Tawhid?", options:["Taqwa","Shirk","Sabar","Ihsan"], answer:1 },
-  { question:"Why was mankind created?", options:["To play","To compete","To worship Allah","To collect wealth"], answer:2 }
-];
-let currentQ = 0, userScore = 0, answered = false;
-const quizQuestionDiv = document.getElementById('quizQuestion');
-const quizOptionsUl = document.getElementById('quizOptions');
-const quizFeedbackDiv = document.getElementById('quizFeedback');
-const quizScoreSpan = document.getElementById('quizScore');
-const progressFillDiv = document.getElementById('progressFill');
-const prevBtnQ = document.getElementById('prevBtn');
-const nextBtnQ = document.getElementById('nextBtn');
-const retryBtnQuiz = document.getElementById('retryBtn');
-const quizResultDiv = document.getElementById('quizResult');
-function loadQuiz() {
-  answered = false;
-  const qData = quizData[currentQ];
-  quizQuestionDiv.innerText = qData.question;
-  quizOptionsUl.innerHTML = '';
-  quizFeedbackDiv.innerText = '';
-  qData.options.forEach((opt, idx) => {
-    const li = document.createElement('li');
-    const btn = document.createElement('button');
-    btn.innerText = opt;
-    btn.onclick = () => {
-      if(answered) return;
-      answered = true;
-      if(idx === qData.answer) {
-        btn.classList.add('correct');
-        quizFeedbackDiv.innerText = '✅ Correct!';
-        userScore++;
-      } else {
-        btn.classList.add('wrong');
-        quizFeedbackDiv.innerText = `❌ Wrong. Correct answer: ${qData.options[qData.answer]}`;
-      }
-      quizScoreSpan.innerText = `Score: ${userScore}`;
-      [...quizOptionsUl.querySelectorAll('button')].forEach(b => b.disabled = true);
-    };
-    li.appendChild(btn);
-    quizOptionsUl.appendChild(li);
-  });
-  const progress = ((currentQ) / quizData.length) * 100;
-  progressFillDiv.style.width = `${progress}%`;
-  nextBtnQ.disabled = false;
-}
-function showFinalResult() {
-  document.querySelector('.quiz-question').style.display = 'none';
-  quizOptionsUl.style.display = 'none';
-  quizFeedbackDiv.style.display = 'none';
-  document.querySelector('.quiz-navigation').style.display = 'none';
-  quizResultDiv.style.display = 'block';
-  quizResultDiv.innerHTML = `<h3>✨ Quiz Completed ✨</h3><p>Your Score: ${userScore} / ${quizData.length}</p><button id="retryBtnInner" style="background:#FFB347; border:none; padding:8px 20px; border-radius:40px;">Try Again</button>`;
-  document.getElementById('retryBtnInner')?.addEventListener('click', resetQuiz);
-  retryBtnQuiz.style.display = 'inline-block';
-}
-function resetQuiz() {
-  currentQ = 0; userScore = 0; answered = false;
-  document.querySelector('.quiz-question').style.display = 'block';
-  quizOptionsUl.style.display = 'block';
-  quizFeedbackDiv.style.display = 'block';
-  document.querySelector('.quiz-navigation').style.display = 'flex';
-  quizResultDiv.style.display = 'none';
-  quizScoreSpan.innerText = 'Score: 0';
-  loadQuiz();
-  retryBtnQuiz.style.display = 'none';
-}
-nextBtnQ.onclick = () => {
-  if(currentQ + 1 < quizData.length) {
-    currentQ++;
-    loadQuiz();
-  } else {
-    showFinalResult();
-  }
-};
-prevBtnQ.onclick = () => { if(currentQ > 0) { currentQ--; loadQuiz(); } };
-retryBtnQuiz.onclick = resetQuiz;
-loadQuiz();
+// Voice Dua
+const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(SpeechRecognition){ let recognition=new SpeechRecognition(); recognition.lang='en'; recognition.continuous=false;
+  document.getElementById('startVoiceBtn').onclick=()=>{ recognition.start(); };
+  recognition.onresult=(e)=>{ let word=e.results[0][0].transcript.toLowerCase(); let duaMsg=''; if(word.includes('bismillah')) duaMsg='🤲 Dua: Bismillahir Rahmanir Rahim — In the name of Allah.'; else if(word.includes('alhamdulillah')) duaMsg='🤲 Dua: Alhamdulillah — All praise to Allah.'; else if(word.includes('subhanallah')) duaMsg='🤲 Dua: SubhanAllah — Glory be to Allah.'; else duaMsg=`You said: "${word}". Try "Bismillah", "Alhamdulillah", or "SubhanAllah".`; document.getElementById('voiceResult').innerHTML=duaMsg; let audio=new Audio(); if(duaMsg.includes('Bismillah')) audio.src='https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // placeholder sound but we just show text
+  };
+} else { document.getElementById('startVoiceBtn').disabled=true; document.getElementById('voiceResult').innerHTML='Voice not supported'; }
 
-// Back to top
-const topBtn = document.getElementById('topBtn');
-window.onscroll = () => { topBtn.style.display = window.scrollY > 400 ? 'flex' : 'none'; };
-topBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+// Islamic Art Generator
+let canvas=document.getElementById('artCanvas'), ctx=canvas.getContext('2d');
+function generateCalligraphy(){ let name=document.getElementById('artName').value; canvas.width=300; canvas.height=120; ctx.fillStyle='#f9f2e0'; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.fillStyle='#0B2B40'; ctx.font='bold 32px "Segoe UI", "Arabic Typesetting"'; ctx.textAlign='center'; ctx.fillText(name,canvas.width/2,canvas.height/2+10); }
+document.getElementById('generateArtBtn').onclick=generateCalligraphy;
+document.getElementById('downloadArtBtn').onclick=()=>{ let link=document.createElement('a'); link.download='islamic_art.png'; link.href=canvas.toDataURL(); link.click(); };
+generateCalligraphy();
+
+// Adaptive Learning Path (placement quiz)
+let userLevel=localStorage.getItem('userLevel')||'Beginner';
+document.getElementById('levelText').innerText=userLevel;
+function updateAdaptiveContent(){ let content= userLevel==='Beginner'?'🌟 Recommended: Learn 5 Pillars, Tawhid basics.':'📘 Advanced: Deep dive into Tafsir, Seerah, Fiqh.'; document.getElementById('recommendedContent').innerHTML=content; }
+updateAdaptiveContent();
+document.getElementById('levelQuizBtn').onclick=()=>{ let score=0; let q=[{q:'What is Tawhid?',a:'Oneness of Allah'},{q:'How many daily prayers?',a:'5'}]; let ans1=prompt('Q1: What is Tawhid?'); if(ans1&&ans1.toLowerCase().includes('oneness')) score++; let ans2=prompt('Q2: How many daily obligatory prayers?'); if(ans2==='5') score++; userLevel=score>=2?'Advanced':'Beginner'; localStorage.setItem('userLevel',userLevel); document.getElementById('levelText').innerText=userLevel; updateAdaptiveContent(); alert(`You are now ${userLevel} level!`); };
+
+// Quiz Leaderboard (localStorage)
+let leaderboard=JSON.parse(localStorage.getItem('leaderboard'))||[];
+function renderLeaderboard(){ let ul=document.getElementById('leaderboardList'); ul.innerHTML=''; if(leaderboard.length===0) ul.innerHTML='<li>No scores yet. Finish quiz to save!</li>'; else leaderboard.sort((a,b)=>b.score-a.score).slice(0,5).forEach(entry=>{ let li=document.createElement('li'); li.innerText=`${entry.name||'User'}: ${entry.score}`; ul.appendChild(li); }); }
+renderLeaderboard();
+document.getElementById('resetLeaderboardBtn').onclick=()=>{ localStorage.removeItem('leaderboard'); leaderboard=[]; renderLeaderboard(); };
+
+// Full Quiz (with saving highscore)
+const quizData=[{question:"Who is last Prophet?",options:["Isa","Musa","Muhammad ﷺ","Ibrahim"],answer:2},{question:"Number of daily prayers?",options:["3","5","4","6"],answer:1},{question:"Holy book of Islam?",options:["Torah","Bible","Qur'an","Zabur"],answer:2},{question:"Meaning of Tawhid?",options:["Belief in one Allah","Polytheism","Worship idols","None"],answer:0},{question:"Which breaks Tawhid?",options:["Dua to Allah","Asking dead saints","Charity","Fasting"],answer:1}];
+let quizCurrent=0,quizScore=0,quizAnswered=false,quizUserAnswers=[];
+function loadQuizQuestion(){ let q=quizData[quizCurrent]; document.getElementById('quizQuestion').innerText=q.question; let container=document.getElementById('quizOptionsList'); container.innerHTML=''; q.options.forEach((opt,idx)=>{ let btn=document.createElement('button'); btn.innerText=opt; btn.onclick=()=>{ if(quizAnswered) return; quizAnswered=true; if(idx===q.answer){ btn.classList.add('correct'); quizScore++; }else{ btn.classList.add('wrong'); } document.getElementById('quizCurrentScore').innerText=`Score: ${quizScore}`; quizUserAnswers[quizCurrent]=idx===q.answer; let btns=container.querySelectorAll('button'); btns.forEach(b=>b.disabled=true); }; let li=document.createElement('li'); li.appendChild(btn); container.appendChild(li); }); let progress=(quizCurrent/quizData.length)*100; document.getElementById('progressFillQuiz').style.width=`${progress}%`; }
+document.getElementById('quizNextBtn').onclick=()=>{ if(!quizAnswered && quizCurrent<quizData.length-1){ alert('Please answer the question first'); return; } if(quizCurrent+1<quizData.length){ quizCurrent++; quizAnswered=false; loadQuizQuestion(); }else{ showQuizResult(); } };
+document.getElementById('quizPrevBtn').onclick=()=>{ if(quizCurrent>0){ quizCurrent--; quizAnswered=true; loadQuizQuestion(); } };
+function showQuizResult(){ let finalDiv=document.getElementById('quizFinalResult'); finalDiv.innerHTML=`<h3>Quiz Finished! Score: ${quizScore}/${quizData.length}</h3><button id="saveScoreBtn">Save to Leaderboard</button>`; document.getElementById('saveScoreBtn').onclick=()=>{ let name=prompt('Enter your name for leaderboard:','Muslim'); if(name){ leaderboard.push({name,score:quizScore}); localStorage.setItem('leaderboard',JSON.stringify(leaderboard)); renderLeaderboard(); alert('Score saved!'); } }; document.getElementById('retryQuizBtn').style.display='inline-block'; }
+document.getElementById('retryQuizBtn').onclick=()=>{ quizCurrent=0; quizScore=0; quizAnswered=false; quizUserAnswers=[]; document.getElementById('quizCurrentScore').innerText='Score: 0'; document.getElementById('quizFinalResult').innerHTML=''; document.getElementById('retryQuizBtn').style.display='none'; loadQuizQuestion(); };
+loadQuizQuestion();
+
+// AI Chatbot (simple smart responses)
+const chatMessages=document.getElementById('chatMessages');
+function addBotMessage(msg){ let p=document.createElement('p'); p.innerHTML=`🤖 ${msg}`; chatMessages.appendChild(p); chatMessages.scrollTop=chatMessages.scrollHeight; }
+function addUserMessage(msg){ let p=document.createElement('p'); p.innerHTML=`🧑 ${msg}`; chatMessages.appendChild(p); }
+document.getElementById('sendChatBtn').onclick=()=>{ let input=document.getElementById('chatInput'); let text=input.value.trim(); if(!text) return; addUserMessage(text); let reply=''; let lower=text.toLowerCase(); if(lower.includes('salah')||lower.includes('pray')) reply='Salah is the second pillar of Islam. Pray 5 times daily facing Makkah.'; else if(lower.includes('zakat')) reply='Zakat is 2.5% of savings given to the poor, one of 5 pillars.'; else if(lower.includes('fast')) reply='Fasting Ramadan is obligatory, teaching self-discipline.'; else if(lower.includes('tawhid')) reply='Tawhid means the Oneness of Allah. It is the core of Islamic belief.'; else reply='JazakAllah! I am learning. Please ask about Salah, Zakat, Fasting, Tawhid, or Quran.'; addBotMessage(reply); input.value=''; };
+document.getElementById('openChatbot').onclick=()=>{ document.getElementById('chatWindow').style.display='flex'; };
+document.getElementById('closeChat').onclick=()=>{ document.getElementById('chatWindow').style.display='none'; };
+window.onload=()=>{ document.getElementById('chatWindow').style.display='none'; };
+
+// Top button
+let topBtn=document.getElementById('topBtn'); window.onscroll=()=>{ topBtn.style.display=window.scrollY>300?'block':'none'; }; topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+// PWA service worker mock
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('/sw.js').catch(()=>console.log('PWA offline mock')); }
 </script>
 </body>
 </html>
