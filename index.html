@@ -1,462 +1,196 @@
-Absolutely! I understand completely. You want a **truly professional, official-looking** website that feels like a real product — not a "hackathon project." Let me rebuild OneUmmah with a **clean, premium, enterprise-grade design** that looks like a legitimate Islamic platform. All features remain fully functional, no images of living beings.
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="description" content="OneUmmah - Premium Islamic Platform. Quran, Hadith, Prayer Times, AI Assistant, and Islamic Learning Tools." />
-<meta name="theme-color" content="#0B2B40" />
-<title>OneUmmah | Premium Islamic Platform</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="OneUmmah - Islamic Platform with Google Gemini AI. Learn. Live. Love Islam." />
+<title>OneUmmah | Gemini AI Islamic Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
 :root {
-  --primary: #0B2B40;
-  --primary-light: #1A4A5E;
-  --accent: #C6A43B;
-  --accent-light: #DDBF5E;
-  --accent-dark: #9E7E2A;
-  --gray-50: #F8FAFC;
-  --gray-100: #F1F5F9;
-  --gray-200: #E2E8F0;
-  --gray-300: #CBD5E1;
-  --gray-600: #475569;
-  --gray-800: #1E293B;
+  --primary: #0B5E4F;
+  --accent: #D4AF37;
+  --accent-light: #E6C86A;
+  --cream: #FFF9F0;
+  --beige: #F5EDE0;
   --white: #FFFFFF;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+  --text-dark: #2C3E2F;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--gray-50);
-  color: var(--gray-800);
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 100%);
+  color: var(--text-dark);
   line-height: 1.5;
-  transition: background 0.2s, color 0.2s;
 }
-
-/* Premium Geometric Pattern */
-.bg-pattern {
-  background-image: radial-gradient(var(--gray-200) 1px, transparent 1px);
-  background-size: 32px 32px;
+.bg-pattern::before {
+  content: ""; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(212,175,55,0.08) 1.5px, transparent 1.5px);
+  background-size: 40px 40px; pointer-events: none; z-index: 0;
 }
-
-/* Header Premium */
+body > * { position: relative; z-index: 1; }
 .header {
-  background: var(--primary);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: var(--primary); position: sticky; top: 0; z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
-
 .header-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0.9rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
+  max-width: 1400px; margin: 0 auto; padding: 1rem 2rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
 }
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, var(--accent-light), var(--accent));
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-icon i { color: var(--primary); font-size: 1.2rem; }
-
-.logo-text {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: white;
-  letter-spacing: -0.3px;
-}
-
+.logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent-light), var(--accent)); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.logo-icon i { color: var(--primary); font-size: 1.3rem; }
+.logo-text { font-size: 1.6rem; font-weight: 800; color: white; }
 .logo-text span { color: var(--accent-light); }
-
-/* Navigation */
 .nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 500; transition: 0.2s; font-size: 0.95rem; }
-.nav-links a:hover { color: var(--accent-light); }
-
-.header-controls { display: flex; gap: 0.75rem; align-items: center; }
+.nav-links li a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; transition: 0.2s; cursor: pointer; }
+.nav-links li a:hover { color: var(--accent-light); }
+.header-controls { display: flex; gap: 0.75rem; }
 #darkToggle, #languageSwitcher {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  padding: 0.5rem 1rem;
-  border-radius: 40px;
-  color: white;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.85rem;
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5rem 1rem; border-radius: 40px; color: white; cursor: pointer;
 }
-
-/* Buttons */
-.btn-primary {
-  background: var(--accent);
-  color: var(--primary);
-  padding: 0.75rem 1.8rem;
-  border-radius: 60px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 0.9rem;
-}
-.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-
-.btn-outline {
-  background: transparent;
-  border: 1.5px solid var(--accent);
-  color: var(--accent);
-  padding: 0.7rem 1.6rem;
-  border-radius: 60px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.btn-outline:hover { background: var(--accent); color: var(--primary); }
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: white;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-.hero-content { max-width: 800px; margin: 0 auto; }
-.hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
-.hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; }
-
-/* Container */
+.btn-primary { background: var(--accent); color: var(--primary); padding: 0.8rem 2rem; border-radius: 60px; font-weight: 700; border: none; cursor: pointer; transition: 0.2s; }
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+.btn-outline { background: transparent; border: 1.5px solid var(--accent); color: var(--accent-dark); padding: 0.7rem 1.6rem; border-radius: 60px; font-weight: 600; cursor: pointer; }
+.hero { background: linear-gradient(135deg, var(--primary) 0%, #0E6B5A 100%); color: white; padding: 5rem 2rem; text-align: center; }
+.hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 1rem; }
 .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-
-/* Section Headers */
-.section-header { text-align: center; margin-bottom: 3rem; }
-.section-header h2 { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 0.75rem; }
-.section-header .section-divider { width: 60px; height: 3px; background: var(--accent); margin: 0 auto; border-radius: 3px; }
-.section-header p { color: var(--gray-600); margin-top: 0.75rem; }
-
-/* Cards Grid */
-.grid-3, .grid-2 { display: grid; gap: 2rem; margin: 2rem 0; }
+.grid-2, .grid-3 { display: grid; gap: 2rem; margin: 2rem 0; }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
-
-/* Premium Cards */
-.card {
-  background: var(--white);
-  border-radius: 24px;
-  padding: 1.8rem;
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.04);
-}
-.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
-.card-icon { font-size: 2rem; color: var(--accent); margin-bottom: 1rem; }
-.card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 700; }
-.card p { color: var(--gray-600); font-size: 0.9rem; }
-
-/* Quran Card Special */
-.quran-card {
-  background: linear-gradient(135deg, var(--white) 0%, #FDF8ED 100%);
-  border-radius: 28px;
-  padding: 2rem;
-  margin: 2rem auto;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(198,164,59,0.2);
-}
-
-/* Progress Bar */
-.progress-bar { background: var(--gray-200); border-radius: 100px; height: 8px; margin: 1rem 0; }
-.progress-fill { background: var(--accent); width: 0%; height: 100%; border-radius: 100px; transition: width 0.3s; }
-
-/* Quiz Options */
-.quiz-option {
-  width: 100%;
-  background: var(--gray-100);
-  border: 1px solid var(--gray-200);
-  padding: 1rem 1.5rem;
-  border-radius: 60px;
-  margin: 0.5rem 0;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.2s;
-  text-align: left;
-}
-.quiz-option:hover { background: var(--gray-200); border-color: var(--accent); }
-.quiz-option.correct { background: #2C7A47; color: white; border-color: #2C7A47; }
-.quiz-option.wrong { background: #C23B22; color: white; border-color: #C23B22; }
-
-/* Chatbot Premium */
-.chatbot-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 60px;
-  padding: 1rem 1.8rem;
-  cursor: pointer;
-  box-shadow: var(--shadow-xl);
-  z-index: 99;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: 0.2s;
-}
-.chatbot-btn:hover { transform: scale(1.02); background: var(--primary-light); }
-
-.chat-window {
-  position: fixed;
-  bottom: 6rem;
-  right: 2rem;
-  width: 420px;
-  max-width: calc(100vw - 2rem);
-  background: var(--white);
-  border-radius: 28px;
-  box-shadow: var(--shadow-xl);
-  display: none;
-  flex-direction: column;
-  z-index: 100;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.08);
-}
+.card { background: var(--white); border-radius: 28px; padding: 1.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transition: 0.3s; border: 1px solid rgba(212,175,55,0.15); }
+.card:hover { transform: translateY(-5px); }
+.card-icon { font-size: 2.2rem; color: var(--accent); margin-bottom: 1rem; }
+.calligraphy-card { background: linear-gradient(135deg, var(--white) 0%, #FFF8E8 100%); border: 2px solid rgba(212,175,55,0.3); }
+.style-badge { display: inline-block; padding: 0.35rem 1rem; background: #F5EDE0; border-radius: 40px; font-size: 0.75rem; font-weight: 700; margin: 0.25rem; cursor: pointer; }
+.style-badge.active { background: var(--accent); color: var(--primary); }
+.preview-canvas { width: 100%; background: #FFF9F0; border-radius: 20px; border: 2px solid var(--accent); margin-top: 1rem; cursor: pointer; }
+.quiz-option { width: 100%; background: #F8F3E8; border: 1px solid #E8DEC8; padding: 0.9rem 1.5rem; border-radius: 60px; margin: 0.5rem 0; cursor: pointer; }
+.quiz-option.correct { background: #2C7A47; color: white; }
+.quiz-option.wrong { background: #C23B22; color: white; }
+.chatbot-btn { position: fixed; bottom: 2rem; right: 2rem; background: var(--primary); color: white; border: none; border-radius: 60px; padding: 1rem 1.8rem; cursor: pointer; box-shadow: 0 16px 32px rgba(0,0,0,0.15); z-index: 99; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.chat-window { position: fixed; bottom: 6rem; right: 2rem; width: 450px; max-width: calc(100vw - 2rem); background: var(--white); border-radius: 28px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); display: none; flex-direction: column; z-index: 100; overflow: hidden; }
 .chat-header { background: var(--primary); color: white; padding: 1rem 1.5rem; font-weight: 700; display: flex; justify-content: space-between; }
-.chat-messages { height: 380px; overflow-y: auto; padding: 1rem; background: var(--gray-50); display: flex; flex-direction: column; gap: 0.75rem; }
-.chat-messages .bot { background: var(--gray-100); padding: 0.75rem 1rem; border-radius: 20px; border-bottom-left-radius: 6px; align-self: flex-start; max-width: 85%; font-size: 0.9rem; }
-.chat-messages .user { background: var(--accent); color: var(--primary); padding: 0.75rem 1rem; border-radius: 20px; border-bottom-right-radius: 6px; align-self: flex-end; max-width: 85%; font-size: 0.9rem; font-weight: 500; }
-.chat-input { display: flex; border-top: 1px solid var(--gray-200); background: white; }
-.chat-input input { flex: 1; padding: 1rem; border: none; outline: none; font-size: 0.9rem; }
+.chat-header-badge { background: var(--accent); color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; margin-left: 0.5rem; }
+.chat-messages { height: 400px; overflow-y: auto; padding: 1rem; background: #FCF8F0; display: flex; flex-direction: column; gap: 0.75rem; }
+.chat-messages .bot { background: #EDE3D0; padding: 0.75rem 1rem; border-radius: 20px; border-bottom-left-radius: 6px; align-self: flex-start; max-width: 85%; }
+.chat-messages .user { background: var(--accent); color: var(--primary); padding: 0.75rem 1rem; border-radius: 20px; border-bottom-right-radius: 6px; align-self: flex-end; max-width: 85%; }
+.typing-indicator { display: flex; gap: 4px; padding: 0.5rem 1rem; background: #EDE3D0; border-radius: 20px; width: fit-content; }
+.typing-indicator span { width: 8px; height: 8px; background: var(--accent-dark); border-radius: 50%; animation: typing 1.4s infinite; }
+@keyframes typing { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+.chat-input { display: flex; border-top: 1px solid #E8DEC8; background: white; }
+.chat-input input { flex: 1; padding: 1rem; border: none; outline: none; }
 .chat-input button { background: var(--accent); border: none; padding: 0 1.5rem; cursor: pointer; font-weight: 700; }
-
-/* Calligraphy Canvas */
-.calligraphy-canvas {
-  width: 100%;
-  background: #FDF8ED;
-  border-radius: 20px;
-  border: 2px solid var(--accent);
-  margin-top: 1rem;
-}
-
-/* Footer */
-.footer {
-  background: var(--primary);
-  color: rgba(255,255,255,0.7);
-  text-align: center;
-  padding: 2.5rem;
-  margin-top: 4rem;
-}
-.footer p { font-size: 0.85rem; }
-
-/* Dark Mode */
-body.dark { background: #0F1722; color: #E2E8F0; }
-body.dark .card, body.dark .quran-card, body.dark .chat-window { background: #1E293B; color: #E2E8F0; border-color: #334155; }
-body.dark .card p { color: #94A3B8; }
-body.dark .section-header h2 { color: #E2E8F0; }
-body.dark .quiz-option { background: #334155; border-color: #475569; color: white; }
-body.dark .chat-messages { background: #1E293B; }
-body.dark .chat-messages .bot { background: #334155; color: white; }
-
-/* Back to Top */
-#topBtn {
-  position: fixed;
-  bottom: 2rem;
-  left: 2rem;
-  background: var(--accent);
-  border: none;
-  border-radius: 50px;
-  width: 44px;
-  height: 44px;
-  cursor: pointer;
-  display: none;
-  z-index: 99;
-  box-shadow: var(--shadow-md);
-}
-
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .container { padding: 0 1.5rem; }
-  .chat-window { width: 340px; right: 1rem; bottom: 5rem; }
-  .chatbot-btn { right: 1rem; bottom: 1rem; padding: 0.75rem 1.2rem; }
-}
+.progress-bar { background: #EDE3D0; border-radius: 100px; height: 8px; margin: 1rem 0; }
+.progress-fill { background: var(--accent); width: 0%; height: 100%; border-radius: 100px; }
+.footer { background: var(--primary); color: rgba(255,255,255,0.8); text-align: center; padding: 2.5rem; margin-top: 4rem; }
+#topBtn { position: fixed; bottom: 2rem; left: 2rem; background: var(--accent); border: none; border-radius: 50px; width: 44px; height: 44px; cursor: pointer; display: none; z-index: 99; }
+.section { scroll-margin-top: 80px; }
+body.dark { background: #1A1A2E; color: #E8E8E8; }
+body.dark .card, body.dark .chat-window { background: #16213E; }
+body.dark .chat-messages { background: #1A1A2E; }
+body.dark .chat-messages .bot { background: #2A2A4A; color: white; }
+@media (max-width: 768px) { .hero h1 { font-size: 2rem; } .chat-window { width: 340px; } .nav-links { gap: 1rem; } }
 </style>
 </head>
 <body class="bg-pattern">
 
-<!-- Header -->
 <header class="header">
   <div class="header-container">
-    <div class="logo">
-      <div class="logo-icon"><i class="fas fa-moon"></i></div>
-      <div class="logo-text">One<span>Ummah</span></div>
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Qur'an</a></li>
-        <li><a href="#">Hadith</a></li>
-        <li><a href="#">Learn</a></li>
-        <li><a href="#">Community</a></li>
-      </ul>
-    </nav>
-    <div class="header-controls">
-      <select id="languageSwitcher"><option value="en">English</option><option value="ar">العربية</option></select>
-      <button id="darkToggle"><i class="fas fa-moon"></i></button>
-    </div>
+    <div class="logo" onclick="scrollToSection('home')"><div class="logo-icon"><i class="fas fa-moon"></i></div><div class="logo-text">One<span>Ummah</span></div></div>
+    <nav><ul class="nav-links">
+      <li><a onclick="scrollToSection('home')">Home</a></li>
+      <li><a onclick="scrollToSection('quran')">Qur'an</a></li>
+      <li><a onclick="scrollToSection('hadith')">Hadith</a></li>
+      <li><a onclick="scrollToSection('kids')">Kids Zone</a></li>
+      <li><a onclick="scrollToSection('learn')">Learn Islam</a></li>
+      <li><a onclick="scrollToSection('community')">Community</a></li>
+    </ul></nav>
+    <div class="header-controls"><select id="languageSwitcher"><option value="en">English</option><option value="ms">Malay</option></select><button id="darkToggle"><i class="fas fa-moon"></i></button></div>
   </div>
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Learn. Live. Love Islam.</h1>
-    <p>A comprehensive Islamic platform for the modern world — authentic knowledge, beautiful design, and powerful tools.</p>
-    <button id="openChatbotHero" class="btn-primary"><i class="fas fa-robot"></i> Ask RuhAI Assistant</button>
-  </div>
+<section id="home" class="hero section">
+  <div class="hero-content"><h1>Learn. Live. Love Islam — For All Generations</h1><p>Your Islamic platform with <strong>Google Gemini AI</strong> Assistant, Calligraphy Studio, and more.</p><button id="openChatbotHero" class="btn-primary"><i class="fas fa-robot"></i> Chat with Gemini AI</button></div>
 </section>
 
 <div class="container">
-  <!-- Quran Verse -->
-  <div class="quran-card">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-      <h3 style="font-size: 1.1rem; font-weight: 600;"><i class="fas fa-quran"></i> Qur'an Verse of the Day</h3>
-      <button id="shareAyahBtn" class="btn-outline" style="padding: 0.4rem 1.2rem; font-size: 0.8rem;"><i class="fas fa-share-alt"></i> Share</button>
-    </div>
-    <p id="dailyAyahText" style="font-size: 1.3rem; margin: 1.2rem 0; font-style: italic; line-height: 1.6;">Loading...</p>
-    <cite id="dailyAyahSource" style="color: var(--accent); font-weight: 500;"></cite>
-    <button id="playAyahAudio" class="btn-outline" style="margin-top: 1rem; padding: 0.5rem 1.2rem;"><i class="fas fa-headphones"></i> Listen to Recitation</button>
-    <audio id="quranAudio"></audio>
+  <div id="quran" class="grid-2 section">
+    <div class="card"><div class="card-icon"><i class="fas fa-quran"></i></div><h3>Qur'an Verse of the Day</h3><p id="dailyAyahText" style="font-size: 1.2rem; margin: 1rem 0; font-style: italic;">Loading...</p><cite id="dailyAyahSource"></cite><button id="playAyahAudio" class="btn-outline" style="margin-top: 1rem;"><i class="fas fa-headphones"></i> Listen</button><audio id="quranAudio"></audio></div>
+    <div class="card"><div class="card-icon"><i class="fas fa-hands-praying"></i></div><h3>Dua of the Day</h3><p id="duaOfDayText" style="font-size: 1.1rem; margin: 1rem 0; background: #F8F3E8; padding: 1rem; border-radius: 20px;">“Rabbana atina fid-dunya hasanah”</p><button id="nextDuaBtn" class="btn-outline">Next Dua →</button></div>
   </div>
 
-  <!-- Three Core Features -->
+  <div id="hadith" class="card section">
+    <div class="card-icon"><i class="fas fa-hadith"></i></div><h3>Hadith of the Day</h3>
+    <p id="hadithText" style="font-size: 1.1rem; margin: 1rem 0; font-style: italic;">“The best among you are those who learn the Qur'an and teach it.”</p>
+    <cite id="hadithSource">— Sahih Al-Bukhari</cite>
+    <button id="nextHadithBtn" class="btn-outline" style="margin-top: 0.75rem;">Next Hadith →</button>
+  </div>
+
+  <!-- Calligraphy Studio -->
+  <div class="calligraphy-card card">
+    <div class="card-icon"><i class="fas fa-pen-fancy"></i></div>
+    <h2 style="font-size: 1.6rem;">Islamic Calligraphy Studio</h2>
+    <p>6 Authentic Khat Styles: Kufi, Diwani, Thuluth, Naskh, Persian, Modern</p>
+    <div style="margin: 1rem 0;"><div id="styleContainer" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+      <span data-style="kufi" class="style-badge active">🟫 Kufi</span><span data-style="diwani" class="style-badge">✨ Diwani</span><span data-style="thuluth" class="style-badge">🌟 Thuluth</span>
+      <span data-style="naskh" class="style-badge">📖 Naskh</span><span data-style="persian" class="style-badge">🌙 Persian</span><span data-style="modern" class="style-badge">🎨 Modern</span>
+    </div></div>
+    <input type="text" id="artText" placeholder="Enter text (Allah, بسم الله)" value="الله" style="width:100%; padding: 1rem; margin: 0.75rem 0; border-radius: 60px; border: 1px solid #E8DEC8;">
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0;">
+      <div><label>Size: <span id="sizeValue">52</span>px</label><input type="range" id="fontSizeSlider" min="28" max="85" value="52" style="width: 130px;"></div>
+      <div><label>Width:</label><select id="canvasWidthSelect"><option value="500">500px</option><option value="600" selected>600px</option><option value="700">700px</option></select></div>
+      <div><label>Ink:</label><input type="color" id="inkColor" value="#0B5E4F"></div>
+      <div><label>Border:</label><input type="color" id="borderColor" value="#D4AF37"></div>
+    </div>
+    <div style="display: flex; gap: 1rem;"><button id="generateCalligraphyBtn" class="btn-primary" style="flex:1;">✨ Generate</button><button id="downloadCalligraphyBtn" class="btn-outline" style="flex:1;"><i class="fas fa-download"></i> Download</button></div>
+    <canvas id="calligraphyCanvas" width="600" height="180" class="preview-canvas"></canvas>
+  </div>
+
+  <div id="kids" class="grid-2 section">
+    <div class="card"><div class="card-icon"><i class="fas fa-child"></i></div><h3>Kids Zone</h3><p>Fun Islamic learning for children — stories, duas, nasheeds, and games.</p><button class="btn-outline" style="margin-top: 1rem;" onclick="alert('🌟 Kids Zone: Stories of Prophets, Dua animations!')">Explore →</button></div>
+    <div id="learn" class="card"><div class="card-icon"><i class="fas fa-graduation-cap"></i></div><h3>Learn Islam</h3><p>Free online Islamic courses by trusted scholars. Beginner to advanced.</p><button class="btn-outline" style="margin-top: 1rem;" onclick="alert('📚 Courses: Tawhid, Fiqh, Seerah, Tajweed!')">Start Learning →</button></div>
+  </div>
+
+  <div id="community" class="card section" style="text-align: center;">
+    <div class="card-icon"><i class="fas fa-globe-asia"></i></div><h3>Global Community</h3><p>Connect with Muslims worldwide. Share knowledge and grow together.</p>
+    <button class="btn-primary" style="margin-top: 1rem;" onclick="alert('🌍 Join our global community forums and events!')">Join Community →</button>
+  </div>
+
   <div class="grid-3">
-    <div class="card">
-      <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-      <h3>Spiritual Tracker</h3>
-      <p>Log your daily worship — prayers, Quran recitation, fasting, and charity.</p>
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0;">
-        <button id="prayerBtn" class="btn-outline" style="padding: 0.4rem 1rem;">➕ Prayer</button>
-        <button id="quranBtn" class="btn-outline" style="padding: 0.4rem 1rem;">➕ Quran</button>
-        <button id="fastBtn" class="btn-outline" style="padding: 0.4rem 1rem;">➕ Fast</button>
-        <button id="charityBtn" class="btn-outline" style="padding: 0.4rem 1rem;">➕ Charity</button>
-      </div>
-      <p id="deedScore" style="font-weight: 700; font-size: 1.2rem;">Today's Score: 0</p>
-      <button id="resetDeedsBtn" style="background: var(--gray-200); border: none; padding: 0.4rem 1rem; border-radius: 40px; cursor: pointer; font-size: 0.8rem;">Reset Day</button>
-    </div>
-
-    <div class="card">
-      <div class="card-icon"><i class="fas fa-clock"></i></div>
-      <h3>Prayer Times</h3>
-      <p>Accurate prayer times with countdown to next prayer.</p>
-      <button id="getLocationPrayer" class="btn-outline" style="margin: 0.75rem 0; width: 100%;"><i class="fas fa-location-dot"></i> Use My Location</button>
-      <div id="prayerTimesDisplay" style="display: grid; grid-template-columns: repeat(2,1fr); gap: 0.5rem; font-size: 0.85rem;">
-        <p>Fajr: --</p><p>Dhuhr: --</p><p>Asr: --</p><p>Maghrib: --</p><p>Isha: --</p>
-      </div>
-      <div style="background: var(--gray-100); padding: 0.75rem; border-radius: 16px; text-align: center; margin-top: 0.5rem;">
-        <strong>🕋 Next: <span id="nextPrayerName">--</span> in <span id="countdownTimer">--</span></strong>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-icon"><i class="fas fa-microphone-alt"></i></div>
-      <h3>Voice Dua</h3>
-      <p>Speak a dhikr and see the meaning instantly.</p>
-      <button id="startVoiceBtn" class="btn-primary" style="width: 100%;"><i class="fas fa-microphone"></i> Click & Speak</button>
-      <p id="voiceResult" style="margin-top: 1rem; font-size: 0.85rem; background: var(--gray-100); padding: 0.75rem; border-radius: 16px; min-height: 60px;"></p>
-      <p style="font-size: 0.7rem; color: var(--gray-600); margin-top: 0.5rem;">Try: Bismillah, Alhamdulillah, SubhanAllah</p>
-    </div>
+    <div class="card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Spiritual Tracker</h3><div style="display: flex; gap: 0.5rem; flex-wrap: wrap;"><button id="prayerBtn" class="btn-outline" style="padding: 0.4rem 1rem;">➕ Prayer</button><button id="quranBtn" class="btn-outline" style="padding: 0.4rem 1rem;">➕ Quran</button><button id="fastBtn" class="btn-outline" style="padding: 0.4rem 1rem;">➕ Fast</button><button id="charityBtn" class="btn-outline" style="padding: 0.4rem 1rem;">➕ Charity</button></div><p id="deedScore" style="font-weight: 700; font-size: 1.2rem; margin-top: 1rem;">Today's Score: 0</p><button id="resetDeedsBtn" style="background: #EDE3D0; border: none; padding: 0.4rem 1rem; border-radius: 40px;">Reset</button></div>
+    <div class="card"><div class="card-icon"><i class="fas fa-clock"></i></div><h3>Prayer Times & Qibla</h3><button id="getLocationPrayer" class="btn-outline" style="margin: 0.75rem 0; width:100%;"><i class="fas fa-location-dot"></i> Use My Location</button><div id="prayerTimesDisplay" style="display: grid; grid-template-columns: repeat(2,1fr); gap: 0.5rem;"><p>Fajr: --</p><p>Dhuhr: --</p><p>Asr: --</p><p>Maghrib: --</p><p>Isha: --</p></div><div style="background: #F8F3E8; padding: 0.75rem; border-radius: 16px;"><strong>🕋 Next: <span id="nextPrayerName">--</span> in <span id="countdownTimer">--</span></strong></div><div><strong>🧭 Qibla: <span id="qiblaDirection">--</span>°</strong></div></div>
+    <div class="card"><div class="card-icon"><i class="fas fa-microphone-alt"></i></div><h3>Voice-Activated Dua</h3><button id="startVoiceBtn" class="btn-primary" style="width:100%;"><i class="fas fa-microphone"></i> Click & Speak</button><p id="voiceResult" style="margin-top: 1rem; background: #F8F3E8; padding: 0.75rem; border-radius: 16px; min-height: 60px;"></p></div>
   </div>
 
-  <!-- Calligraphy + Adaptive Learning -->
   <div class="grid-2">
-    <div class="card">
-      <div class="card-icon"><i class="fas fa-palette"></i></div>
-      <h3>Islamic Calligraphy</h3>
-      <p>Generate beautiful geometric calligraphy art.</p>
-      <input type="text" id="artName" placeholder="Enter text (Allah, Muhammad, Bismillah)" value="الله" style="width:100%; padding: 0.75rem; margin: 0.75rem 0; border-radius: 60px; border: 1px solid var(--gray-300); font-size: 1rem;">
-      <div style="display: flex; gap: 0.75rem;">
-        <button id="generateArtBtn" class="btn-primary" style="flex:1;">Generate</button>
-        <button id="downloadArtBtn" class="btn-outline" style="flex:1;"><i class="fas fa-download"></i> Download</button>
-      </div>
-      <canvas id="artCanvas" width="500" height="150" class="calligraphy-canvas"></canvas>
-    </div>
-
-    <div class="card">
-      <div class="card-icon"><i class="fas fa-brain"></i></div>
-      <h3>Adaptive Learning</h3>
-      <p>Personalized Islamic education based on your level.</p>
-      <p>Your level: <strong id="levelText" style="background: var(--accent); padding: 0.2rem 0.8rem; border-radius: 40px; color: var(--primary);">Beginner</strong></p>
-      <button id="levelQuizBtn" class="btn-outline" style="margin: 0.75rem 0;">Take Placement Quiz</button>
-      <div style="background: var(--gray-100); padding: 1rem; border-radius: 20px;">
-        <p id="recommendedContent" style="font-size: 0.85rem;">🌟 Recommended: Learn the 5 Pillars of Islam</p>
-      </div>
-    </div>
+    <div class="card"><div class="card-icon"><i class="fas fa-brain"></i></div><h3>Adaptive Learning</h3><p>Your level: <strong id="levelText" style="background: var(--accent); padding: 0.2rem 0.8rem; border-radius: 40px;">Beginner</strong></p><button id="levelQuizBtn" class="btn-outline" style="margin: 0.75rem 0;">Placement Quiz</button><div style="background: #F8F3E8; padding: 1rem; border-radius: 20px;"><p id="recommendedContent">🌟 Recommended: Learn the 5 Pillars of Islam</p></div></div>
+    <div class="card"><div class="card-icon"><i class="fas fa-trophy"></i></div><h3>Quiz & Leaderboard</h3><div class="progress-bar"><div id="progressFillQuiz" class="progress-fill"></div></div><h3 id="quizQuestion" style="font-size: 1rem;"></h3><ul id="quizOptionsList"></ul><div style="display: flex; gap: 0.5rem;"><button id="quizPrevBtn" class="btn-outline">◀ Prev</button><button id="quizNextBtn" class="btn-primary">Next ▶</button></div><p id="quizCurrentScore" style="font-weight: 700;">Score: 0</p><div id="quizFinalResult"></div><button id="retryQuizBtn" style="display: none;">⟳ Retry</button><hr><h4>🏆 Leaderboard</h4><ul id="leaderboardList"></ul><button id="resetLeaderboardBtn" style="background: #EDE3D0; border: none; padding: 0.3rem 1rem; border-radius: 40px;">Reset</button></div>
   </div>
 
-  <!-- Quiz Section -->
-  <div class="section-header" style="margin-top: 2rem;">
-    <h2>Test Your Knowledge</h2>
-    <div class="section-divider"></div>
-    <p>Challenge yourself with our Islamic quiz and compete on the leaderboard</p>
-  </div>
-
-  <div class="card" style="margin-bottom: 2rem;">
-    <div class="progress-bar"><div id="progressFillQuiz" class="progress-fill"></div></div>
-    <h3 id="quizQuestion" style="font-size: 1.2rem; margin-bottom: 1rem;"></h3>
-    <ul id="quizOptionsList" style="list-style: none;"></ul>
-    <div id="quizFeedbackMsg" style="margin: 0.75rem 0; font-weight: 500;"></div>
-    <div style="display: flex; gap: 1rem; margin: 1rem 0;">
-      <button id="quizPrevBtn" class="btn-outline">◀ Previous</button>
-      <button id="quizNextBtn" class="btn-primary">Next ▶</button>
-    </div>
-    <p id="quizCurrentScore" style="font-weight: 700;">Score: 0</p>
-    <div id="quizFinalResult"></div>
-    <button id="retryQuizBtn" style="display: none; background: var(--accent); border: none; padding: 0.6rem 1.2rem; border-radius: 40px; margin-top: 1rem;">⟳ Retry Quiz</button>
-    
-    <hr style="margin: 1.5rem 0; border-color: var(--gray-200);">
-    <h3 style="margin-bottom: 0.75rem;">🏆 Leaderboard</h3>
-    <ul id="leaderboardList" style="margin-left: 1.2rem;"></ul>
-    <button id="resetLeaderboardBtn" style="background: var(--gray-200); border: none; padding: 0.3rem 1rem; border-radius: 40px; margin-top: 0.5rem; font-size: 0.8rem;">Reset Leaderboard</button>
-  </div>
+  <div class="card" style="text-align: center;"><div class="card-icon"><i class="fas fa-calendar-alt"></i></div><h3>Islamic Hijri Calendar</h3><p id="hijriDate" style="font-size: 1.2rem;">Loading...</p></div>
 </div>
 
-<footer class="footer">
-  <p><i class="fas fa-mosque"></i> OneUmmah — Authentic Islamic Knowledge | No images of living beings</p>
-  <p style="margin-top: 0.5rem;">© 2025 OneUmmah · All Rights Reserved</p>
-</footer>
+<footer class="footer"><p><i class="fas fa-mosque"></i> OneUmmah — Powered by Google Gemini AI | Learn. Live. Love Islam.</p><p>© 2025 OneUmmah</p></footer>
 
-<!-- Chatbot -->
-<button class="chatbot-btn" id="openChatbot"><i class="fas fa-robot"></i> RuhAI Assistant</button>
+<button class="chatbot-btn" id="openChatbot"><i class="fas fa-robot"></i> Gemini AI Assistant</button>
 <div class="chat-window" id="chatWindow">
-  <div class="chat-header"><span><i class="fas fa-brain"></i> RuhAI - Islamic Assistant</span><span style="cursor:pointer;" id="closeChat">✖</span></div>
-  <div class="chat-messages" id="chatMessages"><div class="bot">Assalamu Alaikum! Ask me anything about Islam — Tawhid, Salah, Zakat, Quran, Hadith, or daily duas.</div></div>
-  <div class="chat-input"><input type="text" id="chatInput" placeholder="Ask a question..."><button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button></div>
+  <div class="chat-header"><span><i class="fas fa-brain"></i> Gemini AI Assistant <span class="chat-header-badge">Google Gemini</span></span><span style="cursor:pointer;" id="closeChat">✖</span></div>
+  <div class="chat-messages" id="chatMessages"><div class="bot">Assalamu Alaikum! I am powered by <strong>Google Gemini AI</strong>. Ask me anything about Islam, Quran, Hadith, Fiqh, or daily life!</div></div>
+  <div class="chat-input"><input type="text" id="chatInput" placeholder="Ask Gemini AI anything..."><button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button></div>
 </div>
 <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
 
 <script>
+// ========== GOOGLE GEMINI API CONFIGURATION ==========
+const GEMINI_API_KEY = "AIzaSyCTIOlOdfymjr9lpPWjHUC4cVPr9DxigNI";
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+
+// Scroll function
+function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+
 // Dark Mode
 const darkToggle = document.getElementById('darkToggle');
 darkToggle.addEventListener('click', () => { document.body.classList.toggle('dark'); localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light'); });
@@ -470,11 +204,32 @@ async function fetchVerse() {
     document.getElementById('dailyAyahText').innerHTML = `“${data.data[0].text}”`;
     document.getElementById('dailyAyahSource').innerHTML = `— ${data.data[0].surah.name} (${data.data[0].numberInSurah})`;
     document.getElementById('quranAudio').src = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/262.mp3`;
-  } catch(e) { document.getElementById('dailyAyahText').innerHTML = '“Indeed, with hardship comes ease.”'; document.getElementById('dailyAyahSource').innerHTML = '— Surah Ash-Sharh (94:6)'; }
+  } catch(e) { console.log("Verse fallback"); }
 }
 fetchVerse();
-document.getElementById('playAyahAudio').onclick = () => { document.getElementById('quranAudio').play().catch(e => alert('Audio loading...')); };
-document.getElementById('shareAyahBtn').onclick = () => { let txt = document.getElementById('dailyAyahText').innerText; if(navigator.share) navigator.share({title:'Ayah', text:txt}); else alert(txt); };
+document.getElementById('playAyahAudio').onclick = () => { document.getElementById('quranAudio').play(); };
+
+// Dua Rotator
+const duas = [
+  {text:"Rabbana atina fid-dunya hasanah wa fil-akhirati hasanah", meaning:"Our Lord, give us good in this world and good in the Hereafter"},
+  {text:"Rabbi zidni ilma", meaning:"My Lord, increase me in knowledge"},
+  {text:"Rabbighfir li wa liwalidayya", meaning:"My Lord, forgive me and my parents"}
+];
+let duaIndex = 0;
+function updateDua() { document.getElementById('duaOfDayText').innerHTML = `“${duas[duaIndex].text}”`; }
+document.getElementById('nextDuaBtn').onclick = () => { duaIndex = (duaIndex+1)%duas.length; updateDua(); };
+updateDua();
+
+// Hadith Rotator
+const hadiths = [
+  {text:"The best among you are those who learn the Qur'an and teach it.", source:"Sahih Al-Bukhari"},
+  {text:"None of you truly believes until he loves for his brother what he loves for himself.", source:"Sahih Al-Bukhari"},
+  {text:"The strong person is the one who controls himself when angry.", source:"Sahih Al-Bukhari"}
+];
+let hadithIndex = 0;
+function updateHadith() { document.getElementById('hadithText').innerHTML = `“${hadiths[hadithIndex].text}”`; document.getElementById('hadithSource').innerHTML = `— ${hadiths[hadithIndex].source}`; }
+document.getElementById('nextHadithBtn').onclick = () => { hadithIndex = (hadithIndex+1)%hadiths.length; updateHadith(); };
+updateHadith();
 
 // Spiritual Tracker
 let deeds = JSON.parse(localStorage.getItem('deeds')) || { prayer:0, quran:0, fast:0, charity:0 };
@@ -486,8 +241,7 @@ document.getElementById('resetDeedsBtn').onclick = () => { deeds = { prayer:0, q
 // Prayer Times
 async function fetchPrayerTimes(lat,lng) {
   let res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lng}&method=2`);
-  let data = await res.json();
-  let timings = data.data.timings;
+  let data = await res.json(); let timings = data.data.timings;
   document.getElementById('prayerTimesDisplay').innerHTML = `<p>Fajr: ${timings.Fajr}</p><p>Dhuhr: ${timings.Dhuhr}</p><p>Asr: ${timings.Asr}</p><p>Maghrib: ${timings.Maghrib}</p><p>Isha: ${timings.Isha}</p>`;
   let order = ['Fajr','Dhuhr','Asr','Maghrib','Isha'];
   let now = new Date(), cur = now.getHours()*60+now.getMinutes();
@@ -496,58 +250,59 @@ async function fetchPrayerTimes(lat,lng) {
   if(!nextTime) { let [h,m]=timings['Fajr'].split(':'); nextTime=parseInt(h)*60+parseInt(m)+1440; nextName='Fajr'; }
   setInterval(() => { let diff = nextTime - (new Date().getHours()*60+new Date().getMinutes()); if(diff<0) diff+=1440; document.getElementById('countdownTimer').innerText = `${Math.floor(diff/60)}h ${diff%60}m`; document.getElementById('nextPrayerName').innerText = nextName; }, 1000);
 }
-document.getElementById('getLocationPrayer').onclick = () => { if(navigator.geolocation) navigator.geolocation.getCurrentPosition(pos=>fetchPrayerTimes(pos.coords.latitude,pos.coords.longitude),()=>fetchPrayerTimes(51.5074,-0.1278)); else fetchPrayerTimes(51.5074,-0.1278); };
-fetchPrayerTimes(51.5074,-0.1278);
+document.getElementById('getLocationPrayer').onclick = () => { if(navigator.geolocation) navigator.geolocation.getCurrentPosition(pos=>fetchPrayerTimes(pos.coords.latitude,pos.coords.longitude),()=>fetchPrayerTimes(3.1390,101.6869)); else fetchPrayerTimes(3.1390,101.6869); };
+fetchPrayerTimes(3.1390,101.6869);
+if(navigator.geolocation){ navigator.geolocation.getCurrentPosition(p=>{ let qibla=Math.atan2(Math.sin(2.0*Math.PI/180 - p.coords.longitude*Math.PI/180),Math.cos(p.coords.latitude*Math.PI/180)*Math.tan(21.4*Math.PI/180)-Math.sin(p.coords.latitude*Math.PI/180)*Math.cos(2.0*Math.PI/180 - p.coords.longitude*Math.PI/180)); document.getElementById('qiblaDirection').innerText=Math.round(qibla*180/Math.PI); });}
 
 // Voice Dua
-if('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognition = new SpeechRecognition(); recognition.lang='en';
+if('webkitSpeechRecognition' in window) {
+  const recognition = new (window.SpeechRecognition||window.webkitSpeechRecognition)();
+  recognition.lang='en';
   document.getElementById('startVoiceBtn').onclick = () => recognition.start();
-  recognition.onresult = (e) => {
-    let word = e.results[0][0].transcript.toLowerCase();
-    if(word.includes('bismillah')) document.getElementById('voiceResult').innerHTML = '🤲 Bismillahir Rahmanir Rahim — "In the name of Allah, the Most Gracious, the Most Merciful."';
-    else if(word.includes('alhamdulillah')) document.getElementById('voiceResult').innerHTML = '🤲 Alhamdulillah — "All praise belongs to Allah."';
-    else if(word.includes('subhanallah')) document.getElementById('voiceResult').innerHTML = '🤲 SubhanAllah — "Glory be to Allah."';
-    else document.getElementById('voiceResult').innerHTML = `📢 "${word}". Try "Bismillah", "Alhamdulillah", or "SubhanAllah".`;
-  };
-} else { document.getElementById('startVoiceBtn').disabled=true; document.getElementById('voiceResult').innerHTML='Voice not supported.'; }
+  recognition.onresult = (e) => { let w=e.results[0][0].transcript.toLowerCase(); if(w.includes('bismillah')) document.getElementById('voiceResult').innerHTML = '🤲 Bismillahir Rahmanir Rahim'; else if(w.includes('alhamdulillah')) document.getElementById('voiceResult').innerHTML = '🤲 Alhamdulillah'; else if(w.includes('subhanallah')) document.getElementById('voiceResult').innerHTML = '🤲 SubhanAllah'; else document.getElementById('voiceResult').innerHTML = `📢 "${w}"`; };
+}
 
 // Calligraphy
-let canvas=document.getElementById('artCanvas'), ctx=canvas.getContext('2d');
+let currentStyle = 'kufi';
+let canvas = document.getElementById('calligraphyCanvas'), ctx = canvas.getContext('2d');
 function drawCalligraphy() {
-  let text=document.getElementById('artName').value.trim(); if(!text) text='الله';
-  canvas.width=500; canvas.height=150;
-  ctx.fillStyle='#FDF8ED'; ctx.fillRect(0,0,canvas.width,canvas.height);
-  ctx.strokeStyle='#C6A43B'; ctx.lineWidth=2; ctx.strokeRect(8,8,canvas.width-16,canvas.height-16);
-  ctx.fillStyle='#0B2B40'; let fontSize=text.length>10?28:38; ctx.font=`bold ${fontSize}px "Segoe UI"`; ctx.textAlign='center';
-  ctx.fillText(text,canvas.width/2,canvas.height/2+6);
-  ctx.fillStyle='#C6A43B';
-  for(let i=0;i<6;i++) { ctx.beginPath(); ctx.arc(25+i*85,canvas.height-18,4,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.arc(25+i*85,22,4,0,Math.PI*2); ctx.fill(); }
+  let text = document.getElementById('artText').value.trim() || "الله";
+  let size = parseInt(document.getElementById('fontSizeSlider').value);
+  let width = parseInt(document.getElementById('canvasWidthSelect').value);
+  canvas.width = width; canvas.height = Math.min(240, Math.max(130, size + 55));
+  ctx.fillStyle = '#FFF9F0'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = document.getElementById('borderColor').value; ctx.lineWidth = 2.5; ctx.strokeRect(8, 8, canvas.width-16, canvas.height-16);
+  ctx.fillStyle = document.getElementById('inkColor').value;
+  const fonts = { kufi: `bold ${size}px "Times New Roman"`, diwani: `${size}px "Segoe UI"`, thuluth: `bold ${size}px "Amiri"`, naskh: `${size+2}px "Noto Naskh Arabic"`, persian: `italic ${size}px "Georgia"`, modern: `${size}px "Arial Black"` };
+  ctx.font = fonts[currentStyle]; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(text, canvas.width/2, canvas.height/2);
+  document.getElementById('sizeValue').innerText = size;
 }
-document.getElementById('generateArtBtn').onclick=drawCalligraphy;
-document.getElementById('downloadArtBtn').onclick=()=>{ let a=document.createElement('a'); a.download='oneummah_calligraphy.png'; a.href=canvas.toDataURL(); a.click(); };
+document.querySelectorAll('.style-badge').forEach(b => { b.addEventListener('click', () => { document.querySelectorAll('.style-badge').forEach(s=>s.classList.remove('active')); b.classList.add('active'); currentStyle = b.dataset.style; drawCalligraphy(); }); });
+document.getElementById('generateCalligraphyBtn').onclick = drawCalligraphy;
+document.getElementById('downloadCalligraphyBtn').onclick = () => { let a=document.createElement('a'); a.download=`oneummah_${currentStyle}.png`; a.href=canvas.toDataURL(); a.click(); };
+document.getElementById('fontSizeSlider').addEventListener('input', drawCalligraphy);
+document.getElementById('canvasWidthSelect').addEventListener('change', drawCalligraphy);
+document.getElementById('inkColor').addEventListener('input', drawCalligraphy);
+document.getElementById('borderColor').addEventListener('input', drawCalligraphy);
 drawCalligraphy();
 
+// Hijri Date
+async function loadHijri() { try { let res = await fetch('https://api.aladhan.com/v1/gToH?date='+new Date().toISOString().split('T')[0]); let data = await res.json(); document.getElementById('hijriDate').innerHTML = `${data.data.hijri.day} ${data.data.hijri.month.en} ${data.data.hijri.year} AH`; } catch(e) { document.getElementById('hijriDate').innerHTML = "Islamic Calendar"; } }
+loadHijri();
+
 // Adaptive Learning
-let userLevel=localStorage.getItem('userLevel')||'Beginner';
-document.getElementById('levelText').innerText=userLevel;
-function updateAdaptive() { document.getElementById('recommendedContent').innerHTML = userLevel==='Beginner' ? '🌟 Recommended: Study the 5 Pillars of Islam, Tawhid, and learn how to pray (Salah).' : '📘 Advanced: Deepen your knowledge with Tafsir of Quran, Seerah, and Fiqh.'; }
+let userLevel = localStorage.getItem('userLevel') || 'Beginner';
+document.getElementById('levelText').innerText = userLevel;
+function updateAdaptive() { document.getElementById('recommendedContent').innerHTML = userLevel === 'Beginner' ? '🌟 Recommended: Learn the 5 Pillars of Islam' : '📘 Advanced: Deepen your knowledge with Tafsir and Seerah'; }
 updateAdaptive();
-document.getElementById('levelQuizBtn').onclick=()=>{ let s=0; if(prompt('Q1: What does "Tawhid" mean?')?.toLowerCase().includes('oneness')) s++; if(prompt('Q2: How many daily prayers?')==='5') s++; userLevel=s>=2?'Advanced':'Beginner'; localStorage.setItem('userLevel',userLevel); document.getElementById('levelText').innerText=userLevel; updateAdaptive(); alert(`Level: ${userLevel}`); };
+document.getElementById('levelQuizBtn').onclick = () => { let s=0; if(prompt('What does Tawhid mean?')?.toLowerCase().includes('oneness')) s++; if(prompt('How many daily prayers?')==='5') s++; userLevel = s>=2?'Advanced':'Beginner'; localStorage.setItem('userLevel',userLevel); document.getElementById('levelText').innerText=userLevel; updateAdaptive(); alert(`Level: ${userLevel}`); };
 
 // Quiz
-const quizData = [
-  {q:"What is the first pillar of Islam?", o:["Salah","Shahada","Zakat","Hajj"], a:1},
-  {q:"Which angel delivered revelation?", o:["Mikael","Jibreel","Israfil","Azrael"], a:1},
-  {q:"What does Zakat mean?", o:["Prayer","Fasting","Charity","Pilgrimage"], a:2},
-  {q:"Which Surah is the 'Heart of Quran'?", o:["Al-Fatiha","Yasin","Al-Ikhlas","Ar-Rahman"], a:1},
-  {q:"How many days does Ramadan last?", o:["29-30 days","30 always","28 days","31 days"], a:0}
-];
+const quizData = [{q:"First pillar of Islam?", o:["Salah","Shahada","Zakat","Hajj"], a:1},{q:"Angel of revelation?", o:["Mikael","Jibreel","Israfil","Azrael"], a:1},{q:"Zakat means?", o:["Prayer","Fasting","Charity","Hajj"], a:2},{q:"Number of Quran surahs?", o:["99","104","114","124"], a:2},{q:"Night of Power?", o:["Laylatul Qadr","Jumu'ah","Arafah","Barat"], a:0}];
 let qCurr=0, qScore=0, qAnswered=false;
 function loadQuiz() {
-  let q=quizData[qCurr];
-  document.getElementById('quizQuestion').innerText=q.q;
+  let q=quizData[qCurr]; document.getElementById('quizQuestion').innerText=q.q;
   let c=document.getElementById('quizOptionsList'); c.innerHTML=''; qAnswered=false;
   q.o.forEach((opt,idx)=>{ let btn=document.createElement('button'); btn.className='quiz-option'; btn.innerText=opt;
     btn.onclick=()=>{ if(qAnswered) return; qAnswered=true; if(idx===q.a){ btn.classList.add('correct'); qScore++; document.getElementById('quizFeedbackMsg').innerHTML='✅ Correct!'; } else { btn.classList.add('wrong'); document.getElementById('quizFeedbackMsg').innerHTML=`❌ Correct: ${q.o[q.a]}`; } document.getElementById('quizCurrentScore').innerText=`Score: ${qScore}`; document.querySelectorAll('.quiz-option').forEach(b=>b.disabled=true); };
@@ -563,24 +318,64 @@ function renderLeaderboard(){ let lb=JSON.parse(localStorage.getItem('leaderboar
 renderLeaderboard(); document.getElementById('resetLeaderboardBtn').onclick=()=>{ localStorage.removeItem('leaderboard'); renderLeaderboard(); };
 loadQuiz();
 
-// AI Chatbot
-function getAIResponse(q){ let l=q.toLowerCase(); const a={'tawhid':'Tawhid is Oneness of Allah.','salah':'5 daily prayers.','zakat':'2.5% charity.','quran':'Final revelation.','hadith':'Sayings of Prophet ﷺ.'}; for(let k in a) if(l.includes(k)) return a[k]; if(l.includes('salam')) return 'Wa Alaikum Assalam!'; return 'Ask me about Tawhid, Salah, Zakat, Quran, or Hadith.'; }
-let cm=document.getElementById('chatMessages'), ci=document.getElementById('chatInput');
-function addBot(t){ let d=document.createElement('div'); d.className='bot'; d.innerText=t; cm.appendChild(d); cm.scrollTop=cm.scrollHeight; }
-function addUser(t){ let d=document.createElement('div'); d.className='user'; d.innerText=t; cm.appendChild(d); cm.scrollTop=cm.scrollHeight; }
-function sendChat(){ let m=ci.value.trim(); if(!m) return; addUser(m); addBot(getAIResponse(m)); ci.value=''; }
-document.getElementById('sendChatBtn').onclick=sendChat;
-ci.addEventListener('keypress',e=>{ if(e.key==='Enter') sendChat(); });
-document.getElementById('openChatbot').onclick=()=>document.getElementById('chatWindow').style.display='flex';
-document.getElementById('openChatbotHero').onclick=()=>document.getElementById('chatWindow').style.display='flex';
-document.getElementById('closeChat').onclick=()=>document.getElementById('chatWindow').style.display='none';
-document.getElementById('chatWindow').style.display='none';
+// ========== GOOGLE GEMINI AI CHAT INTEGRATION ==========
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
 
-// Back to Top
-let topBtn=document.getElementById('topBtn');
-window.onscroll=()=>{ topBtn.style.display=window.scrollY>300?'block':'none'; };
-topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+function addTypingIndicator() {
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'typing-indicator';
+  typingDiv.id = 'typingIndicator';
+  typingDiv.innerHTML = '<span></span><span></span><span></span>';
+  chatMessages.appendChild(typingDiv);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+function removeTypingIndicator() { const indicator = document.getElementById('typingIndicator'); if(indicator) indicator.remove(); }
+function addBotMessage(text) { const div = document.createElement('div'); div.className = 'bot'; div.innerHTML = text; chatMessages.appendChild(div); chatMessages.scrollTop = chatMessages.scrollHeight; }
+function addUserMessage(text) { const div = document.createElement('div'); div.className = 'user'; div.innerHTML = text; chatMessages.appendChild(div); chatMessages.scrollTop = chatMessages.scrollHeight; }
+
+async function sendToGemini(userMessage) {
+  addUserMessage(userMessage);
+  addTypingIndicator();
+  chatInput.value = '';
+  
+  try {
+    const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: `You are RuhAI, a helpful Islamic assistant. Provide accurate, respectful answers about Islam, Quran, Hadith, Fiqh, Tawhid, Salah, Zakat, Fasting, Hajj, and daily life. Be concise, warm, and informative. User question: ${userMessage}`
+          }]
+        }],
+        generationConfig: { temperature: 0.7, maxOutputTokens: 800 }
+      })
+    });
+    
+    if (!response.ok) throw new Error('API request failed');
+    const data = await response.json();
+    removeTypingIndicator();
+    const aiResponse = data.candidates[0].content.parts[0].text;
+    addBotMessage(aiResponse);
+  } catch (error) {
+    console.error('Gemini API Error:', error);
+    removeTypingIndicator();
+    addBotMessage('⚠️ Maaf, saya mengalami masalah sambungan. Sila cuba sebentar lagi. Anda masih boleh bertanya soalan asas tentang Islam!');
+  }
+}
+
+async function sendChat() { const message = chatInput.value.trim(); if (!message) return; await sendToGemini(message); }
+document.getElementById('sendChatBtn').onclick = sendChat;
+chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendChat(); });
+document.getElementById('openChatbot').onclick = () => document.getElementById('chatWindow').style.display = 'flex';
+document.getElementById('openChatbotHero').onclick = () => document.getElementById('chatWindow').style.display = 'flex';
+document.getElementById('closeChat').onclick = () => document.getElementById('chatWindow').style.display = 'none';
+document.getElementById('chatWindow').style.display = 'none';
+
+let topBtn = document.getElementById('topBtn');
+window.onscroll = () => { topBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; };
+topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 </script>
 </body>
 </html>
-```
